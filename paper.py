@@ -74,10 +74,6 @@ def getKValue(data,active,loc):
     k = sumSim/n
     
     return k,users
-    
-def getKey(item):
-    return item[1]
-
 
 #Function to rate a given set of locations
 
