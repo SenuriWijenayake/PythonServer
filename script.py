@@ -5,5 +5,5 @@ from critics import *
 a = []
 loc = 'Loc6'
 active = 'User1'
-a = rateLocations(critics,active,loc)
+a = rateLocations(data,active,loc)
 print (a)

@@ -100,10 +100,8 @@ def rateLocations(data,active,locations):
         #Average rating of the active user
         active_avg = statistics.mean(data[active][i] for i in data[active])
         rated_locations[loc] = (active_avg + k * total)
-        
-    for item in rated_locations:
-        ranked_locations.append([item,rated_locations[item]])
-    ranked_locations = dict(ranked_locations)
-    ranked_locations = sorted(ranked_locations,key=getKey,reverse=True)
+    
+    ##Sorting the dictionary
+    final_locations = sorted(rated_locations, key=rated_locations.get, reverse=True)
 
-    return ranked_locations
+    return final_locations
