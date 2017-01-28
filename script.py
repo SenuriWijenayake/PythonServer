@@ -1,6 +1,7 @@
-from dummyData import * 
 from paper import *
-from critics import *
+from locations import *
+from users import *
+from userPrefs import *
 
 a = []
 loc = 'Loc6'
@@ -16,5 +17,4 @@ n = 4
 #Rating the locations based on the similar user preference
 #a = rateLocations(data,active,loc)
 
-a = data
 print (a)
