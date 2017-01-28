@@ -1,0 +1,20 @@
+locations = [
+    "Amusement Park",
+    "Aquarium",
+    "Art Gallery",
+    "Bar", 
+    "Entertainment",
+    "Food",
+    "Library",
+    "Lodging",
+    "Museum",
+    "Natural Feature",
+    "Night Club",
+    "Park",
+    "Religious", 
+    "Shopping Mall",
+    "Spa",
+    "Stadium",
+    "Store",
+    "Zoo"
+]

@@ -78,7 +78,7 @@ def getKValue(data,active,loc):
 #Function to rate a given set of locations
 
 def rateLocations(data,active,locations):
-    locations = ['Loc6','Loc3']
+    locations = ['Loc6','Loc3','Lo2']
     total = 0
     rated_locations = {}
     ranked_locations = []
@@ -96,6 +96,8 @@ def rateLocations(data,active,locations):
         #Average rating of the active user
         active_avg = statistics.mean(data[active][i] for i in data[active])
         rated_locations[loc] = (active_avg + k * total)
+    
+    print(rated_locations)
     
     ##Sorting the dictionary
     final_locations = sorted(rated_locations, key=rated_locations.get, reverse=True)
