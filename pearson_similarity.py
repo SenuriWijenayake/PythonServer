@@ -53,65 +53,93 @@ def topSimilarUsers(data,subject,n,similarity):
     
     return similarity_scores[0:n]
 
+#Funtion to return top n similar users who have gone to a given location
+#Input Parameters : data set, key person, location, number of users, similarity measure
+#Output : top n similar users, and the similarity
+
+def topSimilarUsersForLocation(data,subject,location,n,similarity):
+    
+    similarity_scores = {}
+    sorted_users = {}
+
+    #Get the users who have been to a particular location
+    for user in data:
+        if user != subject:
+            for i in data[user]:
+                if location == i:
+                    #Calculate r for subject and the user
+                    r = similarity(data,subject,user)   
+                    similarity_scores[user] = r  
+                    
+    num = len(similarity_scores)
+    
+    #If new location (no users have gone to this place)
+    if num == 0:
+        return "New Location"
+    
+    #Sorting the object
+    sorted_users = sorted(similarity_scores.items(), key=operator.itemgetter(1), reverse=True)
+    
+    num_users = len(sorted_users)
+    
+    #Only num_users number of users available
+    if num_users < n:
+        return sorted_users[0:num_users]
+    
+    return sorted_users[0:n]
 
 #Function to calculate k for a given location
-#Input Paramters: active user, data set, location
+#Input Paramters: top n similar users and their similarity measures
 #Output: k
 
-def getKValue(data,active,loc,similarity):
-    
-    users = {}
+def getKValue(users):
+
     sumSim = 0
     
-    #Get the users who have gone to the given location and their similarities
-    for user in data:
-        for item in data[user]:
-            if item == loc:
-                users.setdefault(user,'')
-                users[user] = similarity(data,active,user)
-                sumSim += users[user]
-                
+    for user in users:
+        sumSim += user[1]
+    
     n = len(users)
-    
-    #Similar users have not been to these locations
-    if n == 0:
-        return 0,0
-    
     k = sumSim/n
     
-    return k,users
+    return k
 
 #Function to rate a given set of locations
+#Input Parameters: Set of locations, id of the active user, set of locations to be rated
+#Output: Ranked locations
 
 def rateLocations(data,active,locations):
 
-    total = 0
     rated_locations = {}
     ranked_locations = []
-    unvisited_locations = []
+    
+    n = 5
+    similarity = pearson_similarity
 
-    #Find the locations the user has not visited yet
-    for item in locations:
-        for i in data[active]:
-            if item != i:
-                unvisited_locations.append(item)
-                break
-                
-    for loc in unvisited_locations:
-        k, users = getKValue(data,active,loc,pearson_similarity)
+    #Get the average rating of active user
+    active_avg = statistics.mean(data[active][i] for i in data[active])
+    
+    for loc in locations:
         
-        if(users == 0):
-            return unvisited_locations
+        total = 0
+        #Get the top similar users for the locations
+        users = topSimilarUsersForLocation(data,active,loc,n,similarity)
+                
+        #Get the k value for the location
+        k = getKValue(users)
         
         for user in users:
-            rating = data[user][loc] 
-            average = statistics.mean(data[user][i] for i in data[user])
+            #Get the user rating for the location
+            id = user[0]
+            rating = data[id][loc]
+            
+            #Get the average rating of the user
+            average = statistics.mean(data[id][i] for i in data[id])
             norm_rate = rating - average
-            norm_sim_product = users[user] * norm_rate
+            norm_sim_product = user[1] * norm_rate
             total += norm_sim_product
         
-        #Average rating of the active user
-        active_avg = statistics.mean(data[active][i] for i in data[active])
+        #Calculate the score of the location
         rated_locations[loc] = (active_avg + k * total)
     
     print(rated_locations)
@@ -120,3 +148,4 @@ def rateLocations(data,active,locations):
     final_locations = sorted(rated_locations, key=rated_locations.get, reverse=True)
 
     return final_locations
+    
