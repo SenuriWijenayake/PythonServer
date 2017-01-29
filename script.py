@@ -1,20 +1,22 @@
-from paper import *
-from locations import *
-from users import *
-from userPrefs import *
+from pearson_similarity import *
+from crud import userPrefs
 
 a = []
-loc = 'Loc6'
-active = 'User1'
-other = 'User3'
+active = "0"
+other = "1"
 n = 4
+loc = ["Zoo6","Zoo7"]
+
 # To calculate the similarity index between two users
-#a = pearson_similarity (data,active,other)
+#a = pearson_similarity (userPrefs,active,other)
 
 #Get the top n users similar to a given user
-#a = topSimilarUsers(data,active,4)
+a = topSimilarUsers(userPrefs,active,n,pearson_similarity)
 
 #Rating the locations based on the similar user preference
-#a = rateLocations(data,active,loc)
+a = rateLocations(userPrefs,active,loc)
 
-print (a)
+print(a)
+
+
+
