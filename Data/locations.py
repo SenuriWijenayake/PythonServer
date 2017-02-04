@@ -1,272 +1,350 @@
-locations = [
-  {
-    "place_id": "AmusementPark1",
-    "name": "AmusementPark1",
-    "rating": 4
-  },
-  {
-    "place_id": "AmusementPark2",
-    "name": "AmusementPark2",
-    "rating": 3
-  },
-  {
-    "place_id": "AmusementPark3",
-    "name": "AmusementPark3",
-    "rating": 0
-  },
-  {
-    "place_id": "Aquarium3",
-    "name": "Aquarium3",
-    "rating": 5
-  },
-  {
-    "place_id": "Aquarium4",
-    "name": "Aquarium4",
-    "rating": 1
-  },
-  {
-    "place_id": "Aquarium5",
-    "name": "Aquarium5",
-    "rating": 3
-  },
-  {
-    "place_id": "ArtGallery3",
-    "name": "ArtGallery3",
-    "rating": 1
-  },
-  {
-    "place_id": "ArtGallery4",
-    "name": "ArtGallery4",
-    "rating": 0
-  },
-  {
-    "place_id": "ArtGallery5",
-    "name": "ArtGallery5",
-    "rating": 5
-  },
-  {
-    "place_id": "Bar3",
-    "name": "Bar3",
-    "rating": 4
-  },
-  {
-    "place_id": "Bar4",
-    "name": "Bar4",
-    "rating": 0
-  },
-  {
-    "place_id": "Bar5",
-    "name": "Bar5",
-    "rating": 4
-  },
-  {
-    "place_id": "Entertainment1",
-    "name": "Entertainment1",
-    "rating": 4
-  },
-  {
-    "place_id": "Entertainment2",
-    "name": "Entertainment2",
-    "rating": 5
-  },
-  {
-    "place_id": "Entertainment3",
-    "name": "Entertainment3",
-    "rating": 3
-  },
-  {
-    "place_id": "Food1",
-    "name": "Food1",
-    "rating": 1
-  },
-  {
-    "place_id": "Food2",
-    "name": "Food2",
-    "rating": 3
-  },
-  {
-    "place_id": "Food3",
-    "name": "Food3",
-    "rating": 1
-  },
-  {
-    "place_id": "Library0",
-    "name": "Library0",
-    "rating": 5
-  },
-  {
-    "place_id": "Library1",
-    "name": "Library1",
-    "rating": 3
-  },
-  {
-    "place_id": "Library2",
-    "name": "Library2",
-    "rating": 1
-  },
-  {
-    "place_id": "Lodging0",
-    "name": "Lodging0",
-    "rating": 0
-  },
-  {
-    "place_id": "Lodging1",
-    "name": "Lodging1",
-    "rating": 3
-  },
-  {
-    "place_id": "Lodging2",
-    "name": "Lodging2",
-    "rating": 2
-  },
-  {
-    "place_id": "Museum4",
-    "name": "Museum4",
-    "rating": 1
-  },
-  {
-    "place_id": "Museum5",
-    "name": "Museum5",
-    "rating": 1
-  },
-  {
-    "place_id": "Museum6",
-    "name": "Museum6",
-    "rating": 1
-  },
-  {
-    "place_id": "NaturalFeature1",
-    "name": "NaturalFeature1",
-    "rating": 2
-  },
-  {
-    "place_id": "NaturalFeature2",
-    "name": "NaturalFeature2",
-    "rating": 5
-  },
-  {
-    "place_id": "NaturalFeature3",
-    "name": "NaturalFeature3",
-    "rating": 2
-  },
-  {
-    "place_id": "NightClub2",
-    "name": "NightClub2",
-    "rating": 1
-  },
-  {
-    "place_id": "NightClub3",
-    "name": "NightClub3",
-    "rating": 4
-  },
-  {
-    "place_id": "NightClub4",
-    "name": "NightClub4",
-    "rating": 5
-  },
-  {
-    "place_id": "Park4",
-    "name": "Park4",
-    "rating": 5
-  },
-  {
-    "place_id": "Park5",
-    "name": "Park5",
-    "rating": 0
-  },
-  {
-    "place_id": "Park6",
-    "name": "Park6",
-    "rating": 2
-  },
-  {
-    "place_id": "Religious4",
-    "name": "Religious4",
-    "rating": 1
-  },
-  {
-    "place_id": "Religious5",
-    "name": "Religious5",
-    "rating": 0
-  },
-  {
-    "place_id": "Religious6",
-    "name": "Religious6",
-    "rating": 4
-  },
-  {
-    "place_id": "ShoppingMall1",
-    "name": "ShoppingMall1",
-    "rating": 3
-  },
-  {
-    "place_id": "ShoppingMall2",
-    "name": "ShoppingMall2",
-    "rating": 4
-  },
-  {
-    "place_id": "ShoppingMall3",
-    "name": "ShoppingMall3",
-    "rating": 3
-  },
-  {
-    "place_id": "Spa4",
-    "name": "Spa4",
-    "rating": 0
-  },
-  {
-    "place_id": "Spa5",
-    "name": "Spa5",
-    "rating": 5
-  },
-  {
-    "place_id": "Spa6",
-    "name": "Spa6",
-    "rating": 5
-  },
-  {
-    "place_id": "Stadium2",
-    "name": "Stadium2",
-    "rating": 2
-  },
-  {
-    "place_id": "Stadium3",
-    "name": "Stadium3",
-    "rating": 5
-  },
-  {
-    "place_id": "Stadium4",
-    "name": "Stadium4",
-    "rating": 5
-  },
-  {
-    "place_id": "Store0",
-    "name": "Store0",
-    "rating": 0
-  },
-  {
-    "place_id": "Store1",
-    "name": "Store1",
-    "rating": 0
-  },
-  {
-    "place_id": "Store2",
-    "name": "Store2",
-    "rating": 0
-  },
-  {
-    "place_id": "Zoo5",
-    "name": "Zoo5",
-    "rating": 0
-  },
-  {
-    "place_id": "Zoo6",
-    "name": "Zoo6",
-    "rating": 1
-  },
-  {
-    "place_id": "Zoo7",
-    "name": "Zoo7",
-    "rating": 2
-  }
-]
+locations = [{
+	"id":"1",
+	"name": "CafeOne",
+	"rating": 3,
+	"types": ["cafe","food","point_of_interest"],
+	"area":"Colombo"
+},
+{
+	"id":"2",
+	"name": "CafeTwo",
+	"rating": 4,
+	"types": ["cafe","food","point_of_interest"],
+	"area":"Colombo"
+},
+{
+	"id":"3",
+	"name": "CafeThree",
+	"rating": 5,
+	"types": ["cafe","food","point_of_interest"],
+	"area":"Colombo"
+},
+{
+	"id":"4",
+	"name": "CafeFour",
+	"rating": 3,
+	"types": ["cafe","food","point_of_interest"],
+	"area":"Colombo"
+},
+{
+	"id":"5",
+	"name": "ChurchOne",
+	"rating": 3,
+	"types": ["church","place_of_worship","point_of_interest"],
+	"area":"Colombo"
+},
+{
+	"id":"6",
+	"name": "ChurchTwo",
+	"rating": 4,
+	"types": ["church","place_of_worship","point_of_interest"],
+	"area":"Colombo"
+},
+{
+	"id":"7",
+	"name": "TempleOne",
+	"rating": 4,
+	"types": ["temple","place_of_worship","point_of_interest"],
+	"area":"Colombo"
+},
+{
+	"id":"8",
+	"name": "TempleTwo",
+	"rating": 4,
+	"types": ["temple","place_of_worship","point_of_interest"],
+	"area":"Colombo"
+},
+{
+	"id":"9",
+	"name": "ParkOne",
+	"rating": 5,
+	"types": ["park","point_of_interest"],
+	"area":"Colombo"
+},
+{
+	"id":"10",
+	"name": "ParkTwo",
+	"rating": 4,
+	"types": ["park","point_of_interest"],
+	"area":"Colombo"
+},
+{
+	"id":"11",
+	"name": "MovieOne",
+	"rating": 5,
+	"types": ["movie_theatre","point_of_interest","food"],
+	"area":"Colombo"
+},
+{
+	"id":"12",
+	"name": "MovieTwo",
+	"rating": 4,
+	"types": ["movie_theatre","point_of_interest"],
+	"area":"Colombo"
+},
+{
+	"id":"13",
+	"name": "HotelOne",
+	"rating": 4,
+	"types": ["lodging","point_of_interest","food","restaurent"],
+	"area":"Colombo"
+},
+{
+	"id":"14",
+	"name": "HotelTwo",
+	"rating": 5,
+	"types": ["lodging","point_of_interest","food","restaurent"],
+	"area":"Colombo"
+},
+{
+	"id":"15",
+	"name": "HotelThree",
+	"rating": 4,
+	"types": ["lodging","point_of_interest","food","restaurent"],
+	"area":"Colombo"
+},
+{
+	"id":"16",
+	"name": "TempleThree",
+	"rating": 4,
+	"types": ["point_of_worship","point_of_interest","museum","temple"],
+	"area":"Kandy"
+},
+{
+	"id":"17",
+	"name": "TempleFour",
+	"rating": 4,
+	"types": ["point_of_worship","point_of_interest","temple"],
+	"area":"Kandy"
+},
+{
+	"id":"18",
+	"name": "TempleFive",
+	"rating": 5,
+	"types": ["point_of_worship","point_of_interest","museum","temple"],
+	"area":"Kandy"
+},
+{
+	"id":"19",
+	"name": "CafeFive",
+	"rating": 4,
+	"types": ["cafe","food","point_of_interest"],
+	"area":"Kandy"
+},
+{
+	"id":"20",
+	"name": "CafeSix",
+	"rating": 4,
+	"types": ["cafe","food","point_of_interest"],
+	"area":"Kandy"
+},
+{
+	"id":"21",
+	"name": "TempleSix",
+	"rating": 5,
+	"types": ["point_of_worship","point_of_interest","museum","temple"],
+	"area":"Kandy"
+},
+{
+	"id":"22",
+	"name": "ChurchThree",
+	"rating": 2,
+	"types": ["point_of_worship","point_of_interest","museum","church"],
+	"area":"Kandy"
+},
+{
+	"id":"23",
+	"name": "ChurchFour",
+	"rating": 3,
+	"types": ["point_of_worship","point_of_interest","church"],
+	"area":"Kandy"
+},
+{
+	"id":"24",
+	"name": "ParkThree",
+	"rating": 4,
+	"types": ["park","point_of_interest"],
+	"area":"Kandy"
+},
+{
+	"id":"25",
+	"name": "ParkFour",
+	"rating": 5,
+	"types": ["park","point_of_interest"],
+	"area":"Kandy"
+},
+{
+	"id":"26",
+	"name": "CafeSev",
+	"rating": 3,
+	"types": ["cafe","point_of_interest","food"],
+	"area":"Kandy"
+},
+{
+	"id":"27",
+	"name": "CafeEight",
+	"rating": 4,
+	"types": ["cafe","point_of_interest","food"],
+	"area":"Kandy"
+},
+{
+	"id":"28",
+	"name": "CafeNine",
+	"rating": 4,
+	"types": ["cafe","point_of_interest","food"],
+	"area":"Kandy"
+},
+{
+	"id":"29",
+	"name": "HotelFour",
+	"rating": 5,
+	"types": ["lodging","point_of_interest","food","restaurent"],
+	"area":"Kandy"
+},
+{
+	"id":"30",
+	"name": "HotelFive",
+	"rating": 4,
+	"types": ["lodging","point_of_interest","food"],
+	"area":"Kandy"
+},
+{
+	"id":"31",
+	"name": "MovieThree",
+	"rating": 3,
+	"types": ["movie_theatre","point_of_interest"],
+	"area":"Galle"
+},
+{
+	"id":"32",
+	"name": "MovieFour",
+	"rating": 5,
+	"types": ["movie_theatre","point_of_interest"],
+	"area":"Galle"
+},
+{
+	"id":"33",
+	"name": "CafeTen",
+	"rating": 3,
+	"types": ["cafe","point_of_interest","food"],
+	"area":"Galle"
+},
+{
+	"id":"34",
+	"name": "CafeEle",
+	"rating": 5,
+	"types": ["cafe","point_of_interest","food"],
+	"area":"Galle"
+},
+{
+	"id":"35",
+	"name": "MuseumOne",
+	"rating": 4,
+	"types": ["museum","point_of_interest"],
+	"area":"Galle"
+},
+{
+	"id":"36",
+	"name": "MuseumTwo",
+	"rating": 3,
+	"types": ["museum","point_of_interest"],
+	"area":"Galle"
+},
+{
+	"id":"37",
+	"name": "MuseumThree",
+	"rating": 5,
+	"types": ["museum","point_of_interest"],
+	"area":"Galle"
+},
+{
+	"id":"38",
+	"name": "TempleAOne",
+	"rating": 4,
+	"types": ["temple","place_of_worship","point_of_interest"],
+	"area":"Anuradhapura"
+},
+{
+	"id":"39",
+	"name": "TempleAFour",
+	"rating": 4,
+	"types": ["temple","museum","place_of_worship","point_of_interest"],
+	"area":"Anuradhapura"
+},
+{
+	"id":"40",
+	"name": "TempleATwo",
+	"rating": 3,
+	"types": ["temple","place_of_worship","point_of_interest"],
+	"area":"Anuradhapura"
+},
+{
+	"id":"41",
+	"name": "TempleAThree",
+	"rating": 5,
+	"types": ["temple","museum","place_of_worship","point_of_interest"],
+	"area":"Anuradhapura"
+},
+{
+	"id":"42",
+	"name": "MuseumFour",
+	"rating": 4,
+	"types": ["museum","point_of_interest","temple"],
+	"area":"Anuradhapura"
+},
+{
+	"id":"43",
+	"name": "MuseumFive",
+	"rating": 3,
+	"types": ["museum","point_of_interest","point_of_worship"],
+	"area":"Anuradhapura"
+},
+{
+	"id":"44",
+	"name": "MuseumSix",
+	"rating": 2,
+	"types": ["museum","point_of_interest"],
+	"area":"Anuradhapura"
+},
+{
+	"id":"45",
+	"name": "CafeNext",
+	"rating": 3,
+	"types": ["food","point_of_interest","cafe"],
+	"area":"Anuradhapura"
+},
+{
+	"id":"46",
+	"name": "CafeXyz",
+	"rating": 4,
+	"types": ["food","point_of_interest","cafe"],
+	"area":"Anuradhapura"
+},
+{
+	"id":"47",
+	"name": "CafeKFC",
+	"rating": 5,
+	"types": ["food","point_of_interest","cafe"],
+	"area":"Anuradhapura"
+},
+{
+	"id":"48",
+	"name": "HotelApura",
+	"rating": 4,
+	"types": ["lodging","point_of_interest","food"],
+	"area":"Anuradhapura"
+},
+{
+	"id":"49",
+	"name": "HotelApuraTwo",
+	"rating": 4,
+	"types": ["lodging","point_of_interest","food"],
+	"area":"Anuradhapura"
+},
+{
+	"id":"50",
+	"name": "HotelApuraThree",
+	"rating": 4,
+	"types": ["lodging","point_of_interest","food"],
+	"area":"Anuradhapura"
+}]
