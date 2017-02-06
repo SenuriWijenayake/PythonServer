@@ -7,8 +7,9 @@ active = "35"
 other = "10"
 n = 5
 loc = ["11","1","15"]
-location = "47"
+location = "51"
 users = ["1","2"]
+tags = ["food","cafe"]
 
 #Initialize data set
 data = initializeDataSet()
@@ -24,11 +25,12 @@ data = initializeDataSet()
 
 #a = topSimilarUsersForLocation(data,active,location,n,pearson_similarity)
 
-a = rateLocations(data,"35",loc)
-b = rateLocations(data,"36",loc)
+#a = rateLocations(data,"35",loc)
+#b = rateLocations(data,"36",loc)
 
+a = getNewLocationRating (location)
 print(a)
-print(b)
+
 
 
 

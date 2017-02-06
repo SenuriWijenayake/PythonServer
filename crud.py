@@ -5,6 +5,7 @@ client = MongoClient('localhost', 27017)
 db = client.test
 preferences = db.preferences
 users = db.users
+locations = db.locations
 
 #Function to retreieve user preferences when given id
 #Input Parameters: user id
@@ -52,5 +53,21 @@ def filterUsersOnAgeGender (users,age,gender):
             result[user] = 1
     
     return result
-    
-    
+
+#Function to see if the location is a new location or not
+def isNewLocation (location):
+    cursor = preferences.find_one({'prefs': { '$elemMatch': {'place_id': location}}})
+    if (cursor == None):
+        return False
+    else:
+        return True
+
+#Function to return the details of a location
+def getLocationDetails (location):
+    details = locations.find_one({"id":location})
+    return details
+
+#Function to get locations matching a set of tags and in a region
+def filterLocations (region,tags):
+    result = list(locations.find({'area': region , 'types': { '$in' : tags }}))
+    return result

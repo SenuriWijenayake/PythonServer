@@ -1,7 +1,9 @@
 from math import sqrt
 from crud import *
+from collections import OrderedDict
 import statistics
 import operator
+import itertools
 
 #Fucntion to calculate the similarity between two users using the Pearsons correlation coefficient
 ##Parameters: Data set, id of person one, id of person two
@@ -53,6 +55,7 @@ def topSimilarUsers(data,subject,n,similarity):
     similarity_scores.reverse()
     
     return similarity_scores[0:n]
+
 
 #Funtion to return top n similar users who have gone to a given location
 #Input Parameters : data set, key person, location, number of users, similarity measure
@@ -125,14 +128,22 @@ def rateLocations(data,active,locations):
     if (user_status):
         #Handling new user scenario - user has no ratings
         for loc in locations:
-            #Get users in similar age and gender who have been to the given location
-            users = topUsersOnAttributesForLocation (data,active,loc)
-            print(users)
-            #Get the average ratings of the users for location
-            total = sum(data[user][loc] for user in users)
-            rating = total/len(users)
             
-            rated_locations[loc] = rating
+            #Check if the location is a new location
+            if(isNewLocation(loc)):
+                #Handle new location
+                rating = getNewLocationRating(loc)
+                rated_locations[loc] = rating
+            
+            else:
+                #Get users in similar age and gender who have been to the given location
+                users = topUsersOnAttributesForLocation (data,active,loc)
+                print(users)
+                #Get the average ratings of the users for location
+                total = sum(data[user][loc] for user in users)
+                rating = total/len(users)
+
+                rated_locations[loc] = rating
         
         print(rated_locations,total,rating,len(users))
 
@@ -147,27 +158,34 @@ def rateLocations(data,active,locations):
         active_avg = statistics.mean(data[active][i] for i in data[active])
         
         for loc in locations:
+            
+            #Check if the location is a new location
+            if(isNewLocation(loc)):
+                #Handle new location
+                rating = getNewLocationRating(loc)
+                rated_locations[loc] = rating
+                
+            else:
+                total = 0
+                #Get the top similar users for the locations
+                users = topSimilarUsersForLocation(data,active,loc,similarity)
 
-            total = 0
-            #Get the top similar users for the locations
-            users = topSimilarUsersForLocation(data,active,loc,similarity)
+                #Get the k value for the location
+                k = getKValue(users)
 
-            #Get the k value for the location
-            k = getKValue(users)
+                for user in users:
+                    #Get the user rating for the location
+                    id = user[0]
+                    rating = data[id][loc]
 
-            for user in users:
-                #Get the user rating for the location
-                id = user[0]
-                rating = data[id][loc]
+                    #Get the average rating of the user
+                    average = statistics.mean(data[id][i] for i in data[id])
+                    norm_rate = rating - average
+                    norm_sim_product = user[1] * norm_rate
+                    total += norm_sim_product
 
-                #Get the average rating of the user
-                average = statistics.mean(data[id][i] for i in data[id])
-                norm_rate = rating - average
-                norm_sim_product = user[1] * norm_rate
-                total += norm_sim_product
-
-            #Calculate the score of the location
-            rated_locations[loc] = (active_avg + k * total)
+                #Calculate the score of the location
+                rated_locations[loc] = (active_avg + k * total)
 
         print(rated_locations)
 
@@ -199,7 +217,10 @@ def topUsersOnAttributesForLocation (data,subject,location):
     users = filterUsersOnAgeGender(res,user_age,user_gender)
     return users
 
+
 #Function to get the users who have been to a particular location other than the active user
+#Input Parameters: data set, active user, location
+#Output: users who have been to the given location
 def getUsersForLocation (data,subject,location):
     users = {}
     for user in data:
@@ -208,3 +229,59 @@ def getUsersForLocation (data,subject,location):
                 if location == i:
                     users[user] = 1
     return users
+
+#Function to handle new location
+#Input Parameter: new location's id
+#Output: rating calculated for the new location
+
+def getNewLocationRating(loc):
+    
+    weights = {}
+    top_locations = {}
+    
+    #Get location details
+    details = getLocationDetails (loc)
+    area = details['area']
+    tags = details['types']
+    
+    #Get locations in the the region having atleast one similar tag
+    simLoc = filterLocations (area,tags)
+
+    #Calculate the tag similarity for each location
+    for loc in simLoc:
+        count = 0
+        for tag in loc['types']:
+            if tag in tags:
+                count += 1
+        if (count > 1):
+            #calculate the tag similarity
+            den = len(tags) + len(loc['types'])
+            sim = count/den
+            weights[loc['id']] = sim
+    
+    top_locations = OrderedDict(sorted(weights.items(), key = lambda x : x[0], reverse=True))
+    length = len(top_locations)   
+    if (length >= 5):
+        locs = list(itertools.islice(top_locations.items(), 0, 5))
+    else:
+        locs = list(top_locations)
+    
+    #Calculate the weighted sum of ratings for each location
+    total = 0
+    for item in locs:
+        id = item [0]
+        sim = item [1]
+        
+        for i in simLoc:
+            if i['id'] == id:
+                total += sim * i['rating']
+                print(sim,i['rating'])
+    
+    #Get the final rating by dividing it by length of locs
+    final_rating = total / len(locs)
+    return final_rating          
+        
+        
+        
+        
+    
