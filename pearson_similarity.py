@@ -1,4 +1,5 @@
 from math import sqrt
+from crud import *
 import statistics
 import operator
 
@@ -111,41 +112,99 @@ def getKValue(users):
 def rateLocations(data,active,locations):
 
     rated_locations = {}
-    ranked_locations = []
     
     n = 5
     similarity = pearson_similarity
 
-    #Get the average rating of active user
-    active_avg = statistics.mean(data[active][i] for i in data[active])
-    
-    for loc in locations:
-        
-        total = 0
-        #Get the top similar users for the locations
-        users = topSimilarUsersForLocation(data,active,loc,n,similarity)
-                
-        #Get the k value for the location
-        k = getKValue(users)
-        
-        for user in users:
-            #Get the user rating for the location
-            id = user[0]
-            rating = data[id][loc]
+    #Check if the locations list is null
+    if locations == []:
+        return "No locations meeting criteria"
+
+    #Check if the user is a new user or not
+    user_status = isNewUser(active)
+    if (user_status):
+        #Handling new user scenario - user has no ratings
+        for loc in locations:
+            #Get users in similar age and gender who have been to the given location
+            users = topUsersOnAttributesForLocation (data,active,loc)
+            print(users)
+            #Get the average ratings of the users for location
+            total = sum(data[user][loc] for user in users)
+            rating = total/len(users)
             
-            #Get the average rating of the user
-            average = statistics.mean(data[id][i] for i in data[id])
-            norm_rate = rating - average
-            norm_sim_product = user[1] * norm_rate
-            total += norm_sim_product
+            rated_locations[loc] = rating
         
-        #Calculate the score of the location
-        rated_locations[loc] = (active_avg + k * total)
-    
-    print(rated_locations)
-    
-    ##Sorting the dictionary
-    final_locations = sorted(rated_locations, key=rated_locations.get, reverse=True)
+        print(rated_locations,total,rating,len(users))
+
+        ##Sorting the dictionary
+        final_locations = sorted(rated_locations, key=rated_locations.get, reverse=True)
 
     return final_locations
+                
+    #Not a new user   
+    if (not user_status):    
+        #Get the average rating of active user
+        active_avg = statistics.mean(data[active][i] for i in data[active])
+        
+        for loc in locations:
+
+            total = 0
+            #Get the top similar users for the locations
+            users = topSimilarUsersForLocation(data,active,loc,similarity)
+
+            #Get the k value for the location
+            k = getKValue(users)
+
+            for user in users:
+                #Get the user rating for the location
+                id = user[0]
+                rating = data[id][loc]
+
+                #Get the average rating of the user
+                average = statistics.mean(data[id][i] for i in data[id])
+                norm_rate = rating - average
+                norm_sim_product = user[1] * norm_rate
+                total += norm_sim_product
+
+            #Calculate the score of the location
+            rated_locations[loc] = (active_avg + k * total)
+
+        print(rated_locations)
+
+        ##Sorting the dictionary
+        final_locations = sorted(rated_locations, key=rated_locations.get, reverse=True)
+
+        return final_locations
+
+#Function to determine whether the user has existing preferences or not
+def isNewUser(active):
+    result = getUserPrefs("25")
+    if (result == None):
+        return True
+    else:
+        return False
     
+#Function to get the top users based on age and gender for a given location
+def topUsersOnAttributesForLocation (data,subject,location):
+
+    #Get the users who have been to a particular location
+    res = getUsersForLocation (data,subject,location)
+    
+    #Get the age and gender of the active user
+    details = getUserDetails (subject)
+    user_age = details['age']
+    user_gender = details['gender']
+    
+    #Filter users who are in the same age range and gender
+    users = filterUsersOnAgeGender(res,user_age,user_gender)
+    return users
+
+#Function to get the users who have been to a particular location other than the active user
+def getUsersForLocation (data,subject,location):
+    users = {}
+    for user in data:
+        if user != subject:
+            for i in data[user]:
+                if location == i:
+                    users[user] = 1
+    return users

@@ -2,11 +2,13 @@ from pearson_similarity import *
 from crud import *
 
 a = []
-active = "1"
+b = []
+active = "35"
 other = "10"
 n = 5
-loc = ["11","1"]
-location = "1"
+loc = ["11","1","15"]
+location = "47"
+users = ["1","2"]
 
 #Initialize data set
 data = initializeDataSet()
@@ -18,11 +20,15 @@ data = initializeDataSet()
 #a = topSimilarUsers(data,active,n,pearson_similarity)
 
 #Rating the locations based on the similar user preference
-a = rateLocations(data,active,loc)
+#a = rateLocations(data,active,loc)
 
 #a = topSimilarUsersForLocation(data,active,location,n,pearson_similarity)
 
+a = rateLocations(data,"35",loc)
+b = rateLocations(data,"36",loc)
+
 print(a)
+print(b)
 
 
 
