@@ -58,9 +58,9 @@ def filterUsersOnAgeGender (users,age,gender):
 def isNewLocation (location):
     cursor = preferences.find_one({'prefs': { '$elemMatch': {'place_id': location}}})
     if (cursor == None):
-        return False
-    else:
         return True
+    else:
+        return False
 
 #Function to return the details of a location
 def getLocationDetails (location):

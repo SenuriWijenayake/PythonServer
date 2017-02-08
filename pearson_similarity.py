@@ -126,34 +126,35 @@ def rateLocations(data,active,locations):
     #Check if the user is a new user or not
     user_status = isNewUser(active)
     if (user_status):
+        print("User is a new user")
         #Handling new user scenario - user has no ratings
         for loc in locations:
             
             #Check if the location is a new location
             if(isNewLocation(loc)):
+                print("New Location - New user")
                 #Handle new location
                 rating = getNewLocationRating(loc)
                 rated_locations[loc] = rating
             
             else:
+                print("Existing Location - New user")
                 #Get users in similar age and gender who have been to the given location
                 users = topUsersOnAttributesForLocation (data,active,loc)
-                print(users)
                 #Get the average ratings of the users for location
                 total = sum(data[user][loc] for user in users)
                 rating = total/len(users)
 
                 rated_locations[loc] = rating
         
-        print(rated_locations,total,rating,len(users))
-
+        print(rated_locations)
         ##Sorting the dictionary
         final_locations = sorted(rated_locations, key=rated_locations.get, reverse=True)
-
-    return final_locations
+        return final_locations
                 
     #Not a new user   
-    if (not user_status):    
+    if (not user_status):  
+        print("Not a new user")
         #Get the average rating of active user
         active_avg = statistics.mean(data[active][i] for i in data[active])
         
@@ -161,14 +162,16 @@ def rateLocations(data,active,locations):
             
             #Check if the location is a new location
             if(isNewLocation(loc)):
+                print("New Location - Existing user")
                 #Handle new location
                 rating = getNewLocationRating(loc)
                 rated_locations[loc] = rating
                 
             else:
+                print("Existing Location - Existing user")
                 total = 0
                 #Get the top similar users for the locations
-                users = topSimilarUsersForLocation(data,active,loc,similarity)
+                users = topSimilarUsersForLocation(data,active,loc,n,similarity)
 
                 #Get the k value for the location
                 k = getKValue(users)
@@ -196,7 +199,7 @@ def rateLocations(data,active,locations):
 
 #Function to determine whether the user has existing preferences or not
 def isNewUser(active):
-    result = getUserPrefs("25")
+    result = getUserPrefs(active)
     if (result == None):
         return True
     else:
@@ -275,7 +278,6 @@ def getNewLocationRating(loc):
         for i in simLoc:
             if i['id'] == id:
                 total += sim * i['rating']
-                print(sim,i['rating'])
     
     #Get the final rating by dividing it by length of locs
     final_rating = total / len(locs)

@@ -3,13 +3,16 @@ from crud import *
 
 a = []
 b = []
-active = "35"
 other = "10"
 n = 5
-loc = ["11","1","15"]
-location = "51"
-users = ["1","2"]
-tags = ["food","cafe"]
+
+exist_user = "20"
+exist_loc = ["11","1","15"]
+
+new_user = "35"
+new_loc = ["51","52"]
+
+mix_location = ["11","1","15","51","52"]
 
 #Initialize data set
 data = initializeDataSet()
@@ -21,14 +24,24 @@ data = initializeDataSet()
 #a = topSimilarUsers(data,active,n,pearson_similarity)
 
 #Rating the locations based on the similar user preference
-#a = rateLocations(data,active,loc)
+#Existing user - Existing Locations
+#a = rateLocations(data,exist_user,exist_loc)
 
-#a = topSimilarUsersForLocation(data,active,location,n,pearson_similarity)
+#Existing User - New Locations
+#a = rateLocations(data,exist_user,new_loc)
 
-#a = rateLocations(data,"35",loc)
-#b = rateLocations(data,"36",loc)
+#New User - Existing Locations
+#a = rateLocations(data,new_user,exist_loc)
 
-a = getNewLocationRating (location)
+#New User - New Locations
+#a = rateLocations(data,new_user,new_loc)
+
+#A mix of locations for a new user
+#a = rateLocations(data,new_user,mix_location)
+
+#A mix of locations for an existing user
+a = rateLocations(data,exist_user,mix_location)
+
 print(a)
 
 
