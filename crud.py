@@ -38,7 +38,7 @@ def getUserDetails (id):
     user = users.find_one({"id":id},{"_id":0})
     return user
 
-#Function to filter out the users with given age and gender
+#Function to filter out a given set of users with given age and gender
 def filterUsersOnAgeGender (users,age,gender):
     result = {}
     for user in users:
@@ -67,7 +67,14 @@ def getLocationDetails (location):
     details = locations.find_one({"id":location})
     return details
 
-#Function to get locations matching a set of tags and in a region
-def filterLocations (region,tags):
-    result = list(locations.find({'area': region , 'types': { '$in' : tags }}))
+#Function to get locations matching a set of tags, the region and visited bu a given set of users
+def filterLocations (region,tags,ids):
+    result = list(locations.find({'id': {'$in' : ids }, 'area': region , 'types': { '$in' : tags }}))
     return result
+
+#Function to extract users with a given age range and gender other than the active user
+def getUsersInAgeAndGender(active,age,gender):
+    min_age = age - 5
+    max_age = age + 5
+    result = list(users.find({ 'id' : { '$ne' : active } ,'gender' : gender, 'age' : { '$gte' : min_age , '$lte' : max_age }}, {'_id' : 0, 'id' : 1}))
+    return result             
