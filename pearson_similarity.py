@@ -361,18 +361,18 @@ def getNewLocationRatingForNewUser(loc,active):
             weights[loc['id']] = sim
 
     top_locations = sorted(weights.items(), key = lambda x : x[1], reverse=True)
-    print(top_locations)
+    
     length = len(top_locations)   
     if (length >= 5):
         locs = list(itertools.islice(top_locations, 0, 5))
     else:
         locs = list(top_locations)
-    print(locs)
+    
     #Get location ids
     loc_ids = []
     for l in locs:
         loc_ids.append(l[0])
-    print(loc_ids)
+    
     #For each similar location find top similar users to active users who have visited that location
     rated_locations = {}
     location_outputs = []
@@ -388,10 +388,10 @@ def getNewLocationRatingForNewUser(loc,active):
         for user in res:
             user_id = user['id']
             #If user has been to this location
-            print(user_id, loc_id)
+            
             if (hasBeenToLocation(user_id, loc_id)):
                 similar_users.append(user_id)
-        print(similar_users)
+        
         #Considering the list of users who have been to the location
         #For each user get the location rating, average rating of user
         for user in similar_users:
@@ -416,11 +416,11 @@ def getNewLocationRatingForNewUser(loc,active):
         group_avg = group_total/den
         
         #Save location details
-        print(top_locations)
+        
         top = dict(top_locations)
         sim_score = top[loc_id]
         location_outputs.append({'loc_id' : loc_id, 'rating' : rating, 'simScore' : sim_score, 'average' : group_avg, 'userGroupAverage' : avg_of_avgs})
-        print(location_outputs)
+        
     
     #Calculating the rating for new location
     tot = 0

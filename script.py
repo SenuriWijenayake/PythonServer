@@ -3,6 +3,7 @@ from crud import *
 
 a = []
 b = []
+active = "1"
 other = "10"
 n = 5
 
@@ -42,7 +43,6 @@ data = initializeDataSet()
 #A mix of locations for an existing user
 a = rateLocations(data,exist_user,mix_location)
 
-#a = getNewLocationRatingForNewUser("51","35")
 print(a)
 
 
