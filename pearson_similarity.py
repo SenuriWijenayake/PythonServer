@@ -129,7 +129,6 @@ def rateLocations(data,active,locations):
         print("User is a new user")
         #Handling new user scenario - user has no ratings
         for loc in locations:
-            
             #Check if the location is a new location
             if(isNewLocation(loc)):
                 print("New Location - New user")
@@ -289,7 +288,7 @@ def getNewLocationRatingForExistingUser(loc,user):
         locs = list(itertools.islice(top_locations.items(), 0, 5))
     else:
         locs = list(top_locations)
-    
+    print(locs)
     #Calcualte the average rating of the user
     average = statistics.mean(data[user][i] for i in data[user])
 
@@ -340,13 +339,15 @@ def getNewLocationRatingForNewUser(loc,active):
     visited_ids = []
     for user in res:
         user_id = user['id']
+       
         #Get the locations that the user has been to
         for pref in data[user_id]:
             if pref not in visited_ids:
                 visited_ids.append(pref)
+    
     #Out of the visited locations filter locations in same region having atleast one similar tag
     filtered_locations = filterLocations (area,tags,visited_ids)
-    
+
     #Calculate the tag similarity for each location
     for loc in filtered_locations:
         count = 0
@@ -358,29 +359,36 @@ def getNewLocationRatingForNewUser(loc,active):
             den = len(tags) + len(loc['types'])
             sim = count/den
             weights[loc['id']] = sim
-   
-    top_locations = OrderedDict(sorted(weights.items(), key = lambda x : x[1], reverse=True))
+
+    top_locations = sorted(weights.items(), key = lambda x : x[1], reverse=True)
     print(top_locations)
     length = len(top_locations)   
     if (length >= 5):
-        locs = list(itertools.islice(top_locations.items(), 0, 5))
+        locs = list(itertools.islice(top_locations, 0, 5))
     else:
         locs = list(top_locations)
-    
+    print(locs)
+    #Get location ids
+    loc_ids = []
+    for l in locs:
+        loc_ids.append(l[0])
+    print(loc_ids)
     #For each similar location find top similar users to active users who have visited that location
     rated_locations = {}
     location_outputs = []
-    for location in locs:
-        print(location)
+        
+    for location in loc_ids:
+
         total = 0
         tot_avg_two = 0
         group_total = 0
         similar_users = []
-        loc_id = location[0]
-        print(loc_id)
+        loc_id = location
+
         for user in res:
             user_id = user['id']
             #If user has been to this location
+            print(user_id, loc_id)
             if (hasBeenToLocation(user_id, loc_id)):
                 similar_users.append(user_id)
         print(similar_users)
@@ -408,9 +416,12 @@ def getNewLocationRatingForNewUser(loc,active):
         group_avg = group_total/den
         
         #Save location details
-        location_outputs.append({'loc_id' : loc_id, 'rating' : rating, 'simScore' : float(location[1]), 'average' : group_avg, 'userGroupAverage' : avg_of_avgs})
+        print(top_locations)
+        top = dict(top_locations)
+        sim_score = top[loc_id]
+        location_outputs.append({'loc_id' : loc_id, 'rating' : rating, 'simScore' : sim_score, 'average' : group_avg, 'userGroupAverage' : avg_of_avgs})
+        print(location_outputs)
     
-    print(location_outputs)
     #Calculating the rating for new location
     tot = 0
     avg = 0

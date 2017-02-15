@@ -34,13 +34,13 @@ data = initializeDataSet()
 #a = rateLocations(data,new_user,exist_loc)
 
 #New User - New Locations
-a = rateLocations(data,new_user,new_loc)
+#a = rateLocations(data,new_user,new_loc)
 
 #A mix of locations for a new user
 #a = rateLocations(data,new_user,mix_location)
 
 #A mix of locations for an existing user
-#a = rateLocations(data,exist_user,mix_location)
+a = rateLocations(data,exist_user,mix_location)
 
 #a = getNewLocationRatingForNewUser("51","35")
 print(a)
