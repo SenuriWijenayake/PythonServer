@@ -4,7 +4,8 @@ from crud import *
 a = []
 b = []
 active = "1"
-other = "10"
+other = "2"
+location = "11"
 n = 5
 
 exist_user = "20"
@@ -21,8 +22,12 @@ data = initializeDataSet()
 #To calculate the similarity index between two users
 #a = pearson_similarity (data,active,other)
 
-#Get the top n users similar to a given user
-#a = topSimilarUsers(data,active,n,pearson_similarity)
+#Lets look at the existing user - existing location scenario
+#We get a set of candidate locations from the GIS
+#For each location we need to provide a rating based on the ratings of similar users
+
+#Get the top n users similar to the active user who have visited the particualr location
+#a = topSimilarUsersForLocation(data,active,location,n,pearson_similarity)
 
 #Rating the locations based on the similar user preference
 #Existing user - Existing Locations
@@ -44,6 +49,15 @@ data = initializeDataSet()
 a = rateLocations(data,exist_user,mix_location)
 
 print(a)
+
+
+
+
+
+
+
+
+
 
 
 
