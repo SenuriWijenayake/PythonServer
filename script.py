@@ -1,5 +1,6 @@
 from pearson_similarity import *
 from crud import *
+from init import *
 
 a = []
 b = []
@@ -16,8 +17,10 @@ new_loc = ["51","52"]
 
 mix_location = ["11","1","15","51","52"]
 
-#Initialize data set
+#Initialize data set, calculate user averages and similarities
 data = initializeDataSet()
+avgs = calAverages(data)
+all_sims = calSimilarities(data,avgs)
 
 #To calculate the similarity index between two users
 #a = pearson_similarity (data,active,other)
@@ -46,7 +49,7 @@ data = initializeDataSet()
 #a = rateLocations(data,new_user,mix_location)
 
 #A mix of locations for an existing user
-a = rateLocations(data,exist_user,mix_location)
+#a = rateLocations(data,exist_user,mix_location)
 
 print(a)
 

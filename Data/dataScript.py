@@ -1,6 +1,4 @@
-from locations import *
 from users import *
-from random import *
 import simplejson as json
 
 new_locations = []
@@ -37,7 +35,7 @@ new_locations = []
         "name": "User" + str(x)
     })
 """
-
+"""
 #Sciprt to create dummy preferences
 final = []
 
@@ -49,10 +47,22 @@ for user in users:
         prefs.append({"place_id":locations[index]['id'], "rating": randint(1,5)})
         
     final.append({"user_id":user['id'], "prefs": prefs})
-    
-with open('prefs.py', 'w') as f:
-    json.dump(final, f)
+"""
 
-    
+#Function to create dummy friend lists for users based on similar schools and region
+def createFriendLists():
+    all_lists = []
+    for active in users:
+        friendList = []
+        if ('education' in active and 'hometown' in active):
+            for other in users:
+                if ('education' in other and 'hometown' in other) and (other['id'] is not active['id']) and (other['hometown'] == active['hometown'] or other['education'] == active['education']):
+                    friendList.append(other['id'])
+            all_lists.append({"id":active['id'], "friends" : friendList})
 
-    
+    with open('friends.py', 'w') as f:
+        json.dump(all_lists, f)
+
+createFriendLists()
+
+
