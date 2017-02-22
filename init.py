@@ -1,5 +1,6 @@
 #This is the initialization script
 from math import sqrt
+from crud import *
 import statistics
 
 #Fucntion to calculate the similarity between two users using the Pearsons correlation coefficient
@@ -64,5 +65,77 @@ def calSimilarities(data,avgs):
         all_sims[active] = my_sims
     return all_sims
 
-#Function to calculate the profile similarities
+#Function to check if the profile is complete or not
+def isProfileComplete(id):
+    profile = dict(getUserDetails(id))
+    length = profile.__len__()
+    if length is 7:
+        return True
+    else:
+        return False
+
+
+#Function to return mutual friends for given two users
+def findMutuals (active,other):
+    mutuals = []
+    #Get the friend lists of the two users
+    userOne = getFriends(active)
+    userTwo = getFriends(other)
+    for friend in userOne['friends']:
+        if friend in userTwo['friends']:
+            mutuals.append(friend)
+    return mutuals
+
+#Function to filter mutuals over a attribute
+def filterMutualFriends(active,other,attr):
+    filtered_options = {}
+    #Get mutual friends
+    mutuals = findMutuals (active,other)
+    #Filter using the attribute
+    for friend in mutuals:
+        total = len(mutuals)
+        profile = dict(getUserDetails(friend))
+        if(attr in profile) and (profile[attr] not in filtered_options):
+            filtered_options[profile[attr]] = 1
+        elif (attr in profile) and (profile[attr] in filtered_options):
+            filtered_options[profile[attr]] += 1
+    return filtered_options,total
+
+#Function to calculate the profile similarity between two given users
+#Input Parameters : the two ids of the users
+#Output : the profile similarity
+def calProfileSimilarity(u,x):
+    #Check if the two profiles are complete
+    active = dict(getUserDetails(u))
+    other = dict(getUserDetails(x))
+    if(isProfileComplete(u)) and (isProfileComplete(x)):
+        count = 0
+        if(active['age'] == other['age']):
+            count += 1
+        if(active['religion'] == other['religion']):
+            count += 1
+        if(active['hometown'] == other['hometown']):
+            count += 1
+        if(active['education'] == other['education']):
+            count += 1
+        if(active['gender'] == other['gender']):
+            count += 1
+        profSim = count/5
+        return profSim
+
+    #If the profiles are not complete
+    else:
+        #Take active user first and identify missing attributes
+        attributes = ['age','hometown','gender','education','religion']
+        for attr in attributes:
+            if (attr not in active):
+                #Find the available options, their frequency and total mutuals with given attribute
+                filtered_options,total = filterMutualFriends(active['id'],other['id'],attr)
+                print (filtered_options,total)
+
+
+
+
+calProfileSimilarity("38","1")
+
 

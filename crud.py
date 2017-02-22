@@ -6,6 +6,7 @@ db = client.test
 preferences = db.preferences
 users = db.users
 locations = db.locations
+friends = db.friends
 
 #Function to retreieve user preferences when given id
 #Input Parameters: user id
@@ -77,4 +78,10 @@ def getUsersInAgeAndGender(active,age,gender):
     min_age = age - 5
     max_age = age + 5
     result = list(users.find({ 'id' : { '$ne' : active } ,'gender' : gender, 'age' : { '$gte' : min_age , '$lte' : max_age }}, {'_id' : 0, 'id' : 1}))
-    return result             
+    return result
+
+#Function to return the friend list of a given user
+def getFriends(id):
+    result = friends.find_one({"id":id},{"_id":0,"friends":1})
+    return result
+
