@@ -1,5 +1,5 @@
 #This is the initialization script
-from math import sqrt
+from math import sqrt,log10
 from crud import *
 import statistics
 
@@ -235,7 +235,60 @@ def calProfileSimilarities():
         all_sims[active['id']] = my_sims
     return all_sims
 
+#Function to see if two users are friends or not
+def isFriends(u,x):
+    u_list = getFriends(u)
+    if (len(u_list['friends']) is not 0) and x in u_list['friends']:
+        return True
+    return False
 
+#Function to calculate the number of edges in the friendship graph
+def getEdgesFriendGraph(u):
+    #Get all the friends of the active user
+    count = 0
+    result = getFriends(u)
+    friends = result['friends']
+    list = friends.copy()
+    num_friends = len(friends)
+    count += num_friends
+
+    for friend in friends:
+        result = getFriends(friend)
+        friendList = result['friends']
+        for user in list:
+            if (user in friendList):
+                count += 1
+        list.remove(friend)
+    return count
+
+#Function to calcualte the number of edges in the mutual friends graph
+def getEdgesMutualFriendGraph(active,other):
+    mutuals = findMutuals (active,other)
+    count = len(mutuals) * 2
+    list = mutuals.copy()
+    for friend in mutuals:
+        result = getFriends(friend)
+        friendList = result['friends']
+        for user in list:
+            if (user in friendList):
+                count += 1
+        list.remove(friend)
+    return count
+
+#Function to calculate the network similarities between two strangers using mutual friends
+def mutualBasedNetworkSimilarity(active,other):
+    #Check if the two users are not friends but has mutual friends
+    mutuals = findMutuals (active,other)
+    if(isFriends(active,other) is not True) and (len(mutuals) is not 0):
+        edges_friends = getEdgesFriendGraph(active)
+        edges_mutual_friends = getEdgesMutualFriendGraph(active,other)
+        sim = log10(edges_mutual_friends)/log10(2*edges_friends)
+        return sim
+    #If the two users are not friends and have no mutuals
+    if (isFriends(active,other) is not True) and (len(mutuals) is 0):
+        return 0
+
+    #If two users are friends calculate the tie strength between the two users
 
 
 
