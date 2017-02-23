@@ -221,6 +221,21 @@ def calProfileSimilarity(u,x):
         profSim = count/5
         return profSim
 
-a = calProfileSimilarity("35","36")
-print (a)
+#Function to calcualte the profile similarities of users and store them
+def calProfileSimilarities():
+    #Get the ids of all the users
+    all_users = list(getAllUsers())
+    all_sims = {}
+    for active in all_users:
+        my_sims = {}
+        for other in all_users:
+            if (active['id'] is not other['id']):
+                sim = calProfileSimilarity(active['id'],other['id'])
+                my_sims[other['id']] = sim
+        all_sims[active['id']] = my_sims
+    return all_sims
+
+
+
+
 

@@ -85,3 +85,7 @@ def getFriends(id):
     result = friends.find_one({"id":id},{"_id":0,"friends":1})
     return result
 
+#Function to return ids of all the users
+def getAllUsers():
+    result = users.find({},{"_id":0,"id":1})
+    return  result
