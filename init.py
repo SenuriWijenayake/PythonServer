@@ -91,15 +91,47 @@ def filterMutualFriends(active,other,attr):
     filtered_options = {}
     #Get mutual friends
     mutuals = findMutuals (active,other)
-    #Filter using the attribute
-    for friend in mutuals:
-        total = len(mutuals)
-        profile = dict(getUserDetails(friend))
-        if(attr in profile) and (profile[attr] not in filtered_options):
-            filtered_options[profile[attr]] = 1
-        elif (attr in profile) and (profile[attr] in filtered_options):
-            filtered_options[profile[attr]] += 1
-    return filtered_options,total
+    mut_count = len(mutuals)
+    #Check if there are mutuals
+    if (mut_count != 0):
+        #Filter using the attribute
+        for friend in mutuals:
+            count = 0
+            profile = dict(getUserDetails(friend))
+            if(attr in profile) and (profile[attr] not in filtered_options):
+                filtered_options[profile[attr]] = 1
+                count += 1
+            elif (attr in profile) and (profile[attr] in filtered_options):
+                filtered_options[profile[attr]] += 1
+                count += 1
+        #Check if there are filtered mutuals
+        if (count != 0):
+            return filtered_options,count
+        return (0,0)
+    return (0,0)
+
+#Function to filter friends over a attribute
+def filterFriends(id,attr):
+    filtered_options = {}
+    #Get the friend list
+    friendList = getFriends(id)
+
+    #There are friends
+    if(len(friendList) != 0):
+        for friend in friendList['friends']:
+            count = 0
+            profile = dict(getUserDetails(friend))
+            if(attr in profile) and (profile[attr] not in filtered_options):
+                filtered_options[profile[attr]] = 1
+                count += 1
+            elif (attr in profile) and (profile[attr] in filtered_options):
+                filtered_options[profile[attr]] += 1
+                count += 1
+        if(count != 0):
+            return filtered_options,count
+        return (0,0)
+    return (0,0)
+
 
 #Function to calculate the profile similarity between two given users
 #Input Parameters : the two ids of the users
@@ -108,34 +140,85 @@ def calProfileSimilarity(u,x):
     #Check if the two profiles are complete
     active = dict(getUserDetails(u))
     other = dict(getUserDetails(x))
+
+    #Define the attributes to be predicted and attributes used for sim measurement
+    attributes = ['age','hometown','gender','education','religion']
+    attr_for_sims = ['age','hometown','gender','education','religion']
+
     if(isProfileComplete(u)) and (isProfileComplete(x)):
         count = 0
-        if(active['age'] == other['age']):
-            count += 1
-        if(active['religion'] == other['religion']):
-            count += 1
-        if(active['hometown'] == other['hometown']):
-            count += 1
-        if(active['education'] == other['education']):
-            count += 1
-        if(active['gender'] == other['gender']):
-            count += 1
+        for attr in attributes:
+            if(active[attr] == other[attr]):
+                count += 1
         profSim = count/5
         return profSim
 
     #If the profiles are not complete
     else:
-        #Take active user first and identify missing attributes
-        attributes = ['age','hometown','gender','education','religion']
+        #Create a copy of active and other users
+        other_copy = other.copy()
+        act_copy = active.copy()
+
         for attr in attributes:
+            #Complete the profile of user one
             if (attr not in active):
                 #Find the available options, their frequency and total mutuals with given attribute
+                #If there are mutual friends
                 filtered_options,total = filterMutualFriends(active['id'],other['id'],attr)
-                print (filtered_options,total)
+                if total != 0:
+                    #Sort the dict and get the most frequent entry
+                    options = sorted(filtered_options.items(), key = lambda x : x[1], reverse=True)
+                    predicted_value = options[0][0]
+                    probability = options[0][1]/total
+                    act_copy[attr] = predicted_value
+                else:
+                    #There are no mutual friends with the attribute or no mutuals
+                    #Use friends to filter the frequent observations
+                    filtered_options,total = filterFriends(active['id'],attr)
+                    if total != 0:
+                        #Sort the dict and get the most frequent entry
+                        options = sorted(filtered_options.items(), key = lambda x : x[1], reverse=True)
+                        predicted_value = options[0][0]
+                        probability = options[0][1]/total
+                        act_copy[attr] = predicted_value
+                    else:
+                        #Drop the attribute from the list
+                        if (attr in attr_for_sims):
+                            attr_for_sims.remove(attr)
 
+            #Complete the profile of user two
+            if (attr not in other):
+                #Find the available options, their frequency and total mutuals with given attribute
+                filtered_options,total = filterMutualFriends(other['id'],active['id'],attr)
+                if total != 0:
+                    #Sort the dict and get the most frequent entry
+                    options = sorted(filtered_options.items(), key = lambda x : x[1], reverse=True)
+                    predicted_value = options[0][0]
+                    probability = options[0][1]/total
+                    other_copy[attr] = predicted_value
+                else:
+                    #There are no mutual friends with the attribute or no mutuals
+                    #Use friends to filter the frequent observations
+                    filtered_options,total = filterFriends(other['id'],attr)
+                    if total != 0:
+                        #Sort the dict and get the most frequent entry
+                        options = sorted(filtered_options.items(), key = lambda x : x[1], reverse=True)
+                        predicted_value = options[0][0]
+                        probability = options[0][1]/total
+                        other_copy[attr] = predicted_value
+                    else:
+                        #Drop the attribute from the list
+                        if (attr in attr_for_sims):
+                            attr_for_sims.remove(attr)
 
+        #Once the profiles are temporarily completed, calculate the similarity
+        count = 0
+        for item in attr_for_sims:
+            if(act_copy[item] == other_copy[item]):
+                count += 1
+        profSim = count/5
+        return profSim
 
-
-calProfileSimilarity("38","1")
-
+a = calProfileSimilarity("35","36")
+print (a)
 
