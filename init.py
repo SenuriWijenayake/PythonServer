@@ -216,6 +216,8 @@ def calProfileSimilarity(u,x):
         for item in attr_for_sims:
             if(act_copy[item] == other_copy[item]):
                 count += 1
+        #Even if there are not many predicted attributes we still divide it by 5
+        #If the values can't be predicted the users are not similar
         profSim = count/5
         return profSim
 
