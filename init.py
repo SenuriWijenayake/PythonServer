@@ -1,5 +1,8 @@
 #This is the initialization script
 from math import sqrt,log10
+
+from docutils.nodes import problematic
+
 from crud import *
 import statistics
 
@@ -250,8 +253,10 @@ def getEdgesFriendGraph(u):
     friends = result['friends']
     list = friends.copy()
     num_friends = len(friends)
+    #Get the direct connections
     count += num_friends
 
+    #Get the connections between friends in the friend graph
     for friend in friends:
         result = getFriends(friend)
         friendList = result['friends']
@@ -264,8 +269,10 @@ def getEdgesFriendGraph(u):
 #Function to calcualte the number of edges in the mutual friends graph
 def getEdgesMutualFriendGraph(active,other):
     mutuals = findMutuals (active,other)
+    #Both users are connected to the mutual friends
     count = len(mutuals) * 2
     list = mutuals.copy()
+    #Get the inter-friend links
     for friend in mutuals:
         result = getFriends(friend)
         friendList = result['friends']
@@ -274,6 +281,7 @@ def getEdgesMutualFriendGraph(active,other):
                 count += 1
         list.remove(friend)
     return count
+
 
 #Function to calculate the network similarities between two strangers using mutual friends
 def mutualBasedNetworkSimilarity(active,other):
@@ -291,4 +299,16 @@ def mutualBasedNetworkSimilarity(active,other):
     #If two users are friends calculate the tie strength between the two users
 
 
+
+profile_sims = calProfileSimilarities()
+#How can we avoid the zero sim problem = > using the avreage similarity for the user and taking the square root?
+print (profile_sims)
+
+#Not friends but have mutual friends
+a = mutualBasedNetworkSimilarity('2','37')
+print (a)
+
+#Not friends and no mutual friends -> again returns a zero?
+a = mutualBasedNetworkSimilarity('1','35')
+print (a)
 

@@ -89,3 +89,4 @@ def getFriends(id):
 def getAllUsers():
     result = users.find({},{"_id":0,"id":1})
     return  result
+
