@@ -304,11 +304,3 @@ profile_sims = calProfileSimilarities()
 #How can we avoid the zero sim problem = > using the avreage similarity for the user and taking the square root?
 print (profile_sims)
 
-#Not friends but have mutual friends
-a = mutualBasedNetworkSimilarity('2','37')
-print (a)
-
-#Not friends and no mutual friends -> again returns a zero?
-a = mutualBasedNetworkSimilarity('1','35')
-print (a)
-
