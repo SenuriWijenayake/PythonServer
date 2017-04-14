@@ -11,3 +11,4 @@ avgs = calAverages(training_data)
 #Calcualting the user-user similiarities based on locations only
 all_sims = calSimilarities(training_data,avgs)
 
+print (all_sims)

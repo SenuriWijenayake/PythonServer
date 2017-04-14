@@ -25,22 +25,27 @@ test_data = {}
 
 def initializeDataSet():
     collection = db.preferences.find()
-    num = collection.count()
-    benchmark = int(num/2)
-    count = 0
-    
+
     for doc in collection:
-        count += 1
+
         user_id = doc['user_id']
         prefs = doc['prefs']
-        final = {}
-        for item in prefs:
-            final[item['place_id']] = item['rating']
+        num = len(prefs)
+        count = 0
+        benchmark = int(num/2)
+        final_train = {}
+        final_test = {}
 
-        if (count in range(0,benchmark+1)):
-            training_data[user_id] = final
-        if (count in range(benchmark+1,num+1)):
-            test_data[user_id] = final
+        for item in prefs:
+            count += 1
+            if (count in range(0,benchmark+1)):
+                final_train[item['place_id']] = item['rating']
+            if (count in range(benchmark+1,num+1)):
+                final_test[item['place_id']] = item['rating']
+
+        training_data[user_id] = final_train
+        test_data[user_id] = final_test
+
     return training_data,test_data
     
 #Function to return the details of a user
