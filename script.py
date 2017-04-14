@@ -19,8 +19,9 @@ mix_location = ["11","1","15","51","52"]
 
 #Initialize data set, calculate user averages and similarities
 data = initializeDataSet()
-avgs = calAverages(data)
-all_sims = calSimilarities(data,avgs)
+
+#avgs = calAverages(data)
+#all_sims = calSimilarities(data,avgs)
 
 #To calculate the similarity index between two users
 #a = pearson_similarity (data,active,other)

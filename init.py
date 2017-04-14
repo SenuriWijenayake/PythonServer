@@ -1,8 +1,6 @@
 #This is the initialization script
 from math import sqrt,log10
 
-from docutils.nodes import problematic
-
 from crud import *
 import statistics
 
@@ -297,10 +295,4 @@ def mutualBasedNetworkSimilarity(active,other):
         return 0
 
     #If two users are friends calculate the tie strength between the two users
-
-
-
-profile_sims = calProfileSimilarities()
-#How can we avoid the zero sim problem = > using the avreage similarity for the user and taking the square root?
-print (profile_sims)
 

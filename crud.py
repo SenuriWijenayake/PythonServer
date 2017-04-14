@@ -5,7 +5,7 @@ client = MongoClient('localhost', 27017)
 db = client.script
 preferences = db.preferences
 users = db.users
-locations = db.locations
+locations = db.locationPosts
 friends = db.friends
 
 #Function to retreieve user preferences when given id
