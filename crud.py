@@ -20,19 +20,28 @@ def getUserPrefs(id):
 #Input Parameters: Raw data set
 #Output: Optimized data set
 
-data = {}
+training_data = {}
+test_data = {}
 
 def initializeDataSet():
     collection = db.preferences.find()
+    num = collection.count()
+    benchmark = int(num/2)
+    count = 0
+    
     for doc in collection:
+        count += 1
         user_id = doc['user_id']
         prefs = doc['prefs']
-        
         final = {}
         for item in prefs:
             final[item['place_id']] = item['rating']
-        data[user_id] = final
-    return data
+
+        if (count in range(0,benchmark+1)):
+            training_data[user_id] = final
+        if (count in range(benchmark+1,num+1)):
+            test_data[user_id] = final
+    return training_data,test_data
     
 #Function to return the details of a user
 def getUserDetails (id):
