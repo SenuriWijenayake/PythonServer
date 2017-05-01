@@ -5,8 +5,9 @@ client = MongoClient('localhost', 27017)
 db = client.script
 preferences = db.preferences
 users = db.users
-locations = db.locationPosts
+locationPosts = db.locationPosts
 friends = db.friends
+locations = db.locations
 
 #Function to retreieve user preferences when given id
 #Input Parameters: user id
@@ -39,9 +40,9 @@ def initializeDataSet():
         for item in prefs:
             count += 1
             if (count in range(0,benchmark+1)):
-                final_train[item['place_id']] = item['rating']
+                final_train[item['google_place_id']] = item['rating']
             if (count in range(benchmark+1,num+1)):
-                final_test[item['place_id']] = item['rating']
+                final_test[item['google_place_id']] = item['rating']
 
         training_data[user_id] = final_train
         test_data[user_id] = final_test
@@ -104,3 +105,7 @@ def getAllUsers():
     result = users.find({},{"_id":0,"id":1})
     return  result
 
+#Function to extract a location profile
+def get_location_id(location_name):
+    profile = db.locations.find_one({'name':location_name},{'_id':0})
+    return profile['id']
