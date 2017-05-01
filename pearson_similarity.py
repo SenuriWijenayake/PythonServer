@@ -130,7 +130,7 @@ def rateLocations(data,active,locations,avgs):
         #Handling new user scenario - user has no ratings
         for loc in locations:
             #Check if the location is a new location
-            if(isNewLocation(loc)):
+            if(isNewLocationTraining(training_data,loc,active)):
                 print("New Location - New user")
                 #Handle new location
                 rating = getNewLocationRatingForNewUser(loc,active)
@@ -170,12 +170,12 @@ def rateLocations(data,active,locations,avgs):
     if (not user_status):
         print("Not a new user")
         #Get the average rating of active user
-        active_avg = statistics.mean(data[active][i] for i in data[active])
+        active_avg = avgs[active]
 
         for loc in locations:
 
             #Check if the location is a new location
-            if(isNewLocation(loc)):
+            if(isNewLocationTraining(training_data,loc,active)):
                 print("New Location - Existing user")
                 #Handle new location
                 rating = getNewLocationRatingForExistingUser(loc,active)
@@ -209,7 +209,7 @@ def rateLocations(data,active,locations,avgs):
         ##Sorting the dictionary
         final_locations = sorted(rated_locations, key=rated_locations.get, reverse=True)
 
-        return final_locations
+        return rated_locations, final_locations
 
 #Function to determine whether the user has existing preferences or not
 def isNewUser(active):
@@ -263,11 +263,17 @@ def getNewLocationRatingForExistingUser(loc,user):
 
     #Get the locations that the user has been to
     visited_ids = []
-    for pref in data[user]:
+    for pref in training_data[user]:
         visited_ids.append(pref)
 
     #Out of the visited locations filter locations in same region having atleast one similar tag
     filtered_locations = filterLocations (area,tags,visited_ids)
+
+    if (len(filtered_locations) == 0):
+        filtered_locations = filterLocationsWithoutRegion (tags,visited_ids)
+
+    if(len(filtered_locations) == 0):
+        return 0
 
     #Calculate the tag similarity for each location
     for loc in filtered_locations:
@@ -275,7 +281,7 @@ def getNewLocationRatingForExistingUser(loc,user):
         for tag in loc['types']:
             if tag in tags:
                 count += 1
-        if (count > 1):
+        if (count >= 1):
             #calculate the tag similarity
             den = len(tags) + len(loc['types'])
             sim = count/den
@@ -285,28 +291,33 @@ def getNewLocationRatingForExistingUser(loc,user):
 
     length = len(top_locations)
     if (length >= 5):
-        locs = list(itertools.islice(top_locations.items(), 0, 5))
+        locs = itertools.islice(top_locations.items(), 0, 5)
+        den = 5
     else:
-        locs = list(top_locations)
+        locs = top_locations
+        den = len(locs)
     print(locs)
     #Calcualte the average rating of the user
-    average = statistics.mean(data[user][i] for i in data[user])
+    average = statistics.mean(training_data[user][i] for i in training_data[user])
 
     #Calculate the sum of normalized and weighted ratings for each location
     total = 0
     for item in locs:
         #Get tag similarity
-        id = item
+        if (isinstance(item,str)):
+            id = item
+        else:
+            id = item[0]
         tag_sim = weights[id]
 
         #Get the user rating for given location
-        user_rating = data[user][id]
+        user_rating = training_data[user][id]
 
         #Calculate the normalized weighted total rating
         total += (user_rating - average) * tag_sim
 
     #Calculate the average normalized rating
-    den = len(locs)
+    #den = len(locs)
     avg_norm = total/den
 
     final_rating = average + avg_norm
@@ -341,7 +352,7 @@ def getNewLocationRatingForNewUser(loc,active):
         user_id = user['id']
 
         #Get the locations that the user has been to
-        for pref in data[user_id]:
+        for pref in training_data[user_id]:
             if pref not in visited_ids:
                 visited_ids.append(pref)
 
@@ -395,8 +406,8 @@ def getNewLocationRatingForNewUser(loc,active):
         #Considering the list of users who have been to the location
         #For each user get the location rating, average rating of user
         for user in similar_users:
-            avg_user = statistics.mean(data[user][i] for i in data[user])
-            loc_rating = data[user][loc_id]
+            avg_user = statistics.mean(training_data[user][i] for i in training_data[user])
+            loc_rating = training_data[user][loc_id]
             normalized_rating = loc_rating - avg_user
 
             #Get the group total rating for location

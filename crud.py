@@ -71,12 +71,22 @@ def filterUsersOnAgeGender (users,age,gender):
     return result
 
 #Function to see if the location is a new location or not
-def isNewLocation (location):
-    cursor = preferences.find_one({'prefs': { '$elemMatch': {'google_place_id': location}}})
+def isNewLocation (location,active):
+    cursor = preferences.find_one({'prefs': { '$elemMatch': {'google_place_id': 'ChIJLSrJAu-B4zoRQvotWplYx_c'}}, 'user_id' : {'$ne' : active}})
     if (cursor == None):
         return True
     else:
         return False
+
+#Function to see if the location is a new location in the training data set
+def isNewLocationTraining (data,location,active):
+    result = True
+    for user in data:
+        if (user != active):
+            for pref in data[user]:
+                if (pref == location):
+                    result = False
+    return result
 
 #Function to return the details of a location
 def getLocationDetails (location):
@@ -85,7 +95,12 @@ def getLocationDetails (location):
 
 #Function to get locations matching a set of tags, the region and visited bu a given set of users
 def filterLocations (region,tags,ids):
-    result = list(locations.find({'id': {'$in' : ids }, 'area': region , 'types': { '$in' : tags }}))
+    result = list(locations.find({ '$and' : [ {'id': {'$in' : ids }} , {'area': region }, {'types': { '$in' : tags }}]}))
+    return result
+
+#Function to get locations matching a set of tags, the region and visited bu a given set of users
+def filterLocationsWithoutRegion (tags,ids):
+    result = list(locations.find({ '$and' : [ {'id': {'$in' : ids }} , {'types': { '$in' : tags }}]}))
     return result
 
 #Function to extract users with a given age range and gender other than the active user
@@ -109,3 +124,32 @@ def getAllUsers():
 def get_location_id(location_name):
     profile = db.locations.find_one({'name':location_name},{'_id':0})
     return profile['id']
+
+
+#Function to remove duplicates in locations
+def remove_duplicates ():
+    #Get all distinct ids
+    distinct_ids = []
+    distinct_ids = db.locations.distinct('id')
+    print (len(distinct_ids))
+
+    for tuple in distinct_ids:
+        duplicates = []
+        duplicates = db.locations.find({"id" : tuple}, {"_id" : 1})
+        #Remove the first tuple id to be kept in the database
+        remove_ids = []
+        count = 0
+        dups = list(duplicates)
+
+        for tup in dups:
+            if (count == 0):
+                count += 1
+            else:
+                remove_ids.append(tup)
+
+        length = len(remove_ids)
+        if length is not 0:
+            for id in remove_ids:
+                db.locations.remove({"_id" : id['_id']})
+
+
