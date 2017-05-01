@@ -72,7 +72,7 @@ def filterUsersOnAgeGender (users,age,gender):
 
 #Function to see if the location is a new location or not
 def isNewLocation (location):
-    cursor = preferences.find_one({'prefs': { '$elemMatch': {'place_id': location}}})
+    cursor = preferences.find_one({'prefs': { '$elemMatch': {'google_place_id': location}}})
     if (cursor == None):
         return True
     else:

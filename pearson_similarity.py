@@ -9,22 +9,22 @@ import itertools
 ##Parameters: Data set, id of person one, id of person two
 ##Output: corelation coefficient
 
-def pearson_similarity (data,p1,p2):
+def pearson_similarity (data,p1,p2,avgs):
     #Get the list of similar locations between the users
     similar_items = {}
     for item in data[p1]:
         if item in data[p2]:
             similar_items[item] = 1
-            
+
     if len(similar_items) == 0:
         return 0
-    
+
     #Get the variables ready for the calculation
     n = len(similar_items)
-    
+
     #Get the average for each user
-    avgx = statistics.mean(data[p1][i] for i in data[p1])
-    avgy = statistics.mean(data[p2][i] for i in data[p2])
+    avgx = avgs[p1]
+    avgy = avgs[p2]
 
     #Calculate the sum of normalized squared preferences
     sumx2 = sum(pow(data[p1][item] - avgx,2) for item in similar_items)
@@ -61,7 +61,7 @@ def topSimilarUsers(data,subject,n,similarity):
 #Input Parameters : data set, key person, location, number of users, similarity measure
 #Output : top n similar users, and the similarity
 
-def topSimilarUsersForLocation(data,subject,location,n,similarity):
+def topSimilarUsersForLocation(data,subject,location,n,similarity,avgs):
 
     similarity_scores = {}
     sorted_users = {}
@@ -72,7 +72,7 @@ def topSimilarUsersForLocation(data,subject,location,n,similarity):
             for i in data[user]:
                 if location == i:
                     #Calculate r for subject and the user
-                    r = similarity(data,subject,user)
+                    r = similarity(data,subject,user,avgs)
                     similarity_scores[user] = r
 
     num = len(similarity_scores)
@@ -112,7 +112,7 @@ def getKValue(users):
 #Input Parameters: Set of locations, id of the active user, set of locations to be rated
 #Output: Ranked locations
 
-def rateLocations(data,active,locations):
+def rateLocations(data,active,locations,avgs):
 
     rated_locations = {}
 
@@ -120,7 +120,7 @@ def rateLocations(data,active,locations):
     similarity = pearson_similarity
 
     #Check if the locations list is null
-    if locations == []:
+    if locations == [] or locations == '':
         return "No locations meeting criteria"
 
     #Check if the user is a new user or not
@@ -185,7 +185,7 @@ def rateLocations(data,active,locations):
                 print("Existing Location - Existing user")
                 total = 0
                 #Get the top similar users for the locations
-                users = topSimilarUsersForLocation(data,active,loc,n,similarity)
+                users = topSimilarUsersForLocation(data,active,loc,n,similarity,avgs)
 
                 #Get the k value for the location
                 k = getKValue(users)
