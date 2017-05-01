@@ -61,14 +61,16 @@ def calculate_errors():
     predicted_final = []
 
     #Get all user ids
-    users = db.users.distinct('id')
+    users = db.preferences.distinct('user_id')
     for user in users:
         locations, actual = extract_test_locations_for_user(test_data,user)
-        actual_final.append(actual)
+        for i in actual:
+            actual_final.append(i)
         #Rate the locations for existing user
         a,b = rateLocations(training_data,user,locations,avgs)
         predicted = get_predicted_ratings(a,locations)
-        predicted_final.append(predicted)
+        for i in predicted:
+            predicted_final.append(i)
 
     mae = mean_absolute_error(actual_final,predicted_final)
     rms = sqrt(mean_squared_error(actual_final,predicted_final))
