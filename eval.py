@@ -9,7 +9,7 @@ client = MongoClient('localhost', 27017)
 db = client.script
 
 #Initializing the test and training data sets for use
-training_data,test_data = initializeDataSet()
+training_data,test_data,new_users = initializeDataSet()
 
 #Getting the user average rating values
 avgs = calAverages(training_data)
@@ -60,8 +60,8 @@ def calculate_errors():
     actual_final = []
     predicted_final = []
 
-    #Get all user ids
-    users = db.preferences.distinct('user_id')
+    #Get all existing ids
+    users = test_data.keys()
     for user in users:
         locations, actual = extract_test_locations_for_user(test_data,user)
         for i in actual:
@@ -71,6 +71,18 @@ def calculate_errors():
         predicted = get_predicted_ratings(a,locations)
         for i in predicted:
             predicted_final.append(i)
+
+    my_new_users = new_users.keys()
+    for user in my_new_users:
+        locations, actual = extract_test_locations_for_user(new_users,user)
+        for i in actual:
+            actual_final.append(i)
+        #Rate the locations for existing user
+        a,b = rateLocations(training_data,user,locations,avgs)
+        predicted = get_predicted_ratings(a,locations)
+        for i in predicted:
+            predicted_final.append(i)
+
 
     mae = mean_absolute_error(actual_final,predicted_final)
     rms = sqrt(mean_squared_error(actual_final,predicted_final))

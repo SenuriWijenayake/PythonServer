@@ -26,28 +26,40 @@ test_data = {}
 
 def initializeDataSet():
     collection = db.preferences.find()
-
+    new_count = 0
+    new_users = {}
     for doc in collection:
+        new_count += 1
+        if(new_count<=40):
 
-        user_id = doc['user_id']
-        prefs = doc['prefs']
-        num = len(prefs)
-        count = 0
-        benchmark = int(num/2)
-        final_train = {}
-        final_test = {}
+            user_id = doc['user_id']
+            prefs = doc['prefs']
+            num = len(prefs)
+            count = 0
+            benchmark = int(num/2)
+            final_train = {}
+            final_test = {}
 
-        for item in prefs:
-            count += 1
-            if (count in range(0,benchmark+1)):
-                final_train[item['google_place_id']] = item['rating']
-            if (count in range(benchmark+1,num+1)):
-                final_test[item['google_place_id']] = item['rating']
+            for item in prefs:
+                count += 1
+                if (count in range(0,benchmark+1)):
+                    final_train[item['google_place_id']] = item['rating']
+                if (count in range(benchmark+1,num+1)):
+                    final_test[item['google_place_id']] = item['rating']
 
-        training_data[user_id] = final_train
-        test_data[user_id] = final_test
+            training_data[user_id] = final_train
+            test_data[user_id] = final_test
 
-    return training_data,test_data
+        if(new_count>40):
+            user_id = doc['user_id']
+            prefs = doc['prefs']
+            my_prefs = {}
+            for item in prefs:
+                my_prefs[item['google_place_id']] = item['rating']
+
+            new_users[user_id] = my_prefs
+
+    return training_data,test_data,new_users
     
 #Function to return the details of a user
 def getUserDetails (id):
@@ -109,6 +121,18 @@ def getUsersInAgeAndGender(active,age,gender):
     max_age = age + 5
     result = list(users.find({ 'id' : { '$ne' : active } ,'gender' : gender, 'age' : { '$gte' : min_age , '$lte' : max_age }}, {'_id' : 0, 'id' : 1}))
     return result
+
+#Function to extract users with a given age range and gender other than the active user
+def getUsersInAgeAndGenderTraining(active,age,gender):
+    ids = []
+    for key in training_data:
+        ids.append(key)
+    min_age = age - 5
+    max_age = age + 5
+    result = list(users.find({ 'id' : { '$in' : ids } ,'gender' : gender, 'age' : { '$gte' : min_age , '$lte' : max_age }}, {'_id' : 0, 'id' : 1}))
+    return result
+
+
 
 #Function to return the friend list of a given user
 def getFriends(id):

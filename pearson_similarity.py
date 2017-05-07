@@ -1,9 +1,17 @@
-from math import sqrt
-from crud import *
+from init import *
 from collections import OrderedDict
 import statistics
 import operator
 import itertools
+
+#Initializing the test and training data sets for use
+training_data,test_data,new_users = initializeDataSet()
+
+#Getting the user average rating values
+avgs = calAverages(training_data)
+
+#Calcualting the user-user similiarities based on locations only
+all_sims = calSimilarities(training_data,avgs)
 
 #Fucntion to calculate the similarity between two users using the Pearsons correlation coefficient
 ##Parameters: Data set, id of person one, id of person two
@@ -130,7 +138,7 @@ def rateLocations(data,active,locations,avgs):
         #Handling new user scenario - user has no ratings
         for loc in locations:
             #Check if the location is a new location
-            if(isNewLocationTraining(training_data,loc,active)):
+            if(isNewLocationTraining(data,loc,active)):
                 print("New Location - New user")
                 #Handle new location
                 rating = getNewLocationRatingForNewUser(loc,active)
@@ -140,6 +148,7 @@ def rateLocations(data,active,locations,avgs):
                 print("Existing Location - New user")
                 #Get users in similar age and gender who have been to the given location
                 users = topUsersOnAttributesForLocation (data,active,loc)
+
                 total = 0
                 tot_avg = 0
                 #For each user get the location rating, average rating of user
@@ -155,6 +164,8 @@ def rateLocations(data,active,locations,avgs):
 
                 #Get the average of normalized ratings of the users for location
                 den = len(users)
+                if(den is 0):
+                    print("Alert!")
                 avg_of_avgs = tot_avg/den
                 avg_norm_rating = total/den
 
@@ -164,7 +175,7 @@ def rateLocations(data,active,locations,avgs):
         print(rated_locations)
         ##Sorting the dictionary
         final_locations = sorted(rated_locations, key=rated_locations.get, reverse=True)
-        return final_locations
+        return rated_locations, final_locations
 
     #Not a new user
     if (not user_status):
@@ -213,18 +224,25 @@ def rateLocations(data,active,locations,avgs):
 
 #Function to determine whether the user has existing preferences or not
 def isNewUser(active):
-    result = getUserPrefs(active)
-    if (result == None):
-        return True
-    else:
+#    result = getUserPrefs(active)
+#   if (result == None):
+#       return True
+#    else:
+#        return False
+    if(active in test_data.keys()):
         return False
+    else:
+        return True
+
+
 
 #Function to get the top users based on age and gender for a given location
 def topUsersOnAttributesForLocation (data,subject,location):
 
     #Get the users who have been to a particular location
     res = getUsersForLocation (data,subject,location)
-
+    if (len(res) == 0):
+        print ("No users")
     #Get the age and gender of the active user
     details = getUserDetails (subject)
     user_age = details['age']
@@ -232,6 +250,8 @@ def topUsersOnAttributesForLocation (data,subject,location):
 
     #Filter users who are in the same age range and gender
     users = filterUsersOnAgeGender(res,user_age,user_gender)
+    if (len(users)is 0):
+        users = res
     return users
 
 
@@ -344,7 +364,7 @@ def getNewLocationRatingForNewUser(loc,active):
     user_gender = details['gender']
 
     #Find users who are similar in age and gender
-    res = getUsersInAgeAndGender(active,user_age,user_gender)
+    res = getUsersInAgeAndGenderTraining(active,user_age,user_gender)
 
     #Find all the locations visited by the given users
     visited_ids = []
@@ -359,13 +379,19 @@ def getNewLocationRatingForNewUser(loc,active):
     #Out of the visited locations filter locations in same region having atleast one similar tag
     filtered_locations = filterLocations (area,tags,visited_ids)
 
+    if (len(filtered_locations) == 0):
+        filtered_locations = filterLocationsWithoutRegion (tags,visited_ids)
+
+    if(len(filtered_locations) == 0):
+        return 0
+
     #Calculate the tag similarity for each location
     for loc in filtered_locations:
         count = 0
         for tag in loc['types']:
             if tag in tags:
                 count += 1
-        if (count > 1):
+        if (count >= 1):
             #calculate the tag similarity
             den = len(tags) + len(loc['types'])
             sim = count/den
@@ -446,7 +472,7 @@ def getNewLocationRatingForNewUser(loc,active):
     return final_rating
 
 def hasBeenToLocation (user,loc):
-    for item in data[user]:
+    for item in training_data[user]:
         if item == loc:
             return True
     return False
