@@ -1,6 +1,5 @@
 #This is the initialization script
 from math import sqrt,log10
-
 from crud import *
 import statistics
 
@@ -42,6 +41,21 @@ def pearson_similarity (data,p1,p2,avgs):
 
     return r
 
+
+#Fucntion to include the basic profile similarity function to the pearson correlation
+##Parameters: Data set, id of person one, id of person two, avgs
+##Output: modified correlation coefficient
+
+def pearson_profile_similarity_basic (data,p1,p2,avgs,profile_sims):
+    #Get the pearson correlation coefficient for the two users
+    basic = pearson_similarity(data,p1,p2,avgs)
+    #Get the profile similarity for the two users
+    prof_sim = profile_sims[p1][p2]
+    avg_profile_sim = statistics.mean(profile_sims[p1][i] for i in profile_sims[p1])
+    r = basic * (prof_sim - avg_profile_sim)
+    return r
+
+
 #Function to calculate the user rating averages for all the users
 #Access the average of the active user as avgs [active]
 def calAverages(data):
@@ -53,16 +67,21 @@ def calAverages(data):
 
 #Function to calculate the Pearson Similarities for the users and store them in a matrix
 #Access the cimilarity value between active user and other user as all_sims[active][other]
-def calSimilarities(data,avgs):
+def calSimilarities(data,avgs,similarity):
     #Get the number of users in the system
     num_users = len(data)
     all_sims = {}
+    profile_sims = calProfileSimilarities()
     for active in data:
         my_sims = {}
         for user in data:
             if user != active:
-                sim = pearson_similarity(data,active,user,avgs)
-                my_sims[user] = sim
+                if(similarity == pearson_similarity):
+                    sim = similarity(data,active,user,avgs)
+                    my_sims[user] = sim
+                if (similarity == pearson_profile_similarity_basic):
+                    sim = similarity(data,active,user,avgs,profile_sims)
+                    my_sims[user] = sim
         all_sims[active] = my_sims
     return all_sims
 
@@ -70,7 +89,7 @@ def calSimilarities(data,avgs):
 def isProfileComplete(id):
     profile = dict(getUserDetails(id))
     length = profile.__len__()
-    if length is 7:
+    if length is 8:
         return True
     else:
         return False
@@ -296,3 +315,33 @@ def mutualBasedNetworkSimilarity(active,other):
 
     #If two users are friends calculate the tie strength between the two users
 
+
+#Function to return a completed profile prediction for a user
+def getProfilePrediction(active,other):
+
+    #Define the attributes to be predicted and attributes used for sim measurement
+    attributes = ['age','hometown','gender','education','religion']
+    attr_for_sims = ['age','hometown','gender','education','religion']
+
+    other_copy = other.copy()
+
+    for attr in attributes:
+        #Complete the profile of user two
+        if (attr not in other):
+            #Find the available options, their frequency and total mutuals with given attribute
+            filtered_options,total = filterMutualFriends(other['id'],active['id'],attr)
+            if total != 0:
+                #Sort the dict and get the most frequent entry
+                options = sorted(filtered_options.items(), key = lambda x : x[1], reverse=True)
+                predicted_value = options[0][0]
+                other_copy[attr] = predicted_value
+            else:
+                #There are no mutual friends with the attribute or no mutuals
+                #Use friends to filter the frequent observations
+                filtered_options,total = filterFriends(other['id'],attr)
+                if total != 0:
+                    #Sort the dict and get the most frequent entry
+                    options = sorted(filtered_options.items(), key = lambda x : x[1], reverse=True)
+                    predicted_value = options[0][0]
+                    other_copy[attr] = predicted_value
+    return other_copy

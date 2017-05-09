@@ -2,12 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="bfc5d3b8-1884-4224-9df0-6ebcf5b843df" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/init.py" afterPath="$PROJECT_DIR$/similarities.py" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/pearson_similarity.py" afterPath="$PROJECT_DIR$/rateLocations.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/crud.py" afterPath="$PROJECT_DIR$/crud.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eval.py" afterPath="$PROJECT_DIR$/eval.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_script.py" afterPath="$PROJECT_DIR$/new_script.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pearson_similarity.py" afterPath="$PROJECT_DIR$/pearson_similarity.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/script.py" afterPath="$PROJECT_DIR$/script.py" />
     </list>
     <ignored path="Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,9 +32,85 @@
       <file leaf-file-name="new_script.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/new_script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="100">
-              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+            <state relative-caret-position="80">
+              <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rateLocations.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rateLocations.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="120">
+              <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+                <element signature="e#403#1210#0" expanded="false" />
+                <element signature="e#1365#1476#0" expanded="false" />
+                <element signature="e#1698#5319#0" expanded="false" />
+                <element signature="e#5414#5617#0" expanded="false" />
+                <element signature="e#6503#6683#0" expanded="false" />
+                <element signature="e#6886#8954#0" expanded="false" />
+                <element signature="e#9149#12894#0" expanded="false" />
+                <element signature="e#12934#13031#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="similarities.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/similarities.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3880">
+              <caret line="340" column="0" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
+              <folding>
+                <element signature="e#35#62#0" expanded="true" />
+                <element signature="e#101#199#0" expanded="false" />
+                <element signature="e#339#1168#0" expanded="false" />
+                <element signature="e#1171#1256#0" expanded="false" />
+                <element signature="e#1439#1774#0" expanded="false" />
+                <element signature="e#1926#2103#0" expanded="false" />
+                <element signature="e#2332#2951#0" expanded="false" />
+                <element signature="e#3037#3176#0" expanded="false" />
+                <element signature="e#3267#3520#0" expanded="false" />
+                <element signature="e#3615#4389#0" expanded="false" />
+                <element signature="e#10021#10149#0" expanded="false" />
+                <element signature="e#10250#10775#0" expanded="false" />
+                <element signature="e#10897#11309#0" expanded="false" />
+                <element signature="e#11455#12063#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="eval.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/eval.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="235">
+              <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#751#968#0" expanded="false" />
+                <element signature="e#1066#1110#0" expanded="false" />
+                <element signature="e#1220#1459#0" expanded="false" />
+                <element signature="e#1542#1642#0" expanded="false" />
+                <element signature="e#1721#2814#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crud.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crud.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2180">
+              <caret line="180" column="17" selection-start-line="180" selection-start-column="4" selection-end-line="180" selection-end-column="17" />
+              <folding>
+                <element signature="e#640#1720#0" expanded="false" />
+                <element signature="e#1979#2323#0" expanded="false" />
+                <element signature="e#4957#5632#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,16 +134,18 @@
         <option value="$PROJECT_DIR$/Data/friends.py" />
         <option value="$PROJECT_DIR$/Data/users.py" />
         <option value="$PROJECT_DIR$/Data/dataScript.py" />
-        <option value="$PROJECT_DIR$/init.py" />
         <option value="$PROJECT_DIR$/script.py" />
         <option value="$PROJECT_DIR$/googlePlaces.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/change_preferences.py" />
         <option value="C:/Python34/Lib/site-packages/scipy/__init__.py" />
-        <option value="$PROJECT_DIR$/crud.py" />
-        <option value="$PROJECT_DIR$/eval.py" />
+        <option value="$PROJECT_DIR$/init.py" />
         <option value="$PROJECT_DIR$/pearson_similarity.py" />
+        <option value="$PROJECT_DIR$/rateLocations.py" />
         <option value="$PROJECT_DIR$/new_script.py" />
+        <option value="$PROJECT_DIR$/crud.py" />
+        <option value="$PROJECT_DIR$/similarities.py" />
+        <option value="$PROJECT_DIR$/eval.py" />
       </list>
     </option>
   </component>
@@ -129,40 +209,6 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Python.new_script">
-    <configuration default="false" name="new_script" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_script.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="googlePlaces" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/googlePlaces.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="crud" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -209,7 +255,41 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/pearson_similarity.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Senuri\Documents\Project\rateLocations.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="eval" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/eval.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="new_script" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/new_script.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -362,19 +442,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.new_script" />
-      <item index="1" class="java.lang.String" itemvalue="Python.googlePlaces" />
-      <item index="2" class="java.lang.String" itemvalue="Python.crud" />
-      <item index="3" class="java.lang.String" itemvalue="Python.test" />
-      <item index="4" class="java.lang.String" itemvalue="Python.pearson_similarity" />
+      <item index="0" class="java.lang.String" itemvalue="Python.crud" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test" />
+      <item index="2" class="java.lang.String" itemvalue="Python.pearson_similarity" />
+      <item index="3" class="java.lang.String" itemvalue="Python.eval" />
+      <item index="4" class="java.lang.String" itemvalue="Python.new_script" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.new_script" />
-        <item index="1" class="java.lang.String" itemvalue="Python.crud" />
-        <item index="2" class="java.lang.String" itemvalue="Python.pearson_similarity" />
-        <item index="3" class="java.lang.String" itemvalue="Python.test" />
-        <item index="4" class="java.lang.String" itemvalue="Python.googlePlaces" />
+        <item index="1" class="java.lang.String" itemvalue="Python.eval" />
+        <item index="2" class="java.lang.String" itemvalue="Python.crud" />
+        <item index="3" class="java.lang.String" itemvalue="Python.pearson_similarity" />
+        <item index="4" class="java.lang.String" itemvalue="Python.test" />
       </list>
     </recent_temporary>
   </component>
@@ -435,24 +515,9 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pearson_similarity.py</url>
-          <line>167</line>
-          <option name="timeStamp" value="192" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pearson_similarity.py</url>
-          <line>244</line>
-          <option name="timeStamp" value="203" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/pearson_similarity.py</url>
-          <line>243</line>
-          <option name="timeStamp" value="207" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/new_script.py</url>
           <line>3</line>
-          <option name="timeStamp" value="209" />
+          <option name="timeStamp" value="231" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
@@ -462,19 +527,12 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="210" />
+      <option name="time" value="242" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/crud.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1700">
-          <caret line="85" column="0" selection-start-line="85" selection-start-column="0" selection-end-line="85" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/init.py">
+    <entry file="file://$PROJECT_DIR$/similarities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -488,7 +546,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/init.py">
+    <entry file="file://$PROJECT_DIR$/similarities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -502,7 +560,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/init.py">
+    <entry file="file://$PROJECT_DIR$/similarities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -523,7 +581,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/init.py">
+    <entry file="file://$PROJECT_DIR$/similarities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -544,7 +602,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/init.py">
+    <entry file="file://$PROJECT_DIR$/similarities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -572,7 +630,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pearson_similarity.py">
+    <entry file="file://$PROJECT_DIR$/rateLocations.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
@@ -593,7 +651,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pearson_similarity.py">
+    <entry file="file://$PROJECT_DIR$/rateLocations.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -621,7 +679,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pearson_similarity.py">
+    <entry file="file://$PROJECT_DIR$/rateLocations.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -769,10 +827,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/init.py">
+    <entry file="file://$APPLICATION_HOME_DIR$/helpers/pydev/_pydev_imps/_pydev_execfile.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-813">
-          <caret line="6" column="56" selection-start-line="6" selection-start-column="56" selection-end-line="6" selection-end-column="56" />
+        <state relative-caret-position="167">
+          <caret line="17" column="0" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -790,45 +848,78 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crud.py">
+    <entry file="file://$PROJECT_DIR$/rateLocations.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-65">
-          <caret line="85" column="17" selection-start-line="85" selection-start-column="4" selection-end-line="85" selection-end-column="17" />
+        <state relative-caret-position="120">
+          <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
           <folding>
-            <element signature="e#4957#5629#0" expanded="false" />
+            <element signature="e#0#26#0" expanded="true" />
+            <element signature="e#403#1210#0" expanded="false" />
+            <element signature="e#1365#1476#0" expanded="false" />
+            <element signature="e#1698#5319#0" expanded="false" />
+            <element signature="e#5414#5617#0" expanded="false" />
+            <element signature="e#6503#6683#0" expanded="false" />
+            <element signature="e#6886#8954#0" expanded="false" />
+            <element signature="e#9149#12894#0" expanded="false" />
+            <element signature="e#12934#13031#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pearson_similarity.py">
+    <entry file="file://$PROJECT_DIR$/similarities.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="146">
-          <caret line="252" column="21" selection-start-line="252" selection-start-column="21" selection-end-line="252" selection-end-column="21" />
+        <state relative-caret-position="3880">
+          <caret line="340" column="0" selection-start-line="340" selection-start-column="0" selection-end-line="340" selection-end-column="0" />
           <folding>
-            <element signature="e#1683#1927#0" expanded="false" />
-            <element signature="e#3193#3304#0" expanded="false" />
-            <element signature="e#8438#8618#0" expanded="false" />
+            <element signature="e#35#62#0" expanded="true" />
+            <element signature="e#101#199#0" expanded="false" />
+            <element signature="e#339#1168#0" expanded="false" />
+            <element signature="e#1171#1256#0" expanded="false" />
+            <element signature="e#1439#1774#0" expanded="false" />
+            <element signature="e#1926#2103#0" expanded="false" />
+            <element signature="e#2332#2951#0" expanded="false" />
+            <element signature="e#3037#3176#0" expanded="false" />
+            <element signature="e#3267#3520#0" expanded="false" />
+            <element signature="e#3615#4389#0" expanded="false" />
+            <element signature="e#10021#10149#0" expanded="false" />
+            <element signature="e#10250#10775#0" expanded="false" />
+            <element signature="e#10897#11309#0" expanded="false" />
+            <element signature="e#11455#12063#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crud.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2180">
+          <caret line="180" column="17" selection-start-line="180" selection-start-column="4" selection-end-line="180" selection-end-column="17" />
+          <folding>
+            <element signature="e#640#1720#0" expanded="false" />
+            <element signature="e#1979#2323#0" expanded="false" />
+            <element signature="e#4957#5632#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/eval.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+        <state relative-caret-position="235">
+          <caret line="122" column="0" selection-start-line="122" selection-start-column="0" selection-end-line="122" selection-end-column="0" />
           <folding>
             <element signature="e#0#31#0" expanded="true" />
-            <element signature="e#650#867#0" expanded="false" />
-            <element signature="e#965#1009#0" expanded="false" />
-            <element signature="e#1441#1541#0" expanded="false" />
+            <element signature="e#751#968#0" expanded="false" />
+            <element signature="e#1066#1110#0" expanded="false" />
+            <element signature="e#1220#1459#0" expanded="false" />
+            <element signature="e#1542#1642#0" expanded="false" />
+            <element signature="e#1721#2814#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/new_script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+        <state relative-caret-position="80">
+          <caret line="4" column="0" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>

@@ -1,6 +1,6 @@
-from pearson_similarity import *
+from rateLocations import *
 from crud import *
-from init import *
+from similarities import *
 
 a = []
 b = []

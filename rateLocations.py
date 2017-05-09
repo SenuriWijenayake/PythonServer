@@ -1,75 +1,14 @@
-from init import *
+from similarities import *
 from collections import OrderedDict
 import statistics
 import operator
 import itertools
 
-#Initializing the test and training data sets for use
-training_data,test_data,new_users = initializeDataSet()
-
-#Getting the user average rating values
-avgs = calAverages(training_data)
-
-#Calcualting the user-user similiarities based on locations only
-all_sims = calSimilarities(training_data,avgs)
-
-#Fucntion to calculate the similarity between two users using the Pearsons correlation coefficient
-##Parameters: Data set, id of person one, id of person two
-##Output: corelation coefficient
-
-def pearson_similarity (data,p1,p2,avgs):
-    #Get the list of similar locations between the users
-    similar_items = {}
-    for item in data[p1]:
-        if item in data[p2]:
-            similar_items[item] = 1
-
-    if len(similar_items) == 0:
-        return 0
-
-    #Get the variables ready for the calculation
-    n = len(similar_items)
-
-    #Get the average for each user
-    avgx = avgs[p1]
-    avgy = avgs[p2]
-
-    #Calculate the sum of normalized squared preferences
-    sumx2 = sum(pow(data[p1][item] - avgx,2) for item in similar_items)
-    sumy2 = sum(pow(data[p2][item] - avgy,2) for item in similar_items)
-
-    #sum of products
-    sumxy = sum((data[p1][item] - avgx) * (data[p2][item] - avgy) for item in similar_items)
-
-    #Pearson calculation for r
-    num = sumxy
-    den = sqrt(sumx2 * sumy2)
-
-    if den == 0:
-        return 0
-    r = num/den
-
-    return r
-
-#Funtion to return top n similar users
-#Input Parameters : data set, key person, number of similar users (n)
-#Output : r between the two users, other user
-
-def topSimilarUsers(data,subject,n,similarity):
-    #Calculate r for subject and every other user
-    similarity_scores = [(similarity(data,subject,other),other) for other in data if other!= subject]
-
-    similarity_scores.sort()
-    similarity_scores.reverse()
-
-    return similarity_scores[0:n]
-
-
 #Funtion to return top n similar users who have gone to a given location
 #Input Parameters : data set, key person, location, number of users, similarity measure
 #Output : top n similar users, and the similarity
 
-def topSimilarUsersForLocation(data,subject,location,n,similarity,avgs):
+def topSimilarUsersForLocation(data,subject,location,n,all_sims,avgs):
 
     similarity_scores = {}
     sorted_users = {}
@@ -80,7 +19,7 @@ def topSimilarUsersForLocation(data,subject,location,n,similarity,avgs):
             for i in data[user]:
                 if location == i:
                     #Calculate r for subject and the user
-                    r = similarity(data,subject,user,avgs)
+                    r = all_sims[subject][user]
                     similarity_scores[user] = r
 
     num = len(similarity_scores)
@@ -120,12 +59,11 @@ def getKValue(users):
 #Input Parameters: Set of locations, id of the active user, set of locations to be rated
 #Output: Ranked locations
 
-def rateLocations(data,active,locations,avgs):
+def rateLocations(data,active,locations,avgs,all_sims):
 
     rated_locations = {}
 
     n = 5
-    similarity = pearson_similarity
 
     #Check if the locations list is null
     if locations == [] or locations == '':
@@ -154,7 +92,7 @@ def rateLocations(data,active,locations,avgs):
                 #For each user get the location rating, average rating of user
                 for user in users:
 
-                    avg_user = statistics.mean(data[user][i] for i in data[user])
+                    avg_user = avgs[user]
                     loc_rating = data[user][loc]
                     normalized_rating = loc_rating - avg_user
                     #Get the sum of the normalized ratings
@@ -196,7 +134,7 @@ def rateLocations(data,active,locations,avgs):
                 print("Existing Location - Existing user")
                 total = 0
                 #Get the top similar users for the locations
-                users = topSimilarUsersForLocation(data,active,loc,n,similarity,avgs)
+                users = topSimilarUsersForLocation(data,active,loc,n,all_sims,avgs)
 
                 #Get the k value for the location
                 k = getKValue(users)
@@ -207,7 +145,7 @@ def rateLocations(data,active,locations,avgs):
                     rating = data[id][loc]
 
                     #Get the average rating of the user
-                    average = statistics.mean(data[id][i] for i in data[id])
+                    average = avgs[id]
                     norm_rate = rating - average
                     norm_sim_product = user[1] * norm_rate
                     total += norm_sim_product

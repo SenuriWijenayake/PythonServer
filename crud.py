@@ -177,3 +177,10 @@ def remove_duplicates ():
                 db.locations.remove({"_id" : id['_id']})
 
 
+#Function to create an array of user ids
+def getAllUserIds():
+    users = list(getAllUsers())
+    all_users = []
+    for user in users:
+        all_users.append(user['id'])
+    return all_users
