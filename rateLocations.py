@@ -80,7 +80,7 @@ def rateLocations(data,active,locations,avgs,all_sims):
                 print("New Location - New user")
                 #Handle new location
                 rating = getNewLocationRatingForNewUser(loc,active)
-                rated_locations[loc] = rating
+                rated_locations[loc] = round(rating,1)
 
             else:
                 print("Existing Location - New user")
@@ -108,7 +108,7 @@ def rateLocations(data,active,locations,avgs,all_sims):
                 avg_norm_rating = total/den
 
                 rating = avg_of_avgs + avg_norm_rating
-                rated_locations[loc] = rating
+                rated_locations[loc] = round(rating,1)
 
         print(rated_locations)
         ##Sorting the dictionary
@@ -128,7 +128,7 @@ def rateLocations(data,active,locations,avgs,all_sims):
                 print("New Location - Existing user")
                 #Handle new location
                 rating = getNewLocationRatingForExistingUser(loc,active)
-                rated_locations[loc] = rating
+                rated_locations[loc] = round(rating,1)
 
             else:
                 print("Existing Location - Existing user")
@@ -151,7 +151,7 @@ def rateLocations(data,active,locations,avgs,all_sims):
                     total += norm_sim_product
 
                 #Calculate the score of the location
-                rated_locations[loc] = (active_avg + k * total)
+                rated_locations[loc] = round((active_avg + k * total),1)
 
         print(rated_locations)
 
@@ -292,9 +292,9 @@ def getNewLocationRatingForNewUser(loc,active):
     top_locations = {}
 
     #Get location details
-    details = getLocationDetails (loc)
-    area = details['area']
-    tags = details['types']
+    details_loc = getLocationDetails (loc)
+    area = details_loc['area']
+    tags = details_loc['types']
 
     #Get the age and gender of the active user
     details = getUserDetails (active)
@@ -374,8 +374,6 @@ def getNewLocationRatingForNewUser(loc,active):
             loc_rating = training_data[user][loc_id]
             normalized_rating = loc_rating - avg_user
 
-            #Get the group total rating for location
-            group_total += loc_rating
             #Get the sum of the normalized ratings
             total += normalized_rating
             #Get the sum of averages
@@ -388,25 +386,24 @@ def getNewLocationRatingForNewUser(loc,active):
 
         #Calcualte initial rating
         rating = avg_of_avgs + avg_norm_rating
-        group_avg = group_total/den
 
         #Save location details
 
         top = dict(top_locations)
         sim_score = top[loc_id]
-        location_outputs.append({'loc_id' : loc_id, 'rating' : rating, 'simScore' : sim_score, 'average' : group_avg, 'userGroupAverage' : avg_of_avgs})
+        location_outputs.append({'loc_id' : loc_id, 'rating' : rating, 'simScore' : sim_score})
 
 
     #Calculating the rating for new location
     tot = 0
-    avg = 0
+
     for l in location_outputs:
-        tot += l['average'] * l['simScore']
-        avg += l['userGroupAverage']
+        tot += l['rating'] * l['simScore']
 
     den = len(location_outputs)
 
-    final_rating = (avg/den)+ (tot/den)
+    final_rating = 3 + (tot/den)
+
     return final_rating
 
 def hasBeenToLocation (user,loc):

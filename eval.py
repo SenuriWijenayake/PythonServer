@@ -9,16 +9,16 @@ client = MongoClient('localhost', 27017)
 db = client.script
 
 #Define the similarity measurement
-#similarity = pearson_profile_similarity_basic
+similarity = pearson_similarity
 
 #Initializing the test and training data sets for use
-#training_data,test_data,new_users = initializeDataSet()
+training_data,test_data,new_users = initializeDataSet()
 
 #Getting the user average rating values
-#avgs = calAverages(training_data)
+avgs = calAverages(training_data)
 
 #Calcualting the user-user similiarities based on locations only
-#all_sims = calSimilarities(training_data,avgs,similarity)
+all_sims = calSimilarities(training_data,avgs,similarity)
 
 
 

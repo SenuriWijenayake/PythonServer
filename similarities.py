@@ -62,7 +62,7 @@ def calAverages(data):
     all_averages = {}
     for user in data:
         mean_rating = statistics.mean(data[user][i] for i in data[user])
-        all_averages[user] = mean_rating
+        all_averages[user] = round(mean_rating,1)
     return all_averages
 
 #Function to calculate the Pearson Similarities for the users and store them in a matrix
