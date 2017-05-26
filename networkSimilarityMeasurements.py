@@ -79,7 +79,7 @@ def comments_likes_by_friend(active,other):
                 if (like['id'] == other):
                     num_likes += 1
 
-    print (num_comments,num_likes)
+    return ({'comments':num_comments, 'likes':num_likes})
 
 #Intensity Variables
 #Last communication (posted,commented or liked etc)
@@ -101,18 +101,24 @@ def last_communication (active,other):
                 if (like['id'] == other):
                     date.append(post['created_time'][0:10])
 
+    if (len(date) == 0):
+        return -1
+
     final_day = date[0]
     for day in date:
         if (day > final_day):
             final_day = day
 
     final_day = datetime.strptime(final_day, '%Y-%m-%d')
-    days = str(date_collected - final_day)
-    print (days[0:2])
+    days = (str(date_collected - final_day))[0:2]
+    if (days == '0:'):
+        return 0
+    else:
+        return int(days)
 
 
 #Get the number of total friends on facebook
-def get_friends(active):
+def get_friends_count(active):
     num = friends.find_one({"id":active},{"_id":0,"total_count":1})
     return num['total_count']
 
@@ -162,5 +168,33 @@ def mutuals_over_distinct_friends(active,other):
 
 
 
-mutuals_over_distinct_friends('4506624800235','279619438908503')
-#last_communication('279619438908503','4506624800235')
+#Function to calculate the above measures for all users who are friends of one another
+def calculateNetworkMeasurements():
+    all_users = list(getAllUsers())
+    all_sims = {}
+    count = 0
+    for user in all_users:
+        count += 1
+        active = user['id']
+        my_sims = {}
+        #Get the user's friends
+        my_friends = getFriends(active)
+        for other in my_friends['friends']:
+            sim_for_friend = {
+                'outbound_posts': outbound_posts(active,other),
+                'inbound_posts' : outbound_posts(other,active),
+                'wall_words': int(wall_words(active,other)) + int(wall_words(other,active)),
+                'num_likes_comments_out' : comments_likes_by_friend(active,other),
+                'num_likes_comments_in' : comments_likes_by_friend(other,active),
+                'last_communication': last_communication(active,other),
+                'friend_count' : get_friends_count(active),
+                'appearence in photos' : appearence_in_photos_locations_together(active,other),
+                'mutuals_distinct_friends' : mutuals_over_distinct_friends(active,other)
+            }
+            my_sims[other] = sim_for_friend
+        #all_sims[active] = my_sims
+        db.networkSims.insert({'id':active, 'similarities' : my_sims})
+        print (count)
+    return all_sims
+
+calculateNetworkMeasurements()
