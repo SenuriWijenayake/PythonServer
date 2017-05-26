@@ -8,6 +8,7 @@ users = db.users
 locationPosts = db.locationPosts
 friends = db.friends
 locations = db.locations
+feed = db.feeds
 
 #Function to retreieve user preferences when given id
 #Input Parameters: user id
@@ -184,3 +185,8 @@ def getAllUserIds():
     for user in users:
         all_users.append(user['id'])
     return all_users
+
+#Function to get user feed
+def getFeedOfUser(active):
+    result = feed.find_one({'user_id':active},{'_id':0})
+    return result

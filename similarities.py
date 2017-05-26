@@ -314,7 +314,8 @@ def mutualBasedNetworkSimilarity(active,other):
         return 0
 
     #If two users are friends calculate the tie strength between the two users
-
+    if (isFriends(active,other)):
+        return -1
 
 #Function to return a completed profile prediction for a user
 def getProfilePrediction(active,other):
@@ -345,3 +346,18 @@ def getProfilePrediction(active,other):
                     predicted_value = options[0][0]
                     other_copy[attr] = predicted_value
     return other_copy
+
+
+#Function to calcualte all the network similarities
+def calculateNetworkSimilarities():
+    all_users = list(getAllUsers())
+    all_sims = {}
+
+    for active in all_users:
+        my_sims = {}
+        for other in all_users:
+            if (active['id'] is not other['id']):
+                sim = mutualBasedNetworkSimilarity(active['id'],other['id'])
+                my_sims[other['id']] = sim
+        all_sims[active['id']] = my_sims
+    return all_sims
