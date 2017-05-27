@@ -197,4 +197,4 @@ def calculateNetworkMeasurements():
         print (count)
     return all_sims
 
-calculateNetworkMeasurements()
+
