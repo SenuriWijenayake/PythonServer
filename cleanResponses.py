@@ -44,16 +44,20 @@ def createCSV():
                 comments = int(other['num_likes_comments_in']['comments']) + int(other['num_likes_comments_out']['comments'])
                 likes = other['num_likes_comments_in']['likes'] + other['num_likes_comments_out']['likes']
                 friends = db.friends.find_one({'id':active},{'_id':0,'friends':1})
-
+                last_comm = other['last_communication']
+                if (last_comm == -1):
+                    last_comm = 100
+                elif (last_comm < -1):
+                    last_comm = last_comm + 6
                 object = {
                     'id': active + "_" + str(otr),
                     'wall_words': other['wall_words'],
                     'locations_together' : other['appearence in photos']['location_count'],
                     'photos_together' : other['appearence in photos']['photo_count'],
-                    'last_comm' : other['last_communication'],
+                    'last_comm' : last_comm,
                     'likes' : likes,
                     'comments' : comments,
-                    'mutuals_distinct' : round(other['mutuals_distinct_friends']['mutuals'] / len(friends['friends'])),
+                    'mutuals_distinct' : other['mutuals_distinct_friends']['mutuals'],
                     'posts' : other['inbound_posts'] + other['outbound_posts'],
                     'user_friends': len(friends['friends'])
                 }
