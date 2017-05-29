@@ -2,6 +2,9 @@
 from math import sqrt,log10
 from crud import *
 import statistics
+import numpy as np
+from getPrediction import getPredictionForNetwork
+
 
 #Fucntion to calculate the similarity between two users using the Pearsons correlation coefficient
 ##Parameters: Data set, id of person one, id of person two
@@ -56,6 +59,22 @@ def pearson_profile_similarity_basic (data,p1,p2,avgs,profile_sims):
     return r
 
 
+#Fucntion to include the basic profile similarity function and the network similarity to the pearson correlation
+##Parameters: Data set, id of person one, id of person two, avgs, profile similarity and the network similarities
+##Output: modified correlation coefficient
+
+def pearson_profile_network_similarity (data,p1,p2,avgs,profile_sims,network_sims):
+    #Get the pearson correlation coefficient for the two users
+    basic = pearson_similarity(data,p1,p2,avgs)
+    #Get the profile similarity for the two users
+    prof_sim = profile_sims[p1][p2]
+    #Get the network similarity for the two users
+    net_sim = network_sims[p1][p2]
+    avg_profile_sim = statistics.mean(profile_sims[p1][i] for i in profile_sims[p1])
+    avg_net_sim = statistics.mean(network_sims[p1][i] for i in network_sims[p1])
+    r = basic * (net_sim - avg_net_sim) * (prof_sim - avg_profile_sim)
+    return r
+
 #Function to calculate the user rating averages for all the users
 #Access the average of the active user as avgs [active]
 def calAverages(data):
@@ -72,6 +91,7 @@ def calSimilarities(data,avgs,similarity):
     num_users = len(data)
     all_sims = {}
     profile_sims = calProfileSimilarities()
+    network_sims = calculateNetworkSimilarities()
     for active in data:
         my_sims = {}
         for user in data:
@@ -81,6 +101,9 @@ def calSimilarities(data,avgs,similarity):
                     my_sims[user] = sim
                 if (similarity == pearson_profile_similarity_basic):
                     sim = similarity(data,active,user,avgs,profile_sims)
+                    my_sims[user] = sim
+                if (similarity == pearson_profile_network_similarity):
+                    sim = similarity(data,active,user,avgs,profile_sims,network_sims)
                     my_sims[user] = sim
         all_sims[active] = my_sims
     return all_sims
@@ -315,7 +338,10 @@ def mutualBasedNetworkSimilarity(active,other):
 
     #If two users are friends calculate the tie strength between the two users
     if (isFriends(active,other)):
-        return -1
+        r = getDetailsForPrediction (active,other)
+        arr = [r['gender'],r['age_gap'],r['wall_words'],r['likes'],r['locations_together'],r['photos_together'],r['user_friends'],r['mutual_strength'],r['last_comm']]
+        prediction = getPredictionForNetwork(np.array(arr))
+        return prediction[0]
 
 #Function to return a completed profile prediction for a user
 def getProfilePrediction(active,other):
@@ -361,3 +387,73 @@ def calculateNetworkSimilarities():
                 my_sims[other['id']] = sim
         all_sims[active['id']] = my_sims
     return all_sims
+
+
+#Function to extract the data for network similarity measurement
+def getDetailsForPrediction(active,other):
+    result = db.networkSims.find_one({'id':active},{'similarities':1,'_id':0})
+    data = result['similarities'][other]
+
+    friends = db.friends.find_one({'id':active},{'_id':0})
+    profile = profile_similarity(active,other)
+
+    mutual_strength = data['mutuals_distinct_friends']['mutuals'] / len(friends['friends'])
+    likes = data['num_likes_comments_in']['likes'] + data['num_likes_comments_out']['likes']
+    last_comm = data['last_communication']
+    if (last_comm == -1):
+        last_comm = 100
+    elif (last_comm < -1):
+        last_comm = last_comm + 6
+
+    object = {
+        'wall_words': data['wall_words'],
+        'locations_together' : data['appearence in photos']['location_count'],
+        'photos_together' : data['appearence in photos']['photo_count'],
+        'last_comm' : last_comm,
+        'likes' : likes,
+        'user_friends': len(friends['friends']),
+        'mutual_strength': mutual_strength,
+        'age_gap' : profile['age_gap'],
+        'gender' : profile['gender']
+    }
+    return object
+
+
+
+#Social Variables
+def profile_similarity(u,x):
+    active = dict(getUserDetails(u))
+    other = dict(getUserDetails(x))
+
+    #Define the attributes to be predicted and attributes used for sim measurement
+    attributes = ['age','gender','religion']
+
+    #Creating profile
+    age_gap = abs(active['age'] - other['age'])
+    religion = 0
+    gender = 0
+
+    if (active['religion'] == other['religion']):
+        religion = 1
+    if (active['gender'] == other['gender']):
+        gender = 1
+
+    count = 0
+    for item in attributes:
+        if(active[item] == other[item]):
+            count += 1
+    #Even if there are not many predicted attributes we still divide it by 5
+    #If the values can't be predicted the users are not similar
+    profSim = count/3
+
+    object = {
+        'profileSim' : profSim,
+        'age_gap' : age_gap,
+        'gender' : gender,
+        'religion' : religion
+    }
+
+    return object
+
+
+

@@ -9,7 +9,7 @@ client = MongoClient('localhost', 27017)
 db = client.script
 
 #Define the similarity measurement
-similarity = pearson_similarity
+similarity = pearson_profile_network_similarity
 
 #Initializing the test and training data sets for use
 training_data,test_data,new_users = initializeDataSet()
