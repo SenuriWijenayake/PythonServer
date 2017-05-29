@@ -1,11 +1,13 @@
 from pymongo import MongoClient
 from crud import *
+from networkSimilarityMeasurements import *
 
 client = MongoClient('localhost', 27017)
 db = client.script
 
 raw_responses = db.responses_raw.find()
 responses = db.responses
+friends = list(db.friends.find())
 
 def findResponsesOfUser (active):
     res = db.responses_raw.find({'active':active})
@@ -39,16 +41,19 @@ def createCSV():
             response = db.responses_raw.find_one({'active':active, 'other': otr})
 
             if(response is not None):
-                arr.append (active + "_" + otr)
-                print (len(arr))
+                friends = db.friends.find_one({'id':active},{'_id':0})
+                profile = profile_similarity(active,str(otr))
+                mutual_strength = other['mutuals_distinct_friends']['mutuals'] / len(friends['friends'])
+
                 comments = int(other['num_likes_comments_in']['comments']) + int(other['num_likes_comments_out']['comments'])
                 likes = other['num_likes_comments_in']['likes'] + other['num_likes_comments_out']['likes']
-                friends = db.friends.find_one({'id':active},{'_id':0,'friends':1})
+
                 last_comm = other['last_communication']
                 if (last_comm == -1):
                     last_comm = 100
                 elif (last_comm < -1):
                     last_comm = last_comm + 6
+
                 object = {
                     'id': active + "_" + str(otr),
                     'wall_words': other['wall_words'],
@@ -57,9 +62,15 @@ def createCSV():
                     'last_comm' : last_comm,
                     'likes' : likes,
                     'comments' : comments,
-                    'mutuals_distinct' : other['mutuals_distinct_friends']['mutuals'],
+                    'mutuals' : other['mutuals_distinct_friends']['mutuals'],
                     'posts' : other['inbound_posts'] + other['outbound_posts'],
-                    'user_friends': len(friends['friends'])
+                    'user_friends': len(friends['friends']),
+                    'total_friend_count' : friends['total_count'],
+                    'mutual_strength': mutual_strength,
+                    'age_gap' : profile['age_gap'],
+                    'religion' : profile['religion'],
+                    'gender' : profile['gender'],
+                    'profile_sim' : profile['profileSim']
                 }
 
                 objectOne = object.copy()
@@ -77,6 +88,18 @@ def createCSV():
                 db.question_three.insert(objectThree)
                 db.question_four.insert(objectFour)
 
-
-
 #createCSV()
+
+#Function to find friends
+def find_friends(active):
+    print ("New User" + active)
+    friends_found = []
+    for user in friends:
+        if (active in user['friends']):
+            friends_found.append(user['id'])
+
+    my_list = db.friends.find_one({'id':active},{'_id':0,'friends':1})
+    for id in friends_found:
+        if (id not in my_list['friends']):
+            print ("Id not found : " + id)
+

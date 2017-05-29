@@ -1,0 +1,35 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               response   R-squared:                       0.388
+Model:                            OLS   Adj. R-squared:                  0.356
+Method:                 Least Squares   F-statistic:                     12.28
+Date:                Mon, 29 May 2017   Prob (F-statistic):           8.27e-18
+Time:                        11:41:53   Log-Likelihood:                -274.98
+No. Observations:                 225   AIC:                             574.0
+Df Residuals:                     213   BIC:                             614.9
+Df Model:                          11                                         
+Covariance Type:            nonrobust                                         
+======================================================================================
+                         coef    std err          t      P>|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------
+Intercept             -0.2083      0.162     -1.284      0.200      -0.528       0.111
+gender                 0.4387      0.130      3.384      0.001       0.183       0.694
+religion              -0.0647      0.149     -0.436      0.663      -0.358       0.228
+age_gap                0.0786      0.058      1.365      0.174      -0.035       0.192
+mutual_strength        0.1393      0.076      1.834      0.068      -0.010       0.289
+wall_words             0.0422      0.071      0.590      0.556      -0.099       0.183
+locations_together     0.2282      0.085      2.679      0.008       0.060       0.396
+comments               0.1592      0.111      1.441      0.151      -0.059       0.377
+user_friends          -0.1462      0.083     -1.756      0.080      -0.310       0.018
+photos_together        0.0226      0.108      0.208      0.835      -0.191       0.236
+likes                  0.1688      0.094      1.804      0.073      -0.016       0.353
+last_comm             -0.1128      0.058     -1.932      0.055      -0.228       0.002
+==============================================================================
+Omnibus:                        0.091   Durbin-Watson:                   1.568
+Prob(Omnibus):                  0.956   Jarque-Bera (JB):                0.180
+Skew:                           0.042   Prob(JB):                        0.914
+Kurtosis:                       2.890   Cond. No.                         7.41
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

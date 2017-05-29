@@ -168,6 +168,41 @@ def mutuals_over_distinct_friends(active,other):
 
 
 
+#Social Variables
+def profile_similarity(u,x):
+    active = dict(getUserDetails(u))
+    other = dict(getUserDetails(x))
+
+    #Define the attributes to be predicted and attributes used for sim measurement
+    attributes = ['age','gender','religion']
+
+    #Creating profile
+    age_gap = abs(active['age'] - other['age'])
+    religion = 0
+    gender = 0
+
+    if (active['religion'] == other['religion']):
+        religion = 1
+    if (active['gender'] == other['gender']):
+        gender = 1
+
+    count = 0
+    for item in attributes:
+        if(active[item] == other[item]):
+            count += 1
+    #Even if there are not many predicted attributes we still divide it by 5
+    #If the values can't be predicted the users are not similar
+    profSim = count/3
+
+    object = {
+        'profileSim' : profSim,
+        'age_gap' : age_gap,
+        'gender' : gender,
+        'religion' : religion
+    }
+
+    return object
+
 #Function to calculate the above measures for all users who are friends of one another
 def calculateNetworkMeasurements():
     all_users = list(getAllUsers())
@@ -198,3 +233,4 @@ def calculateNetworkMeasurements():
     return all_sims
 
 
+#calculateNetworkMeasurements()
