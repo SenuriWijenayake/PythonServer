@@ -72,7 +72,7 @@ def pearson_profile_network_similarity (data,p1,p2,avgs,profile_sims,network_sim
     net_sim = network_sims[p1][p2]
     avg_profile_sim = statistics.mean(profile_sims[p1][i] for i in profile_sims[p1])
     avg_net_sim = statistics.mean(network_sims[p1][i] for i in network_sims[p1])
-    r = basic * (net_sim - avg_net_sim) * (prof_sim - avg_profile_sim)
+    r = basic * prof_sim
     return r
 
 #Function to calculate the user rating averages for all the users
