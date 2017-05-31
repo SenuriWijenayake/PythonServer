@@ -19,8 +19,7 @@ training_data,test_data,new_users = initializeDataSet()
 #Getting the user average rating values
 avgs = calAverages(training_data)
 
-#Calcualting the user-user similiarities based on locations only
-
+#Initializing the regression model
 data = pd.read_csv('csv/TrainingSet/final_training_set.csv', sep=',', na_values="")
 
 # Train the model
@@ -29,6 +28,7 @@ y = data.response
 lm = LinearRegression(normalize=False)
 lm.fit(X, y)
 
+#Calcualting the user-user similiarities based on the defined similarity measure
 all_sims = calSimilarities(training_data,avgs,similarity,lm)
 
 #Function to get the existing locations for a given user
