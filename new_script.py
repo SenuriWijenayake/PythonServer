@@ -1,5 +1,4 @@
 from eval import *
-from similarities import *
 
 calculate_errors()
 #user = "1665852693730402"

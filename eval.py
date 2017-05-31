@@ -4,6 +4,8 @@ from sklearn.metrics import mean_absolute_error, mean_squared_error
 from math import sqrt
 from rateLocations import *
 from similarities import *
+import pandas as pd
+from sklearn.linear_model import LinearRegression
 
 client = MongoClient('localhost', 27017)
 db = client.script
@@ -18,7 +20,16 @@ training_data,test_data,new_users = initializeDataSet()
 avgs = calAverages(training_data)
 
 #Calcualting the user-user similiarities based on locations only
-all_sims = calSimilarities(training_data,avgs,similarity)
+
+data = pd.read_csv('csv/TrainingSet/final_training_set.csv', sep=',', na_values="")
+
+# Train the model
+X = data[['gender','locations_together', 'mutual_strength', 'likes']]
+y = data.response
+lm = LinearRegression(normalize=False)
+lm.fit(X, y)
+
+all_sims = calSimilarities(training_data,avgs,similarity,lm)
 
 #Function to get the existing locations for a given user
 def get_existing_locs(user,data):

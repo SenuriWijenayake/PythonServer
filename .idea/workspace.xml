@@ -5,23 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc5d3b8-1884-4224-9df0-6ebcf5b843df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/regression_test.py" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/csv/TrainingSet/three_training.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/csv/TrainingSet/two_training.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/debug.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/summaries/1/new_summary.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/summaries/1/vif.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/summaries/2/new_summary.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/summaries/2/vif.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/summaries/initial_vif/new_summary.txt" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/summaries/initial_vif/vif.txt" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/csv/Raw/one.csv" afterPath="$PROJECT_DIR$/csv/Raw/one.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eval.py" afterPath="$PROJECT_DIR$/eval.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getPrediction.py" afterPath="$PROJECT_DIR$/getPrediction.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/new_script.py" afterPath="$PROJECT_DIR$/new_script.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/regression_fit.py" afterPath="$PROJECT_DIR$/regression_fit.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/similarities.py" afterPath="$PROJECT_DIR$/similarities.py" />
     </list>
     <ignored path="Project.iws" />
@@ -42,13 +28,43 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="new_script.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="new_script.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/new_script.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="180">
-              <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+            <state relative-caret-position="160">
+              <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="similarities.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/similarities.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
               <folding>
-                <element signature="e#0#18#0" expanded="true" />
+                <element signature="e#409#1238#0" expanded="false" />
+                <element signature="e#1509#1824#0" expanded="false" />
+                <element signature="e#1902#2237#0" expanded="false" />
+                <element signature="e#2240#2352#0" expanded="false" />
+                <element signature="e#2584#2812#0" expanded="false" />
+                <element signature="e#2890#3213#0" expanded="false" />
+                <element signature="e#3303#3628#0" expanded="false" />
+                <element signature="e#3727#4254#0" expanded="false" />
+                <element signature="e#4405#4591#0" expanded="false" />
+                <element signature="e#6126#6265#0" expanded="false" />
+                <element signature="e#6356#6609#0" expanded="false" />
+                <element signature="e#6704#7478#0" expanded="false" />
+                <element signature="e#7557#8223#0" expanded="false" />
+                <element signature="e#8409#12541#0" expanded="false" />
+                <element signature="e#12647#13035#0" expanded="false" />
+                <element signature="e#13110#13238#0" expanded="false" />
+                <element signature="e#13339#13864#0" expanded="false" />
+                <element signature="e#13986#14398#0" expanded="false" />
+                <element signature="e#15525#16906#0" expanded="false" />
+                <element signature="e#17484#18220#0" expanded="false" />
+                <element signature="e#18275#19141#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -57,14 +73,27 @@
       <file leaf-file-name="eval.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/eval.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
+            <state relative-caret-position="320">
+              <caret line="31" column="26" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="26" />
               <folding>
-                <element signature="e#745#962#0" expanded="false" />
-                <element signature="e#1214#1453#0" expanded="false" />
-                <element signature="e#1536#1636#0" expanded="false" />
-                <element signature="e#1715#2808#0" expanded="false" />
-                <element signature="e#2929#4264#0" expanded="false" />
+                <element signature="e#0#31#0" expanded="true" />
+                <element signature="e#1063#1280#0" expanded="false" />
+                <element signature="e#1532#1771#0" expanded="false" />
+                <element signature="e#1854#1954#0" expanded="false" />
+                <element signature="e#2033#3126#0" expanded="false" />
+                <element signature="e#3247#4582#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getPrediction.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/getPrediction.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="100">
+              <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+              <folding>
+                <element signature="e#0#19#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -107,16 +136,16 @@
         <option value="$PROJECT_DIR$/summaries/0/vif.txt" />
         <option value="$PROJECT_DIR$/summaries/2/vif.txt" />
         <option value="$PROJECT_DIR$/summaries/3 - Removed religion/vif.txt" />
-        <option value="$PROJECT_DIR$/new_script.py" />
         <option value="$PROJECT_DIR$/summaries/6 - Calcualted all the interactions/observations.txt" />
         <option value="$PROJECT_DIR$/summaries/0 -All variables/vif.txt" />
         <option value="$PROJECT_DIR$/vif.txt" />
         <option value="$PROJECT_DIR$/summary.txt" />
-        <option value="$PROJECT_DIR$/getPrediction.py" />
-        <option value="$PROJECT_DIR$/similarities.py" />
         <option value="$PROJECT_DIR$/regression_test.py" />
         <option value="$PROJECT_DIR$/regression_fit.py" />
+        <option value="$PROJECT_DIR$/new_script.py" />
+        <option value="$PROJECT_DIR$/getPrediction.py" />
         <option value="$PROJECT_DIR$/eval.py" />
+        <option value="$PROJECT_DIR$/similarities.py" />
       </list>
     </option>
   </component>
@@ -436,14 +465,14 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2470238" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30564263" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30564263" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5062696" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -499,7 +528,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="355" />
+      <option name="time" value="356" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -792,16 +821,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rateLocations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="10" column="70" selection-start-line="10" selection-start-column="70" selection-end-line="10" selection-end-column="70" />
-          <folding>
-            <element signature="e#403#1210#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/summaries/7 - Using gender,mutual_strength,likes,locations_together/summary.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -815,37 +834,6 @@
         <state relative-caret-position="400">
           <caret line="20" column="59" selection-start-line="20" selection-start-column="59" selection-end-line="20" selection-end-column="59" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/similarities.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="157">
-          <caret line="381" column="48" selection-start-line="381" selection-start-column="45" selection-end-line="381" selection-end-column="48" />
-          <folding>
-            <element signature="e#35#62#0" expanded="true" />
-            <element signature="e#409#1238#0" expanded="false" />
-            <element signature="e#1509#1824#0" expanded="false" />
-            <element signature="e#1902#2237#0" expanded="false" />
-            <element signature="e#2240#2352#0" expanded="false" />
-            <element signature="e#2584#2812#0" expanded="false" />
-            <element signature="e#2890#3213#0" expanded="false" />
-            <element signature="e#3303#3628#0" expanded="false" />
-            <element signature="e#3727#4254#0" expanded="false" />
-            <element signature="e#4405#4591#0" expanded="false" />
-            <element signature="e#4820#6035#0" expanded="false" />
-            <element signature="e#6121#6260#0" expanded="false" />
-            <element signature="e#6351#6604#0" expanded="false" />
-            <element signature="e#6699#7473#0" expanded="false" />
-            <element signature="e#7552#8218#0" expanded="false" />
-            <element signature="e#8404#12536#0" expanded="false" />
-            <element signature="e#12642#13030#0" expanded="false" />
-            <element signature="e#13105#13233#0" expanded="false" />
-            <element signature="e#13334#13859#0" expanded="false" />
-            <element signature="e#13981#14393#0" expanded="false" />
-            <element signature="e#15514#16895#0" expanded="false" />
-            <element signature="e#18259#19125#0" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -867,6 +855,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rateLocations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="157">
+          <caret line="301" column="15" selection-start-line="301" selection-start-column="9" selection-end-line="301" selection-end-column="15" />
+          <folding>
+            <element signature="e#403#1210#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/regression_fit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="340">
@@ -875,36 +873,65 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/eval.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="31" column="26" selection-start-line="31" selection-start-column="11" selection-end-line="31" selection-end-column="26" />
+          <folding>
+            <element signature="e#0#31#0" expanded="true" />
+            <element signature="e#1063#1280#0" expanded="false" />
+            <element signature="e#1532#1771#0" expanded="false" />
+            <element signature="e#1854#1954#0" expanded="false" />
+            <element signature="e#2033#3126#0" expanded="false" />
+            <element signature="e#3247#4582#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/getPrediction.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state relative-caret-position="100">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/eval.py">
+    <entry file="file://$PROJECT_DIR$/new_script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="11" column="45" selection-start-line="11" selection-start-column="45" selection-end-line="11" selection-end-column="45" />
-          <folding>
-            <element signature="e#745#962#0" expanded="false" />
-            <element signature="e#1214#1453#0" expanded="false" />
-            <element signature="e#1536#1636#0" expanded="false" />
-            <element signature="e#1715#2808#0" expanded="false" />
-            <element signature="e#2929#4264#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="160">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/new_script.py">
+    <entry file="file://$PROJECT_DIR$/similarities.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+        <state relative-caret-position="60">
+          <caret line="3" column="17" selection-start-line="3" selection-start-column="17" selection-end-line="3" selection-end-column="17" />
           <folding>
-            <element signature="e#0#18#0" expanded="true" />
+            <element signature="e#409#1238#0" expanded="false" />
+            <element signature="e#1509#1824#0" expanded="false" />
+            <element signature="e#1902#2237#0" expanded="false" />
+            <element signature="e#2240#2352#0" expanded="false" />
+            <element signature="e#2584#2812#0" expanded="false" />
+            <element signature="e#2890#3213#0" expanded="false" />
+            <element signature="e#3303#3628#0" expanded="false" />
+            <element signature="e#3727#4254#0" expanded="false" />
+            <element signature="e#4405#4591#0" expanded="false" />
+            <element signature="e#6126#6265#0" expanded="false" />
+            <element signature="e#6356#6609#0" expanded="false" />
+            <element signature="e#6704#7478#0" expanded="false" />
+            <element signature="e#7557#8223#0" expanded="false" />
+            <element signature="e#8409#12541#0" expanded="false" />
+            <element signature="e#12647#13035#0" expanded="false" />
+            <element signature="e#13110#13238#0" expanded="false" />
+            <element signature="e#13339#13864#0" expanded="false" />
+            <element signature="e#13986#14398#0" expanded="false" />
+            <element signature="e#15525#16906#0" expanded="false" />
+            <element signature="e#17484#18220#0" expanded="false" />
+            <element signature="e#18275#19141#0" expanded="false" />
           </folding>
         </state>
       </provider>

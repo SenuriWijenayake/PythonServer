@@ -122,12 +122,12 @@ def calAverages(data):
 
 #Function to calculate the Pearson Similarities for the users and store them in a matrix
 #Access the cimilarity value between active user and other user as all_sims[active][other]
-def calSimilarities(data,avgs,similarity):
+def calSimilarities(data,avgs,similarity,lm):
     #Get the number of users in the system
     num_users = len(data)
     all_sims = {}
     profile_sims = calProfileSimilarities()
-    network_sims = calculateNetworkSimilarities()
+    network_sims = calculateNetworkSimilarities(lm)
     for active in data:
         my_sims = {}
         for user in data:
@@ -363,7 +363,7 @@ def getEdgesMutualFriendGraph(active,other):
 
 
 #Function to calculate the network similarities between two strangers using mutual friends
-def mutualBasedNetworkSimilarity(active,other):
+def mutualBasedNetworkSimilarity(active,other,lm):
     #Check if the two users are not friends but has mutual friends
     mutuals = findMutuals (active,other)
     if(isFriends(active,other) is not True) and (len(mutuals) is not 0):
@@ -379,7 +379,7 @@ def mutualBasedNetworkSimilarity(active,other):
     if (isFriends(active,other)):
         r = getDetailsForPrediction (active,other)
         arr = [r['gender'],r['locations_together'],r['mutual_strength'],r['likes']]
-        prediction = getPredictionForNetwork(np.array(arr))
+        prediction = getPredictionForNetwork(np.array(arr),lm)
         return prediction[0]
 
 #Function to return a completed profile prediction for a user
@@ -414,7 +414,7 @@ def getProfilePrediction(active,other):
 
 
 #Function to calcualte all the network similarities
-def calculateNetworkSimilarities():
+def calculateNetworkSimilarities(lm):
     all_users = list(getAllUsers())
     all_sims = {}
 
@@ -422,7 +422,7 @@ def calculateNetworkSimilarities():
         my_sims = {}
         for other in all_users:
             if (active['id'] is not other['id']):
-                sim = mutualBasedNetworkSimilarity(active['id'],other['id'])
+                sim = mutualBasedNetworkSimilarity(active['id'],other['id'],lm)
                 my_sims[other['id']] = sim
         all_sims[active['id']] = my_sims
     return all_sims
