@@ -55,6 +55,15 @@ def pearson_profile_similarity_basic (data,p1,p2,avgs,profile_sims):
     #Get the profile similarity for the two users
     prof_sim = profile_sims[p1][p2]
     avg_profile_sim = statistics.mean(profile_sims[p1][i] for i in profile_sims[p1])
+    r = basic * prof_sim
+    return r
+
+def pearson_averaged_profile_similarity (data,p1,p2,avgs,profile_sims):
+    #Get the pearson correlation coefficient for the two users
+    basic = pearson_similarity(data,p1,p2,avgs)
+    #Get the profile similarity for the two users
+    prof_sim = profile_sims[p1][p2]
+    avg_profile_sim = statistics.mean(profile_sims[p1][i] for i in profile_sims[p1])
     r = basic * (prof_sim - avg_profile_sim)
     return r
 
@@ -63,6 +72,23 @@ def pearson_profile_similarity_basic (data,p1,p2,avgs,profile_sims):
 ##Parameters: Data set, id of person one, id of person two, avgs, profile similarity and the network similarities
 ##Output: modified correlation coefficient
 
+def pearson_network_similarity_basic (data,p1,p2,avgs,network_sims):
+    #Get the pearson correlation coefficient for the two users
+    basic = pearson_similarity(data,p1,p2,avgs)
+    #Get the network similarity for the two users
+    net_sim = network_sims[p1][p2]
+    r = basic * net_sim
+    return r
+
+def pearson_averaged_network_similarity (data,p1,p2,avgs,network_sims):
+    #Get the pearson correlation coefficient for the two users
+    basic = pearson_similarity(data,p1,p2,avgs)
+    #Get the network similarity for the two users
+    net_sim = network_sims[p1][p2]
+    avg_net_sim = statistics.mean(network_sims[p1][i] for i in network_sims[p1])
+    r = basic * (net_sim-avg_net_sim)
+    return r
+
 def pearson_profile_network_similarity (data,p1,p2,avgs,profile_sims,network_sims):
     #Get the pearson correlation coefficient for the two users
     basic = pearson_similarity(data,p1,p2,avgs)
@@ -70,9 +96,19 @@ def pearson_profile_network_similarity (data,p1,p2,avgs,profile_sims,network_sim
     prof_sim = profile_sims[p1][p2]
     #Get the network similarity for the two users
     net_sim = network_sims[p1][p2]
-    avg_profile_sim = statistics.mean(profile_sims[p1][i] for i in profile_sims[p1])
+    r = basic * net_sim * prof_sim
+    return r
+
+def pearson_averaged_profile_network_similarity (data,p1,p2,avgs,profile_sims,network_sims):
+    #Get the pearson correlation coefficient for the two users
+    basic = pearson_similarity(data,p1,p2,avgs)
+    #Get the profile similarity for the two users
+    prof_sim = profile_sims[p1][p2]
+    #Get the network similarity for the two users
+    net_sim = network_sims[p1][p2]
     avg_net_sim = statistics.mean(network_sims[p1][i] for i in network_sims[p1])
-    r = basic * prof_sim
+    avg_profile_sim = statistics.mean(profile_sims[p1][i] for i in profile_sims[p1])
+    r = basic * (net_sim - avg_net_sim) * (prof_sim - avg_profile_sim)
     return r
 
 #Function to calculate the user rating averages for all the users
@@ -99,10 +135,13 @@ def calSimilarities(data,avgs,similarity):
                 if(similarity == pearson_similarity):
                     sim = similarity(data,active,user,avgs)
                     my_sims[user] = sim
-                if (similarity == pearson_profile_similarity_basic):
+                if (similarity == pearson_profile_similarity_basic or similarity == pearson_averaged_profile_similarity):
                     sim = similarity(data,active,user,avgs,profile_sims)
                     my_sims[user] = sim
-                if (similarity == pearson_profile_network_similarity):
+                if (similarity == pearson_network_similarity_basic or similarity == pearson_averaged_network_similarity):
+                    sim = similarity(data,active,user,avgs,network_sims)
+                    my_sims[user] = sim
+                if (similarity == pearson_profile_network_similarity or similarity == pearson_averaged_profile_network_similarity):
                     sim = similarity(data,active,user,avgs,profile_sims,network_sims)
                     my_sims[user] = sim
         all_sims[active] = my_sims
@@ -339,7 +378,7 @@ def mutualBasedNetworkSimilarity(active,other):
     #If two users are friends calculate the tie strength between the two users
     if (isFriends(active,other)):
         r = getDetailsForPrediction (active,other)
-        arr = [r['gender'],r['age_gap'],r['wall_words'],r['likes'],r['locations_together'],r['photos_together'],r['user_friends'],r['mutual_strength'],r['last_comm']]
+        arr = [r['gender'],r['locations_together'],r['mutual_strength'],r['likes']]
         prediction = getPredictionForNetwork(np.array(arr))
         return prediction[0]
 
@@ -399,21 +438,12 @@ def getDetailsForPrediction(active,other):
 
     mutual_strength = data['mutuals_distinct_friends']['mutuals'] / len(friends['friends'])
     likes = data['num_likes_comments_in']['likes'] + data['num_likes_comments_out']['likes']
-    last_comm = data['last_communication']
-    if (last_comm == -1):
-        last_comm = 100
-    elif (last_comm < -1):
-        last_comm = last_comm + 6
+    #comments = data['num_likes_comments_in']['comments'] + data['num_likes_comments_out']['comments']
 
     object = {
-        'wall_words': data['wall_words'],
         'locations_together' : data['appearence in photos']['location_count'],
-        'photos_together' : data['appearence in photos']['photo_count'],
-        'last_comm' : last_comm,
         'likes' : likes,
-        'user_friends': len(friends['friends']),
         'mutual_strength': mutual_strength,
-        'age_gap' : profile['age_gap'],
         'gender' : profile['gender']
     }
     return object

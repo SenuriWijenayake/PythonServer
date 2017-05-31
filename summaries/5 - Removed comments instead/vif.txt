@@ -1,0 +1,11 @@
+[3.544703011734307,
+1.0223253069083564,
+1.0151229751519057,
+1.5839582073230822,
+1.5678925192800568,
+1.191844237360572]
+
+Comments :
+
+Removing comments instead of locations increaed the p value of locations_together
+Therefore better to remove the locations_together

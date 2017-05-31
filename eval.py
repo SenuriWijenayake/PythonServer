@@ -9,7 +9,7 @@ client = MongoClient('localhost', 27017)
 db = client.script
 
 #Define the similarity measurement
-similarity = pearson_profile_network_similarity
+similarity = pearson_network_similarity_basic
 
 #Initializing the test and training data sets for use
 training_data,test_data,new_users = initializeDataSet()
@@ -19,8 +19,6 @@ avgs = calAverages(training_data)
 
 #Calcualting the user-user similiarities based on locations only
 all_sims = calSimilarities(training_data,avgs,similarity)
-
-
 
 #Function to get the existing locations for a given user
 def get_existing_locs(user,data):

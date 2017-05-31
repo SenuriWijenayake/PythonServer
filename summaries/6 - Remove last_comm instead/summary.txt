@@ -1,0 +1,29 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:               response   R-squared:                       0.381
+Model:                            OLS   Adj. R-squared:                  0.368
+Method:                 Least Squares   F-statistic:                     28.95
+Date:                Wed, 31 May 2017   Prob (F-statistic):           7.55e-23
+Time:                        15:51:03   Log-Likelihood:                -296.53
+No. Observations:                 241   AIC:                             605.1
+Df Residuals:                     235   BIC:                             626.0
+Df Model:                           5                                         
+Covariance Type:            nonrobust                                         
+======================================================================================
+                         coef    std err          t      P>|t|      [0.025      0.975]
+--------------------------------------------------------------------------------------
+Intercept             -0.3148      0.103     -3.058      0.002      -0.518      -0.112
+gender                 0.4032      0.122      3.312      0.001       0.163       0.643
+mutual_strength        0.2276      0.053      4.262      0.000       0.122       0.333
+locations_together     0.1570      0.062      2.538      0.012       0.035       0.279
+likes                  0.2639      0.085      3.118      0.002       0.097       0.431
+comments               0.1852      0.076      2.424      0.016       0.035       0.336
+==============================================================================
+Omnibus:                        1.897   Durbin-Watson:                   1.342
+Prob(Omnibus):                  0.387   Jarque-Bera (JB):                1.952
+Skew:                          -0.209   Prob(JB):                        0.377
+Kurtosis:                       2.861   Cond. No.                         4.27
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
