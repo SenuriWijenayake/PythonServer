@@ -66,7 +66,7 @@ def rateLocations(data,active,locations,avgs,all_sims):
     n = 5
 
     #Check if the locations list is null
-    if locations == [] or locations == '':
+    if len(locations) == 0:
         return "No locations meeting criteria"
 
     #Check if the user is a new user or not
@@ -74,12 +74,13 @@ def rateLocations(data,active,locations,avgs,all_sims):
     if (user_status):
         print("User is a new user")
         #Handling new user scenario - user has no ratings
-        for loc in locations:
+        for location in locations:
+            loc = location['id']
             #Check if the location is a new location
             if(isNewLocationTraining(data,loc,active)):
                 print("New Location - New user")
                 #Handle new location
-                rating = getNewLocationRatingForNewUser(loc,active)
+                rating = getNewLocationRatingForNewUser(location,active)
                 rated_locations[loc] = round(rating,1)
 
             else:
@@ -121,13 +122,13 @@ def rateLocations(data,active,locations,avgs,all_sims):
         #Get the average rating of active user
         active_avg = avgs[active]
 
-        for loc in locations:
-
+        for location in locations:
+            loc = location['id']
             #Check if the location is a new location
             if(isNewLocationTraining(training_data,loc,active)):
                 print("New Location - Existing user")
                 #Handle new location
-                rating = getNewLocationRatingForExistingUser(loc,active)
+                rating = getNewLocationRatingForExistingUser(location,active)
                 rated_locations[loc] = round(rating,1)
 
             else:
@@ -215,7 +216,7 @@ def getNewLocationRatingForExistingUser(loc,user):
     top_locations = {}
 
     #Get location details
-    details = getLocationDetails (loc)
+    details = loc
     area = details['area']
     tags = details['types']
 
@@ -292,7 +293,7 @@ def getNewLocationRatingForNewUser(loc,active):
     top_locations = {}
 
     #Get location details
-    details_loc = getLocationDetails (loc)
+    details_loc = loc
     area = details_loc['area']
     tags = details_loc['types']
 

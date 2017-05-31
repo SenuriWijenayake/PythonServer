@@ -5,9 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc5d3b8-1884-4224-9df0-6ebcf5b843df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/init.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/eval.py" afterPath="$PROJECT_DIR$/eval.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/init.py" afterPath="$PROJECT_DIR$/init.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/rateLocations.py" afterPath="$PROJECT_DIR$/rateLocations.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/similarities.py" afterPath="$PROJECT_DIR$/similarities.py" />
     </list>
     <ignored path="Project.iws" />
@@ -31,11 +31,52 @@
       <file leaf-file-name="init.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/init.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="235">
-              <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+            <state relative-caret-position="75">
+              <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="similarities.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/similarities.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="175">
+              <caret line="166" column="70" selection-start-line="166" selection-start-column="70" selection-end-line="166" selection-end-column="70" />
+              <folding>
+                <element signature="e#35#62#0" expanded="true" />
+                <element signature="e#409#1238#0" expanded="false" />
+                <element signature="e#1509#1824#0" expanded="false" />
+                <element signature="e#1902#2237#0" expanded="false" />
+                <element signature="e#2240#2352#0" expanded="false" />
+                <element signature="e#2584#2812#0" expanded="false" />
+                <element signature="e#2890#3213#0" expanded="false" />
+                <element signature="e#3303#3628#0" expanded="false" />
+                <element signature="e#3727#4254#0" expanded="false" />
+                <element signature="e#4405#4591#0" expanded="false" />
+                <element signature="e#6129#6268#0" expanded="false" />
+                <element signature="e#6792#7566#0" expanded="false" />
+                <element signature="e#7645#8311#0" expanded="false" />
+                <element signature="e#12735#13123#0" expanded="false" />
+                <element signature="e#13198#13326#0" expanded="false" />
+                <element signature="e#13427#13952#0" expanded="false" />
+                <element signature="e#14074#14486#0" expanded="false" />
+                <element signature="e#15613#16994#0" expanded="false" />
+                <element signature="e#17572#18308#0" expanded="false" />
+                <element signature="e#18363#19229#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="crud.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/crud.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="197">
+              <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -65,8 +106,6 @@
         <option value="$PROJECT_DIR$/change_preferences.py" />
         <option value="C:/Python34/Lib/site-packages/scipy/__init__.py" />
         <option value="$PROJECT_DIR$/pearson_similarity.py" />
-        <option value="$PROJECT_DIR$/rateLocations.py" />
-        <option value="$PROJECT_DIR$/crud.py" />
         <option value="$PROJECT_DIR$/debug.py" />
         <option value="$PROJECT_DIR$/networkSimilarityMeasurements.py" />
         <option value="$PROJECT_DIR$/cleanResponses.py" />
@@ -85,6 +124,8 @@
         <option value="$PROJECT_DIR$/new_script.py" />
         <option value="$PROJECT_DIR$/getPrediction.py" />
         <option value="$PROJECT_DIR$/eval.py" />
+        <option value="$PROJECT_DIR$/rateLocations.py" />
+        <option value="$PROJECT_DIR$/crud.py" />
         <option value="$PROJECT_DIR$/similarities.py" />
         <option value="$PROJECT_DIR$/init.py" />
       </list>
@@ -461,6 +502,21 @@
           <line>21</line>
           <option name="timeStamp" value="351" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rateLocations.py</url>
+          <line>68</line>
+          <option name="timeStamp" value="357" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/rateLocations.py</url>
+          <line>82</line>
+          <option name="timeStamp" value="358" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/init.py</url>
+          <line>69</line>
+          <option name="timeStamp" value="359" />
+        </line-breakpoint>
       </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
@@ -469,7 +525,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="356" />
+      <option name="time" value="364" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -599,13 +655,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/summary.txt" />
-    <entry file="file://C:/Python34/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="308" column="0" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/regression_test.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -630,51 +679,57 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/crud.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-60">
-          <caret line="27" column="21" selection-start-line="27" selection-start-column="4" selection-end-line="27" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/eval.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="510">
-          <caret line="27" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
+        <state relative-caret-position="-120">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
             <element signature="e#1046#1263#0" expanded="false" />
             <element signature="e#1515#1754#0" expanded="false" />
             <element signature="e#1837#1937#0" expanded="false" />
-            <element signature="e#2016#3109#0" expanded="false" />
             <element signature="e#3230#4565#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/rateLocations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="128">
-          <caret line="61" column="4" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="54" />
-          <folding>
-            <element signature="e#403#1210#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/new_script.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="3" column="0" selection-start-line="3" selection-start-column="0" selection-end-line="7" selection-end-column="10" />
+        <state relative-caret-position="160">
+          <caret line="8" column="0" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/rateLocations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="274" column="49" selection-start-line="274" selection-start-column="49" selection-end-line="274" selection-end-column="49" />
+          <folding>
+            <element signature="e#403#1210#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="306" column="0" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/crud.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="197">
+          <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/similarities.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="144" column="21" selection-start-line="144" selection-start-column="21" selection-end-line="144" selection-end-column="21" />
+        <state relative-caret-position="175">
+          <caret line="166" column="70" selection-start-line="166" selection-start-column="70" selection-end-line="166" selection-end-column="70" />
           <folding>
             <element signature="e#35#62#0" expanded="true" />
             <element signature="e#409#1238#0" expanded="false" />
@@ -687,26 +742,23 @@
             <element signature="e#3727#4254#0" expanded="false" />
             <element signature="e#4405#4591#0" expanded="false" />
             <element signature="e#6129#6268#0" expanded="false" />
-            <element signature="e#6359#6612#0" expanded="false" />
-            <element signature="e#6707#7481#0" expanded="false" />
-            <element signature="e#7560#8226#0" expanded="false" />
-            <element signature="e#12650#13038#0" expanded="false" />
-            <element signature="e#13113#13241#0" expanded="false" />
-            <element signature="e#13342#13867#0" expanded="false" />
-            <element signature="e#13989#14401#0" expanded="false" />
-            <element signature="e#14550#15421#0" expanded="false" />
-            <element signature="e#15528#16909#0" expanded="false" />
-            <element signature="e#17006#17372#0" expanded="false" />
-            <element signature="e#17487#18223#0" expanded="false" />
-            <element signature="e#18278#19144#0" expanded="false" />
+            <element signature="e#6792#7566#0" expanded="false" />
+            <element signature="e#7645#8311#0" expanded="false" />
+            <element signature="e#12735#13123#0" expanded="false" />
+            <element signature="e#13198#13326#0" expanded="false" />
+            <element signature="e#13427#13952#0" expanded="false" />
+            <element signature="e#14074#14486#0" expanded="false" />
+            <element signature="e#15613#16994#0" expanded="false" />
+            <element signature="e#17572#18308#0" expanded="false" />
+            <element signature="e#18363#19229#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/init.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="235">
-          <caret line="42" column="0" selection-start-line="42" selection-start-column="0" selection-end-line="42" selection-end-column="0" />
+        <state relative-caret-position="75">
+          <caret line="37" column="1" selection-start-line="37" selection-start-column="1" selection-end-line="37" selection-end-column="1" />
           <folding>
             <element signature="e#0#19#0" expanded="true" />
           </folding>

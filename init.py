@@ -35,10 +35,38 @@ print ("Calculating all user similarities")
 all_sims = calSimilarities(training_data,avgs,similarity,lm)
 
 print ("Initialization completed")
-print (all_sims)
+#print (all_sims)
 
 user = "1665852693730402"
-locations = ["ChIJ5VeV5R434joRUXuKDoS6hos","ChIJ7-MWGe5a4joRGU1D7xL_UNs"]
+#user = "16658526937304023"
+locations = [
+    {
+        "area" : " Peradeniya",
+         "latitude" : 7.2565929,
+         "name" : "University of Peradeniya",
+         "id" : "ChIJ89kP1Lkv3YARr3RXkCQuMsY",
+         "longitude" : 80.5966093,
+         "rating" : 4.7,
+         "types" : [
+             "university",
+            "point_of_interest",
+            "establishment"
+    ]},
+    {
+        "name" : "National Museum of Galle",
+        "longitude" : 80.2170162,
+        "latitude" : 6.0288631,
+        "rating" : 4.2,
+        "types" : [
+            "museum",
+            "point_of_interest",
+            "establishment"
+        ],
+        "id" : "ChIJs_O3o0BZ4joRmOpvo3RHzms",
+        "area" : " Galle"
+    }
+]
+
 x = rateLocations(training_data,user,locations,avgs,all_sims)
 
 print (x)

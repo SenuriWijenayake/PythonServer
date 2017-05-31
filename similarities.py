@@ -163,9 +163,11 @@ def findMutuals (active,other):
     #Get the friend lists of the two users
     userOne = getFriends(active)
     userTwo = getFriends(other)
-    for friend in userOne['friends']:
-        if friend in userTwo['friends']:
-            mutuals.append(friend)
+
+    if (len(userOne['friends']) != 0 and len(userTwo['friends']) != 0):
+        for friend in userOne['friends']:
+            if friend in userTwo['friends']:
+                mutuals.append(friend)
     return mutuals
 
 #Function to filter mutuals over a attribute
