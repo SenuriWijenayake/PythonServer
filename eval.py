@@ -1,19 +1,14 @@
-from pymongo import MongoClient
-from crud import *
-from sklearn.metrics import mean_absolute_error, mean_squared_error
-from math import sqrt
-from rateLocations import *
-from similarities import *
 import pandas as pd
 from sklearn.linear_model import LinearRegression
-
-client = MongoClient('localhost', 27017)
-db = client.script
+from sklearn.metrics import mean_absolute_error, mean_squared_error
+from rateLocations import *
+from similarities import *
 
 #Define the similarity measurement
 similarity = pearson_network_similarity_basic
 
 #Initializing the test and training data sets for use
+#Training set includes only 40 users and half of their preferences
 training_data,test_data,new_users = initializeDataSet()
 
 #Getting the user average rating values

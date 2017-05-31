@@ -126,7 +126,7 @@ def calSimilarities(data,avgs,similarity,lm):
     #Get the number of users in the system
     num_users = len(data)
     all_sims = {}
-    profile_sims = calProfileSimilarities()
+    #profile_sims = calProfileSimilarities()
     network_sims = calculateNetworkSimilarities(lm)
     for active in data:
         my_sims = {}
@@ -136,13 +136,13 @@ def calSimilarities(data,avgs,similarity,lm):
                     sim = similarity(data,active,user,avgs)
                     my_sims[user] = sim
                 if (similarity == pearson_profile_similarity_basic or similarity == pearson_averaged_profile_similarity):
-                    sim = similarity(data,active,user,avgs,profile_sims)
+                    #sim = similarity(data,active,user,avgs,profile_sims)
                     my_sims[user] = sim
                 if (similarity == pearson_network_similarity_basic or similarity == pearson_averaged_network_similarity):
                     sim = similarity(data,active,user,avgs,network_sims)
                     my_sims[user] = sim
                 if (similarity == pearson_profile_network_similarity or similarity == pearson_averaged_profile_network_similarity):
-                    sim = similarity(data,active,user,avgs,profile_sims,network_sims)
+                    #sim = similarity(data,active,user,avgs,profile_sims,network_sims)
                     my_sims[user] = sim
         all_sims[active] = my_sims
     return all_sims
