@@ -5,9 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc5d3b8-1884-4224-9df0-6ebcf5b843df" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/email_classifier.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/init.py" afterPath="$PROJECT_DIR$/init.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
     </list>
     <ignored path="Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,11 +28,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="init.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="init.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/init.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1360">
-              <caret line="68" column="7" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+            <state relative-caret-position="120">
+              <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
               <folding>
                 <element signature="e#0#19#0" expanded="true" />
               </folding>
@@ -39,43 +40,26 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="similarities.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/similarities.py">
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1520">
-              <caret line="166" column="70" selection-start-line="166" selection-start-column="70" selection-end-line="166" selection-end-column="70" />
+            <state relative-caret-position="-585">
+              <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
               <folding>
-                <element signature="e#35#62#0" expanded="true" />
-                <element signature="e#409#1238#0" expanded="false" />
-                <element signature="e#1509#1824#0" expanded="false" />
-                <element signature="e#1902#2237#0" expanded="false" />
-                <element signature="e#2240#2352#0" expanded="false" />
-                <element signature="e#2584#2812#0" expanded="false" />
-                <element signature="e#2890#3213#0" expanded="false" />
-                <element signature="e#3303#3628#0" expanded="false" />
-                <element signature="e#3727#4254#0" expanded="false" />
-                <element signature="e#4405#4591#0" expanded="false" />
-                <element signature="e#6129#6268#0" expanded="false" />
-                <element signature="e#6792#7566#0" expanded="false" />
-                <element signature="e#7645#8311#0" expanded="false" />
-                <element signature="e#12735#13123#0" expanded="false" />
-                <element signature="e#13198#13326#0" expanded="false" />
-                <element signature="e#13427#13952#0" expanded="false" />
-                <element signature="e#14074#14486#0" expanded="false" />
-                <element signature="e#15613#16994#0" expanded="false" />
-                <element signature="e#17572#18308#0" expanded="false" />
-                <element signature="e#18363#19229#0" expanded="false" />
+                <element signature="e#0#60#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="crud.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/crud.py">
+      <file leaf-file-name="email_classifier.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/email_classifier.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2800">
-              <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
-              <folding />
+            <state relative-caret-position="-20">
+              <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#11#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -127,6 +111,8 @@
         <option value="$PROJECT_DIR$/crud.py" />
         <option value="$PROJECT_DIR$/similarities.py" />
         <option value="$PROJECT_DIR$/init.py" />
+        <option value="$PROJECT_DIR$/email_classifier.py" />
+        <option value="$PROJECT_DIR$/server.py" />
       </list>
     </option>
   </component>
@@ -189,7 +175,7 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.init">
+  <component name="RunManager" selected="Python.server">
     <configuration default="false" name="regression_fit" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -203,23 +189,6 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Project" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/regression_fit.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="similarities" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/similarities.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -271,6 +240,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Project" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/init.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="server" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -424,18 +410,18 @@
     </configuration>
     <list size="5">
       <item index="0" class="java.lang.String" itemvalue="Python.regression_fit" />
-      <item index="1" class="java.lang.String" itemvalue="Python.similarities" />
-      <item index="2" class="java.lang.String" itemvalue="Python.new_script" />
-      <item index="3" class="java.lang.String" itemvalue="Python.regression_test" />
-      <item index="4" class="java.lang.String" itemvalue="Python.init" />
+      <item index="1" class="java.lang.String" itemvalue="Python.new_script" />
+      <item index="2" class="java.lang.String" itemvalue="Python.regression_test" />
+      <item index="3" class="java.lang.String" itemvalue="Python.init" />
+      <item index="4" class="java.lang.String" itemvalue="Python.server" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.init" />
-        <item index="1" class="java.lang.String" itemvalue="Python.new_script" />
-        <item index="2" class="java.lang.String" itemvalue="Python.regression_fit" />
-        <item index="3" class="java.lang.String" itemvalue="Python.regression_test" />
-        <item index="4" class="java.lang.String" itemvalue="Python.similarities" />
+        <item index="0" class="java.lang.String" itemvalue="Python.server" />
+        <item index="1" class="java.lang.String" itemvalue="Python.init" />
+        <item index="2" class="java.lang.String" itemvalue="Python.new_script" />
+        <item index="3" class="java.lang.String" itemvalue="Python.regression_fit" />
+        <item index="4" class="java.lang.String" itemvalue="Python.regression_test" />
       </list>
     </recent_temporary>
   </component>
@@ -446,10 +432,10 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2470238" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.30564263" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -519,21 +505,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="364" />
+      <option name="time" value="367" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/summaries/2_removed_comments/new_summary.txt" />
-    <entry file="file://$PROJECT_DIR$/output.png" />
-    <entry file="file://C:/Python34/Lib/site-packages/patsy/compat.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="123" column="0" selection-start-line="123" selection-start-column="0" selection-end-line="123" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/new_summary.txt" />
     <entry file="file://C:/Python34/Lib/site-packages/patsy/eval.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
@@ -701,49 +677,63 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/similarities.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="166" column="70" selection-start-line="166" selection-start-column="70" selection-end-line="166" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/crud.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2800">
+        <state relative-caret-position="197">
           <caret line="140" column="0" selection-start-line="140" selection-start-column="0" selection-end-line="140" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/similarities.py">
+    <entry file="file://$PROJECT_DIR$/init.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1520">
-          <caret line="166" column="70" selection-start-line="166" selection-start-column="70" selection-end-line="166" selection-end-column="70" />
+        <state relative-caret-position="120">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding>
-            <element signature="e#35#62#0" expanded="true" />
-            <element signature="e#409#1238#0" expanded="false" />
-            <element signature="e#1509#1824#0" expanded="false" />
-            <element signature="e#1902#2237#0" expanded="false" />
-            <element signature="e#2240#2352#0" expanded="false" />
-            <element signature="e#2584#2812#0" expanded="false" />
-            <element signature="e#2890#3213#0" expanded="false" />
-            <element signature="e#3303#3628#0" expanded="false" />
-            <element signature="e#3727#4254#0" expanded="false" />
-            <element signature="e#4405#4591#0" expanded="false" />
-            <element signature="e#6129#6268#0" expanded="false" />
-            <element signature="e#6792#7566#0" expanded="false" />
-            <element signature="e#7645#8311#0" expanded="false" />
-            <element signature="e#12735#13123#0" expanded="false" />
-            <element signature="e#13198#13326#0" expanded="false" />
-            <element signature="e#13427#13952#0" expanded="false" />
-            <element signature="e#14074#14486#0" expanded="false" />
-            <element signature="e#15613#16994#0" expanded="false" />
-            <element signature="e#17572#18308#0" expanded="false" />
-            <element signature="e#18363#19229#0" expanded="false" />
+            <element signature="e#0#19#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/init.py">
+    <entry file="file://$PROJECT_DIR$/email_classifier.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1360">
-          <caret line="68" column="7" selection-start-line="68" selection-start-column="7" selection-end-line="68" selection-end-column="7" />
+        <state relative-caret-position="-20">
+          <caret line="5" column="0" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
           <folding>
-            <element signature="e#0#19#0" expanded="true" />
+            <element signature="e#0#11#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/flask/_compat.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="0" selection-end-line="32" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/site-packages/flask/app.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="1611" column="0" selection-start-line="1611" selection-start-column="0" selection-end-line="1611" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-585">
+          <caret line="17" column="28" selection-start-line="17" selection-start-column="28" selection-end-line="17" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#60#0" expanded="true" />
           </folding>
         </state>
       </provider>

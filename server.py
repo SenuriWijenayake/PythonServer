@@ -1,231 +1,61 @@
-import nltk
-from nltk import bigrams
-from nltk import trigrams
-import re
-from googlegeocoder import GoogleGeocoder
-geocoder = GoogleGeocoder()
-from flask import Response
-from flask import Flask, url_for
-from flask import request, jsonify
-import string
-from itertools import chain
-from nltk.corpus import stopwords
-from nltk.probability import FreqDist
-from nltk.classify import NaiveBayesClassifier as nbc
-from nltk.corpus import CategorizedPlaintextCorpusReader
-from nltk.stem import WordNetLemmatizer
-from nltk.tokenize import word_tokenize
-import nltk
-import re
-import json
-import random
+from flask import Flask, url_for, request, jsonify, Response
 import sys
 sys.path.insert(0,'/home/ubuntu/senuri/PythonServer')
-from init import *
-reload(sys)
-sys.setdefaultencoding("utf-8")
+from init import plan_my_trip
+from email_classifier import classify_emails
 
-from BaseHTTPServer import BaseHTTPRequestHandler, HTTPServer
-import SocketServer
+from http.server import BaseHTTPRequestHandler,HTTPServer
+
 app = Flask(__name__)
-class S(BaseHTTPRequestHandler):
 
-    @app.route('/echo', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
-    def api_echo():
-        if request.method == 'POST':
-            
-#            content_length = int(self.headers['Content-Length']) # <--- Gets the size of data
-#            post_data = self.rfile.read(content_length)
+@app.route('/echo', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
+def api_echo(_self_):
+    if request.method == 'POST':
+        response = classify_emails()
+        return response
 
-#            print post_data
+    elif request.method == 'GET':
+        return "ECHO: GET\n"
 
-            stop_words = set(stopwords.words("english"))
-        
-            lemmatizer = WordNetLemmatizer()
-        
-            mydir = '/home/ubuntu/nltk_data/corpora/gmail'
-        
-            all_words = []
-            filtered_words = []
-            removedPuncuations_words = []
-            lematized_words = []
-            test_filter = []
-        
-            mr = CategorizedPlaintextCorpusReader(mydir, r'(?!\.).*\.txt', cat_pattern=r'(hotel|flight|other)/.*', encoding='latin-1')
-            stop = stopwords.words('english')
-            documents = [([w for w in mr.words(i) if w.lower() not in stop and w.lower() not in string.punctuation], i.split('/')[0]) for i in mr.fileids()]
-        
-            word_features = FreqDist(chain(*[i for i,j in documents]))
-            word_features = word_features.keys()[:100]
-        
-            def word_feats(document):
-                words = set(document)
-                features = {}
-                for w in word_features:
-                    features[w] = (w in words)
-            
-                return dict(features)
-            negids = mr.fileids('hotel')
-            posids = mr.fileids('flight')
-            neutralids = mr.fileids('other')
-        
-            negfeats = [(word_feats(mr.words(fileids=[f])), 'hotel') for f in negids]
-            posfeats = [(word_feats(mr.words(fileids=[f])), 'flight') for f in posids]
-            neutralfeats = [(word_feats(mr.words(fileids=[f])), 'other') for f in neutralids]
-        
-            negcutoff = len(negfeats)*3/4
-            poscutoff = len(posfeats)*3/4
-            neutralcutoff = len(neutralfeats)*3/4
-        
-            trainfeats = negfeats[:negcutoff] + posfeats[:poscutoff] + neutralfeats[:neutralcutoff]
-            testfeats = negfeats[negcutoff:] + posfeats[poscutoff:] + neutralfeats[neutralcutoff:]
-    
-            classifier = nltk.NaiveBayesClassifier.train(trainfeats)
-            print("Classifier accuracy percent:",(nltk.classify.accuracy(classifier, testfeats))*100)
-        
-            print ('accuracy:', nltk.classify.util.accuracy(classifier, testfeats)*100)
-        
-        
-            file_content = open("/home/ubuntu/nltk_data/corpora/gmail/hotel/h12.txt").read()
-            tokens = nltk.word_tokenize(file_content)
-        
-            test_sent_features = {word.lower(): (word in tokens) for word in mr.words()}
-            #print classifier.classify(test_sent_features)
-        
-            #print(classifier.classify("hotel booking date is mentioned below"))
-            #classifier.show_most_informative_features()
-        
-            file_content = open("/home/ubuntu/nltk_data/corpora/gmail/hotel/h12.txt").read()
-            tokens = nltk.word_tokenize(file_content)
-            tri_tokens = trigrams(tokens)
-        
-            cities = []
-            matchedIndex = []
-            tokenized = []
-            addresses = []
-            district = ['Akarawita','Angamuwa','Avissawella','Batawala','Battaramulla','Batugampola','Bope','Boralesgamuwa','Borella','Dedigamuwa','Dehiwala','Deltara','Habarakada','Handapangoda','Hanwella','Hewainna','Hiripitya','Hokandara','Homagama','Horagala','Kaduwela','Kahawala','Kalatuwawa','Madapatha','Maharagama','Malabe','Meegoda','Padukka','Pannipitiya','Piliyandala','Pitipana','Homagama','Polgasowita','Puwakpitiya','Ranala','Siddamulla','Slave Island','Sri Jayawardenapura','Talawatugoda','Tummodara','Waga','Watareka','Dickwella']
-        
-            for i in tokens:
-                tokenized.append(i)
-        
-            pattern = re.compile("\d+")
-            for i in tokenized:
-                if pattern.match(i):
-                    matchedIndex.append(tokenized.index(i))
-                    print ("match"+i)
-                    print (tokenized.index(i))
-            
-                else:
-                    print ("not match")
+    elif request.method == 'PATCH':
+        return "ECHO: PACTH\n"
 
-            for t in tokenized:
-                for i in district:
-                    if t.lower()==i.lower():
-                        cities.append(tokenized.index(t))
-        
-            distance= 200
-            start = 0
-            end = 0
-        
-            for t in cities:
-                for i in matchedIndex:
-                    dis = t-i;
-                if (dis<=distance and dis>0):
-                    distance=dis
-                    start=t
-                    end=i
-                else:
-                    print ("higher")
+    elif request.method == 'PUT':
+        return "ECHO: PUT\n"
 
-            address = ""
-        
-            for token in range(end,start+1):
-                address+=tokenized[(token)]
-                print (address)
-                addresses.append(address)
+    elif request.method == 'DELETE':
+        return "ECHO: DELETE"
 
-            for address in addresses:
-                try:
-                    search = geocoder.get(address)
-                except ValueError:
-                    continue
-                first_result = search[0]
-            #            output =  [first_result.formatted_address,first_result.geometry.location.lat,first_result.geometry.location.lng,first_result.geometry.location_type
-#               ]
-            output =  [first_result.geometry.location.lat,first_result.geometry.location.lng]
 
-    
-#            print map(str, output)
-#        
-#            self._set_headers()
-#            self.wfile.write(classifier.classify(test_sent_features)+"==")
-#            self.wfile.write(map(str, output))
+@app.route('/locations', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
+def api_print(_self_):
+    if request.method == 'GET':
+        return "print: GET\n"
 
-            stri = ','.join(map(str, output))
-            return stri
-#            return "ECHO: GET\n"
+    elif request.method == 'POST':
+        content = request.json
+        user = request.json['user']
+        locations = request.json['locations']
+        x = plan_my_trip(user,locations)
+        return jsonify(x)
 
-        elif request.method == 'GET':
-            return "ECHO: GET\n"
-    
-        elif request.method == 'PATCH':
-            return "ECHO: PACTH\n"
-    
-        elif request.method == 'PUT':
-                return "ECHO: PUT\n"
-    
-        elif request.method == 'DELETE':
-            return "ECHO: DELETE"
-    
-    
-    
-#    def _set_headers(self):
-#        self.send_response(200)
-#        self.send_header('Content-type', 'text/html')
-#        self.end_headers()
-#    
-#    def do_GET(self):
-#        
-#        self._set_headers()
-#    
-#    def do_HEAD(self):
-#        self._set_headers()
-#    
-#    def do_POST(self):
-#        self._set_headers()
+    elif request.method == 'PATCH':
+        return "print: PACTH\n"
 
-    @app.route('/locations', methods = ['GET', 'POST', 'PATCH', 'PUT', 'DELETE'])
-    def api_print():
-        if request.method == 'GET':
-            return "print: POST\n"
-        
-	elif request.method == 'POST':
-	    content = request.json
-            user = request.json['user']
-	    locations = request.json['locations']
-	    x = plan_my_trip(user,locations)
-            return jsonify(x)
-        
-        elif request.method == 'PATCH':
-            return "print: PACTH\n"
-    
-        elif request.method == 'PUT':
-            return "print: PUT\n"
-        
-        elif request.method == 'DELETE':
-            return "print: DELETE"
+    elif request.method == 'PUT':
+        return "print: PUT\n"
 
-def run(server_class=HTTPServer, handler_class=S, port=8586):
-    server_address = ('', port)
-    httpd = server_class(server_address, handler_class)
-    print 'Starting httpd...'
-    httpd.serve_forever()
+    elif request.method == 'DELETE':
+        return "print: DELETE"
+
+# def run(server_class=HTTPServer, handler_class=S, port=8586):
+#     server_address = ('', port)
+#     httpd = server_class(server_address, handler_class)
+#     print ('Starting httpd...')
+#     httpd.serve_forever()
 
 if __name__ == "__main__":
     from sys import argv
     app.run(host='0.0.0.0', debug=False)
-  #  if len(argv) == 2:
-   #     run(port=int(argv[1]))
-   # else:
-    #    app.run()
+
 
