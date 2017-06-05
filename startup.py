@@ -9,7 +9,7 @@ start_time = time.time()
 
 
 #Define the similarity measurement
-similarity = pearson_network_similarity_basic
+similarity = pearson_profile_network_similarity
 
 #Initializing the test and training data sets for use
 #Training set includes only 40 users and half of their preferences
