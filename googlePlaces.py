@@ -1,6 +1,5 @@
 from googleplaces import GooglePlaces, types, lang
 from pymongo import MongoClient
-import decimal
 
 YOUR_API_KEY = 'AIzaSyCcIvxwR5NyiHdYHFAqgdTtEq9x7yP6VuU'
 google_places = GooglePlaces(YOUR_API_KEY)
@@ -42,7 +41,7 @@ def get_all_locations_in_db():
 
 #Function to create location profiles for a given user based on his location posts
 def create_location_profiles_for_user (user_id):
-    #Extract the locaiton Posts of the user
+    #Extract the location Posts of the user
     record = db.locationPosts.find_one({'user_id' : user_id})
     #Get the list of locations in db
     location_exists = get_all_locations_in_db()
@@ -60,11 +59,6 @@ def create_location_profiles_for_user (user_id):
             pass
     print ("Completed creating profiles for " + user_id)
 
-
-list = ['1521301744793023','1552234955028497','1694166527479154','1774500396108984']
-
-for user in list:
-    create_location_profiles_for_user (user)
 
 
 

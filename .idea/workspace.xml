@@ -6,6 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="bfc5d3b8-1884-4224-9df0-6ebcf5b843df" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cleanUserData.py" afterPath="$PROJECT_DIR$/cleanUserData.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlePlaces.py" afterPath="$PROJECT_DIR$/googlePlaces.py" />
     </list>
     <ignored path="Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -28,19 +29,35 @@
       <file leaf-file-name="cleanUserData.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/cleanUserData.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="261">
-              <caret line="3426" column="0" selection-start-line="3426" selection-start-column="0" selection-end-line="3426" selection-end-column="0" />
+            <state relative-caret-position="242">
+              <caret line="191" column="41" selection-start-line="191" selection-start-column="41" selection-end-line="191" selection-end-column="41" />
               <folding>
                 <element signature="e#236#267#0" expanded="true" />
-                <element signature="e#528#1229#0" expanded="false" />
-                <element signature="e#1302#1535#0" expanded="false" />
-                <element signature="e#1603#2534#0" expanded="false" />
-                <element signature="e#2621#3534#0" expanded="false" />
-                <element signature="e#3596#4004#0" expanded="false" />
-                <element signature="e#4014#5063#0" expanded="false" />
-                <element signature="e#5077#7879#0" expanded="false" />
-                <element signature="e#7887#78404#0" expanded="false" />
-                <element signature="e#78420#99123#0" expanded="false" />
+                <element signature="e#748#1449#0" expanded="false" />
+                <element signature="e#1522#1755#0" expanded="false" />
+                <element signature="e#1823#2754#0" expanded="false" />
+                <element signature="e#2841#3754#0" expanded="false" />
+                <element signature="e#3842#4683#0" expanded="false" />
+                <element signature="e#4763#4895#0" expanded="false" />
+                <element signature="e#5034#5940#0" expanded="false" />
+                <element signature="e#6621#7670#0" expanded="false" />
+                <element signature="e#7684#10486#0" expanded="false" />
+                <element signature="e#10494#81011#0" expanded="false" />
+                <element signature="e#81027#101730#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="googlePlaces.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/googlePlaces.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+                <element signature="e#397#1235#0" expanded="false" />
+                <element signature="e#1272#1404#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -66,7 +83,6 @@
         <option value="$PROJECT_DIR$/Data/users.py" />
         <option value="$PROJECT_DIR$/Data/dataScript.py" />
         <option value="$PROJECT_DIR$/script.py" />
-        <option value="$PROJECT_DIR$/googlePlaces.py" />
         <option value="$PROJECT_DIR$/test.py" />
         <option value="$PROJECT_DIR$/change_preferences.py" />
         <option value="C:/Python34/Lib/site-packages/scipy/__init__.py" />
@@ -100,6 +116,7 @@
         <option value="$PROJECT_DIR$/friendsData.json" />
         <option value="$PROJECT_DIR$/friendsData.py" />
         <option value="$PROJECT_DIR$/data.py" />
+        <option value="$PROJECT_DIR$/googlePlaces.py" />
         <option value="$PROJECT_DIR$/cleanUserData.py" />
       </list>
     </option>
@@ -420,7 +437,7 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -498,13 +515,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/googlePlaces.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="660">
-          <caret line="33" column="45" selection-start-line="33" selection-start-column="12" selection-end-line="33" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/change_preferences.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="382">
@@ -730,21 +740,35 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/googlePlaces.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#397#1235#0" expanded="false" />
+            <element signature="e#1272#1404#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/cleanUserData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="3426" column="0" selection-start-line="3426" selection-start-column="0" selection-end-line="3426" selection-end-column="0" />
+        <state relative-caret-position="242">
+          <caret line="191" column="41" selection-start-line="191" selection-start-column="41" selection-end-line="191" selection-end-column="41" />
           <folding>
             <element signature="e#236#267#0" expanded="true" />
-            <element signature="e#528#1229#0" expanded="false" />
-            <element signature="e#1302#1535#0" expanded="false" />
-            <element signature="e#1603#2534#0" expanded="false" />
-            <element signature="e#2621#3534#0" expanded="false" />
-            <element signature="e#3596#4004#0" expanded="false" />
-            <element signature="e#4014#5063#0" expanded="false" />
-            <element signature="e#5077#7879#0" expanded="false" />
-            <element signature="e#7887#78404#0" expanded="false" />
-            <element signature="e#78420#99123#0" expanded="false" />
+            <element signature="e#748#1449#0" expanded="false" />
+            <element signature="e#1522#1755#0" expanded="false" />
+            <element signature="e#1823#2754#0" expanded="false" />
+            <element signature="e#2841#3754#0" expanded="false" />
+            <element signature="e#3842#4683#0" expanded="false" />
+            <element signature="e#4763#4895#0" expanded="false" />
+            <element signature="e#5034#5940#0" expanded="false" />
+            <element signature="e#6621#7670#0" expanded="false" />
+            <element signature="e#7684#10486#0" expanded="false" />
+            <element signature="e#10494#81011#0" expanded="false" />
+            <element signature="e#81027#101730#0" expanded="false" />
           </folding>
         </state>
       </provider>
