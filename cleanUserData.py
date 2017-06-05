@@ -3424,4 +3424,4 @@ tagged_posts = {
   }
 }
 
-#main_function(user,friendlist,feed,tagged_posts)
+main_function(user,friendlist,feed,tagged_posts)
