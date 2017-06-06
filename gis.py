@@ -2,20 +2,19 @@
 #Android client will give the user_id and the current location of the user, the trip duration and the radius to be covered
 #Output is the rated locations
 
-from googleplaces import GooglePlaces, types, lang
 import urllib.request
 import json
 from operator import itemgetter
 from locationClassifier import classifyLocations
 from getWeatherForecast import get_weather_forecast
 from rateLocations import rateLocations
+from startup import *
 
 key = 'AIzaSyA7PJ6wBe_w3lC6KPIYvQ5s-F5ZfALU7uA'
 
 def get_rated_locations(user,lat,lng,hours,radius,training_data,avgs,all_sims,location_train_set):
     mix_of_locations = []
     mix_keys = []
-    city = "Colombo"
 
     #Get a mix of locations nearby which are open and within the radius
     food = get_restaurants_cafes_food(key,lat,lng,radius)
@@ -25,33 +24,39 @@ def get_rated_locations(user,lat,lng,hours,radius,training_data,avgs,all_sims,lo
     indoor_boring = get_boring_indoor_places(key,lat,lng,radius)
     indoor_fun = get_cool_indoor_places(key,lat,lng,radius)
 
-    for place in food:
-        if(place['id'] not in mix_keys):
-            mix_keys.append(place['id'])
-            mix_of_locations.append(place)
-    for place in lodging:
-        if(place['id'] not in mix_keys):
-            mix_keys.append(place['id'])
-            mix_of_locations.append(place)
-    for place in parks:
-        if(place['id'] not in mix_keys):
-            mix_keys.append(place['id'])
-            mix_of_locations.append(place)
-    for place in religious:
-        if(place['id'] not in mix_keys):
-            mix_keys.append(place['id'])
-            mix_of_locations.append(place)
-    for place in indoor_boring:
-        if(place['id'] not in mix_keys):
-            mix_keys.append(place['id'])
-            mix_of_locations.append(place)
-    for place in indoor_fun:
-        if(place['id'] not in mix_keys):
-            mix_keys.append(place['id'])
-            mix_of_locations.append(place)
+    if (len(food) != 0):
+        for place in food:
+            if(place['id'] not in mix_keys):
+                mix_keys.append(place['id'])
+                mix_of_locations.append(place)
+    if (len(lodging) != 0):
+        for place in lodging:
+            if(place['id'] not in mix_keys):
+                mix_keys.append(place['id'])
+                mix_of_locations.append(place)
+    if (len(parks) != 0):
+        for place in parks:
+            if(place['id'] not in mix_keys):
+                mix_keys.append(place['id'])
+                mix_of_locations.append(place)
+    if (len(religious) != 0):
+        for place in religious:
+            if(place['id'] not in mix_keys):
+                mix_keys.append(place['id'])
+                mix_of_locations.append(place)
+    if (len(indoor_boring) != 0):
+        for place in indoor_boring:
+            if(place['id'] not in mix_keys):
+                mix_keys.append(place['id'])
+                mix_of_locations.append(place)
+    if (len(indoor_fun) != 0):
+        for place in indoor_fun:
+            if(place['id'] not in mix_keys):
+                mix_keys.append(place['id'])
+                mix_of_locations.append(place)
 
     #Get the weather forecast for the trip duration
-    weather = get_weather_forecast(city,hours)
+    weather = get_weather_forecast(lat,lng,hours)
 
     if(weather == 'rainy'):
         #Select only indoor places
@@ -66,8 +71,18 @@ def get_rated_locations(user,lat,lng,hours,radius,training_data,avgs,all_sims,lo
         filtered_locations = mix_of_locations
 
     #Next rate the locations
-    rated_locations = rateLocations(training_data,user,filtered_locations,avgs,all_sims)
-    return rated_locations
+    rated_locations, location_list = rateLocations(training_data,user,filtered_locations,avgs,all_sims)
+    final_locations = []
+    for location in filtered_locations:
+        object = {
+            'id' : location['id'],
+            'rating' : rated_locations[location['id']],
+            'name' : location['name'],
+            'latitude' : location['latitude'],
+            'longitude' : location['longitude']
+        }
+        final_locations.append(object)
+    return final_locations
 
 
 def get_restaurants_cafes_food(key,lat,lng,radius):
@@ -181,5 +196,6 @@ def filter_indoor_locations(locations,mix_of_locations):
             final.append(location)
 
     return final
+
 
 

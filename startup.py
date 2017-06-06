@@ -39,3 +39,5 @@ print ("Training the location classifier")
 location_train_set = create_training_set()
 
 print ("Initialization completed")
+
+
