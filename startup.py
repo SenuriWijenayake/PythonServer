@@ -1,6 +1,7 @@
 import pandas as pd
 from sklearn.linear_model import LinearRegression
 from similarities import *
+from locationClassifier import *
 import warnings
 import time
 
@@ -32,5 +33,9 @@ lm.fit(X, y)
 #Calcualting the user-user similiarities based on the defined similarity measure
 print ("Calculating all user similarities")
 all_sims = calSimilarities(training_data,avgs,similarity,lm)
+
+#Setting up the location classifier
+print ("Training the location classifier")
+location_train_set = create_training_set()
 
 print ("Initialization completed")

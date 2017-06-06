@@ -5,8 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc5d3b8-1884-4224-9df0-6ebcf5b843df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cleanUserData.py" afterPath="$PROJECT_DIR$/cleanUserData.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/googlePlaces.py" afterPath="$PROJECT_DIR$/googlePlaces.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/facebookDataExtraction.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/getWeatherForecast.py" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/locationClassifier.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/startup.py" afterPath="$PROJECT_DIR$/startup.py" />
     </list>
     <ignored path="Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,39 +31,51 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="cleanUserData.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/cleanUserData.py">
+      <file leaf-file-name="locationClassifier.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/locationClassifier.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="242">
-              <caret line="191" column="41" selection-start-line="191" selection-start-column="41" selection-end-line="191" selection-end-column="41" />
+              <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
               <folding>
-                <element signature="e#236#267#0" expanded="true" />
-                <element signature="e#748#1449#0" expanded="false" />
-                <element signature="e#1522#1755#0" expanded="false" />
-                <element signature="e#1823#2754#0" expanded="false" />
-                <element signature="e#2841#3754#0" expanded="false" />
-                <element signature="e#3842#4683#0" expanded="false" />
-                <element signature="e#4763#4895#0" expanded="false" />
-                <element signature="e#5034#5940#0" expanded="false" />
-                <element signature="e#6621#7670#0" expanded="false" />
-                <element signature="e#7684#10486#0" expanded="false" />
-                <element signature="e#10494#81011#0" expanded="false" />
-                <element signature="e#81027#101730#0" expanded="false" />
+                <element signature="e#0#11#0" expanded="true" />
+                <element signature="e#211#569#0" expanded="false" />
+                <element signature="e#679#841#0" expanded="false" />
+                <element signature="e#931#1115#0" expanded="false" />
+                <element signature="e#1209#1402#0" expanded="false" />
+                <element signature="e#1553#1883#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="googlePlaces.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/googlePlaces.py">
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
-              <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
+            <state relative-caret-position="-185">
+              <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="startup.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/startup.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="38" column="42" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
               <folding>
-                <element signature="e#0#50#0" expanded="true" />
-                <element signature="e#397#1235#0" expanded="false" />
-                <element signature="e#1272#1404#0" expanded="false" />
+                <element signature="e#0#19#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getWeatherForecast.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/getWeatherForecast.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="27" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -109,8 +126,6 @@
         <option value="$PROJECT_DIR$/crud.py" />
         <option value="$PROJECT_DIR$/email_classifier.py" />
         <option value="$PROJECT_DIR$/init.py" />
-        <option value="$PROJECT_DIR$/server.py" />
-        <option value="$PROJECT_DIR$/startup.py" />
         <option value="$PROJECT_DIR$/similarities.py" />
         <option value="$PROJECT_DIR$/friends" />
         <option value="$PROJECT_DIR$/friendsData.json" />
@@ -118,6 +133,11 @@
         <option value="$PROJECT_DIR$/data.py" />
         <option value="$PROJECT_DIR$/googlePlaces.py" />
         <option value="$PROJECT_DIR$/cleanUserData.py" />
+        <option value="$PROJECT_DIR$/facebookDataExtraction.py" />
+        <option value="$PROJECT_DIR$/getWeatherForecast.py" />
+        <option value="$PROJECT_DIR$/startup.py" />
+        <option value="$PROJECT_DIR$/locationClassifier.py" />
+        <option value="$PROJECT_DIR$/server.py" />
       </list>
     </option>
   </component>
@@ -152,6 +172,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -172,7 +193,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -180,58 +200,7 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.cleanUserData">
-    <configuration default="false" name="regression_fit" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/regression_fit.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="init" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Project" />
-      <option name="SCRIPT_NAME" value="C:\Users\Senuri\Desktop\Server\rate_locations_script.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
-    <configuration default="false" name="server" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/server.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.startup">
     <configuration default="false" name="startup" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -262,6 +231,57 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Project" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/cleanUserData.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="facebookDataExtraction" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/facebookDataExtraction.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="getWeatherForecast" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/getWeatherForecast.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="locationClassifier" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/locationClassifier.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -414,19 +434,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.regression_fit" />
-      <item index="1" class="java.lang.String" itemvalue="Python.init" />
-      <item index="2" class="java.lang.String" itemvalue="Python.server" />
-      <item index="3" class="java.lang.String" itemvalue="Python.startup" />
-      <item index="4" class="java.lang.String" itemvalue="Python.cleanUserData" />
+      <item index="0" class="java.lang.String" itemvalue="Python.startup" />
+      <item index="1" class="java.lang.String" itemvalue="Python.cleanUserData" />
+      <item index="2" class="java.lang.String" itemvalue="Python.facebookDataExtraction" />
+      <item index="3" class="java.lang.String" itemvalue="Python.getWeatherForecast" />
+      <item index="4" class="java.lang.String" itemvalue="Python.locationClassifier" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.cleanUserData" />
-        <item index="1" class="java.lang.String" itemvalue="Python.startup" />
-        <item index="2" class="java.lang.String" itemvalue="Python.server" />
-        <item index="3" class="java.lang.String" itemvalue="Python.regression_fit" />
-        <item index="4" class="java.lang.String" itemvalue="Python.init" />
+        <item index="0" class="java.lang.String" itemvalue="Python.startup" />
+        <item index="1" class="java.lang.String" itemvalue="Python.getWeatherForecast" />
+        <item index="2" class="java.lang.String" itemvalue="Python.locationClassifier" />
+        <item index="3" class="java.lang.String" itemvalue="Python.facebookDataExtraction" />
+        <item index="4" class="java.lang.String" itemvalue="Python.cleanUserData" />
       </list>
     </recent_temporary>
   </component>
@@ -510,35 +530,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="373" />
+      <option name="time" value="380" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/change_preferences.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="382">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/debug.py" />
-    <entry file="file://$PROJECT_DIR$/networkSimilarityMeasurements.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="170" column="0" selection-start-line="170" selection-start-column="0" selection-end-line="203" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/script.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="52" column="1" selection-start-line="52" selection-start-column="1" selection-end-line="52" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/summaries/0/vif.txt" />
-    <entry file="file://$PROJECT_DIR$/summaries/0/summary.txt" />
     <entry file="file://$PROJECT_DIR$/summaries/1/summary.txt" />
     <entry file="file://$PROJECT_DIR$/summaries/1/vif.txt" />
     <entry file="file://$PROJECT_DIR$/summaries/2/vif.txt" />
@@ -693,59 +689,28 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/friendsData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="7" selection-start-line="0" selection-start-column="7" selection-end-line="0" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/friendsData.py" />
     <entry file="file://$PROJECT_DIR$/eval.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/data.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="863" column="10" selection-start-line="0" selection-start-column="0" selection-end-line="966" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/data.py" />
     <entry file="file://$PROJECT_DIR$/similarities.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1035">
           <caret line="142" column="39" selection-start-line="142" selection-start-column="39" selection-end-line="142" selection-end-column="39" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="40">
-          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/startup.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="34" column="0" selection-start-line="34" selection-start-column="0" selection-end-line="34" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/googlePlaces.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="220">
           <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
           <folding>
-            <element signature="e#0#50#0" expanded="true" />
+            <element signature="e#0#50#0" expanded="false" />
             <element signature="e#397#1235#0" expanded="false" />
             <element signature="e#1272#1404#0" expanded="false" />
           </folding>
@@ -754,10 +719,10 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/cleanUserData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
+        <state relative-caret-position="1320">
           <caret line="191" column="41" selection-start-line="191" selection-start-column="41" selection-end-line="191" selection-end-column="41" />
           <folding>
-            <element signature="e#236#267#0" expanded="true" />
+            <element signature="e#236#267#0" expanded="false" />
             <element signature="e#748#1449#0" expanded="false" />
             <element signature="e#1522#1755#0" expanded="false" />
             <element signature="e#1823#2754#0" expanded="false" />
@@ -770,6 +735,81 @@
             <element signature="e#10494#81011#0" expanded="false" />
             <element signature="e#81027#101730#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/change_preferences.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="45" column="0" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/profile.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/location_posts.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/facebookDataExtraction.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="9" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#15#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getWeatherForecast.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="27" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locationClassifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="242">
+          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+          <folding>
+            <element signature="e#0#11#0" expanded="true" />
+            <element signature="e#211#569#0" expanded="false" />
+            <element signature="e#679#841#0" expanded="false" />
+            <element signature="e#931#1115#0" expanded="false" />
+            <element signature="e#1209#1402#0" expanded="false" />
+            <element signature="e#1553#1883#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/startup.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="38" column="42" selection-start-line="38" selection-start-column="42" selection-end-line="38" selection-end-column="42" />
+          <folding>
+            <element signature="e#0#19#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-185">
+          <caret line="4" column="48" selection-start-line="4" selection-start-column="48" selection-end-line="4" selection-end-column="48" />
+          <folding />
         </state>
       </provider>
     </entry>

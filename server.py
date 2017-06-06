@@ -2,6 +2,7 @@ from flask import request, app, jsonify
 from flask import Flask
 from startup import *
 from rate_locations_script import rate_these_locations
+from locationClassifier import classifyLocations
 from email_classifier import classify_emails
 app = Flask(__name__)
 
