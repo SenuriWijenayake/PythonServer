@@ -59,7 +59,7 @@ def classifyLocations(locations,train):
     output = {}
     for loc in locations:
         #Change the format to the required format
-        output[loc['place_id']] = changeFromat(loc)
+        output[loc['id']] = changeFromat(loc)
 
     for key in output:
         #Call the classifier

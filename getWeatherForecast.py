@@ -24,7 +24,4 @@ def get_weather_forecast(city,hours):
         return "sunny"
 
 
-x = get_weather_forecast("Colombo",3)
-print (x)
-
 

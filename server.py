@@ -1,8 +1,7 @@
 from flask import request, app, jsonify
 from flask import Flask
 from startup import *
-from rate_locations_script import rate_these_locations
-from locationClassifier import classifyLocations
+from gis import get_rated_locations
 from email_classifier import classify_emails
 app = Flask(__name__)
 
@@ -19,10 +18,12 @@ def classify():
 @app.route('/locations', methods=['GET','POST'])
 def location():
     if request.method == 'POST':
-        content = request.json
         user = request.json['user']
-        locations = request.json['locations']
-        x = rate_these_locations(user,locations,avgs,all_sims)
+        latitude = request.json['latitude']
+        longitude = request.json['longitude']
+        hours = request.json['hours']
+        radius = request.json['radius']
+        x = get_rated_locations(user,latitude,longitude,hours,radius,training_data,avgs,all_sims,location_train_set)
         return jsonify(x)
     else:
         return "print: GET LOCATIONS"
