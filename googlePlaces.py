@@ -10,8 +10,8 @@ locationPosts = db.locationPosts.find()
 locations = db.locations
 locations_collection = db.locations.find()
 
-def get_place_details (name,lat,long):
-    query_result = google_places.text_search(query=name, location="Sri Lanka", lat_lng={'lat':lat,'lng': long})
+def get_place_details (name):
+    query_result = google_places.text_search(query=name, location="Sri Lanka")
     count = 1
     for place in query_result.places:
         if (count is 1):
@@ -48,7 +48,7 @@ def create_location_profiles_for_user (user_id):
     for location in record['locations']:
         try:
             if (location['place']['name'] not in location_exists):
-                details = get_place_details(location['place']['name'], location['place']['location']['latitude'], location['place']['location']['longitude'])
+                details = get_place_details(location['place']['name'])
                 if (details['name'] not in location_exists):
                     print ("Inserting location : " + details['name'])
                     db.locations.insert_one(details)
@@ -61,6 +61,4 @@ def create_location_profiles_for_user (user_id):
 
 
 
-
-
-
+create_location_profiles_for_user ("1665852693730402")
