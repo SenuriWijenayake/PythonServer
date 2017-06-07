@@ -160,25 +160,25 @@ def get_cool_indoor_places(key,lat,lng,radius):
 def preprocess_google_response(object):
     response = []
     for obj in object:
-        preprocessed = {}
-        preprocessed['id'] = obj['place_id']
+        if ('rating' in obj):
 
-        areas = obj['vicinity'].split(",")
-        area = areas[len(areas)-1].replace(" ","")
+            preprocessed = {}
+            preprocessed['id'] = obj['place_id']
 
-        preprocessed['area'] = area
-        preprocessed['longitude'] = obj['geometry']['location']['lng']
-        preprocessed['latitude'] = obj['geometry']['location']['lat']
-        if('rating' in obj):
+            areas = obj['vicinity'].split(",")
+            area = areas[len(areas)-1].replace(" ","")
+
+            preprocessed['area'] = area
+            preprocessed['longitude'] = obj['geometry']['location']['lng']
+            preprocessed['latitude'] = obj['geometry']['location']['lat']
             preprocessed['rating'] = obj['rating']
-        else:
-            preprocessed['rating'] = 3.5
-        preprocessed['name'] = obj['name']
-        if ('photos' in obj):
-            preprocessed['photos'] = obj['photos']
-        preprocessed['types'] = obj['types']
+            preprocessed['name'] = obj['name']
 
-        response.append(preprocessed)
+            if ('photos' in obj):
+                preprocessed['photos'] = obj['photos']
+            preprocessed['types'] = obj['types']
+    
+            response.append(preprocessed)
 
     new_list = sorted(response, key=itemgetter('rating'), reverse=True)
     return new_list
