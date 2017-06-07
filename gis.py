@@ -208,3 +208,4 @@ def number_of_matches(types):
     for type in types:
         if (type in considered_types):
             count += 1
+    return count
