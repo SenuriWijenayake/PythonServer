@@ -11,6 +11,9 @@ from rateLocations import rateLocations
 from startup import *
 
 key = 'AIzaSyA7PJ6wBe_w3lC6KPIYvQ5s-F5ZfALU7uA'
+considered_types = ['amusement_park','aquarium','art_gallery','bakery','bar','cafe','casino',
+                    'church','clothing_store','hindu_temple','library','lodging','mosque','movie_theater',
+                    'museum','night_club','park','place_of_worship','restaurant','shopping_mall','spa','university','zoo']
 
 def get_rated_locations(user,lat,lng,hours,radius,training_data,avgs,all_sims,location_train_set):
     mix_of_locations = []
@@ -160,25 +163,26 @@ def get_cool_indoor_places(key,lat,lng,radius):
 def preprocess_google_response(object):
     response = []
     for obj in object:
-        if ('rating' in obj):
+        if ('rating' in obj and 'types' in obj):
+            count = number_of_matches(obj['types'])
+            if(count > 3):
+                preprocessed = {}
+                preprocessed['id'] = obj['place_id']
 
-            preprocessed = {}
-            preprocessed['id'] = obj['place_id']
+                areas = obj['vicinity'].split(",")
+                area = areas[len(areas)-1].replace(" ","")
 
-            areas = obj['vicinity'].split(",")
-            area = areas[len(areas)-1].replace(" ","")
+                preprocessed['area'] = area
+                preprocessed['longitude'] = obj['geometry']['location']['lng']
+                preprocessed['latitude'] = obj['geometry']['location']['lat']
+                preprocessed['rating'] = obj['rating']
+                preprocessed['name'] = obj['name']
 
-            preprocessed['area'] = area
-            preprocessed['longitude'] = obj['geometry']['location']['lng']
-            preprocessed['latitude'] = obj['geometry']['location']['lat']
-            preprocessed['rating'] = obj['rating']
-            preprocessed['name'] = obj['name']
+                if ('photos' in obj):
+                    preprocessed['photos'] = obj['photos']
+                preprocessed['types'] = obj['types']
 
-            if ('photos' in obj):
-                preprocessed['photos'] = obj['photos']
-            preprocessed['types'] = obj['types']
-    
-            response.append(preprocessed)
+                response.append(preprocessed)
 
     new_list = sorted(response, key=itemgetter('rating'), reverse=True)
     return new_list
@@ -199,3 +203,8 @@ def filter_indoor_locations(locations,mix_of_locations):
 
 
 
+def number_of_matches(types):
+    count = 0
+    for type in types:
+        if (type in considered_types):
+            count += 1
