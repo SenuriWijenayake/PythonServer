@@ -91,8 +91,9 @@ def get_rated_locations(user,lat,lng,hours,radius,training_data,avgs,all_sims,lo
 def get_restaurants_cafes_food(key,lat,lng,radius):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=restaurant|food|cafe&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
+    flag = 0
     if (len(object['results']) != 0):
-        preprocessed = preprocess_google_response(object['results'])
+        preprocessed = preprocess_google_response(object['results'],flag)
         #Get the top ten based on location rating
         top_ten = preprocessed[0:10]
         return (top_ten)
@@ -103,8 +104,9 @@ def get_restaurants_cafes_food(key,lat,lng,radius):
 def get_hotels_lodging(key,lat,lng,radius):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=lodging&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
+    flag = 0
     if (len(object['results']) != 0):
-        preprocessed = preprocess_google_response(object['results'])
+        preprocessed = preprocess_google_response(object['results'],flag)
         #Get the top ten based on location rating
         top_ten = preprocessed[0:10]
         return (top_ten)
@@ -115,8 +117,9 @@ def get_hotels_lodging(key,lat,lng,radius):
 def get_fun_parks_zoos_places(key,lat,lng,radius):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=amusement_park|park|zoo&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
+    flag = 0
     if (len(object['results']) != 0):
-        preprocessed = preprocess_google_response(object['results'])
+        preprocessed = preprocess_google_response(object['results'],flag)
         #Get the top ten based on location rating
         top_ten = preprocessed[0:10]
         return (top_ten)
@@ -127,8 +130,9 @@ def get_fun_parks_zoos_places(key,lat,lng,radius):
 def get_religious_places(key,lat,lng,radius):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=church|place_of_worship|mosque|hindu_temple&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
+    flag = 1
     if (len(object['results']) != 0):
-        preprocessed = preprocess_google_response(object['results'])
+        preprocessed = preprocess_google_response(object['results'],flag)
         #Get the top ten based on location rating
         top_ten = preprocessed[0:10]
         return (top_ten)
@@ -139,8 +143,9 @@ def get_religious_places(key,lat,lng,radius):
 def get_boring_indoor_places(key,lat,lng,radius):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=aquarium|art_gallery|museum|movie_theater|library&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
+    flag = 0
     if (len(object['results']) != 0):
-        preprocessed = preprocess_google_response(object['results'])
+        preprocessed = preprocess_google_response(object['results'],flag)
         #Get the top ten based on location rating
         top_ten = preprocessed[0:]
         return (top_ten)
@@ -151,8 +156,9 @@ def get_boring_indoor_places(key,lat,lng,radius):
 def get_cool_indoor_places(key,lat,lng,radius):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=bar|casino|spa|shopping_mall|night_club|movie_theater&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
+    flag = 0
     if (len(object['results']) != 0):
-        preprocessed = preprocess_google_response(object['results'])
+        preprocessed = preprocess_google_response(object['results'],flag)
         #Get the top ten based on location rating
         top_ten = preprocessed[0:20]
         return (top_ten)
@@ -160,29 +166,56 @@ def get_cool_indoor_places(key,lat,lng,radius):
         return []
 
 
-def preprocess_google_response(object):
+def preprocess_google_response(object,flag):
     response = []
-    for obj in object:
-        if ('rating' in obj and 'types' in obj):
-            count = number_of_matches(obj['types'])
-            if(count > 3):
-                preprocessed = {}
-                preprocessed['id'] = obj['place_id']
+    if (flag == 0):
+        for obj in object:
+            if ('rating' in obj and 'types' in obj):
+                    preprocessed = {}
+                    preprocessed['id'] = obj['place_id']
 
-                areas = obj['vicinity'].split(",")
-                area = areas[len(areas)-1].replace(" ","")
+                    areas = obj['vicinity'].split(",")
+                    area = areas[len(areas)-1].replace(" ","")
 
-                preprocessed['area'] = area
-                preprocessed['longitude'] = obj['geometry']['location']['lng']
-                preprocessed['latitude'] = obj['geometry']['location']['lat']
-                preprocessed['rating'] = obj['rating']
-                preprocessed['name'] = obj['name']
+                    preprocessed['area'] = area
+                    preprocessed['longitude'] = obj['geometry']['location']['lng']
+                    preprocessed['latitude'] = obj['geometry']['location']['lat']
+                    preprocessed['rating'] = obj['rating']
+                    preprocessed['name'] = obj['name']
 
-                if ('photos' in obj):
-                    preprocessed['photos'] = obj['photos']
-                preprocessed['types'] = obj['types']
+                    if ('photos' in obj):
+                        preprocessed['photos'] = obj['photos']
+                    preprocessed['types'] = obj['types']
 
-                response.append(preprocessed)
+                    response.append(preprocessed)
+
+    if (flag == 1):
+        for obj in object:
+            if ('types' in obj):
+                    preprocessed = {}
+                    preprocessed['id'] = obj['place_id']
+
+                    areas = obj['vicinity'].split(",")
+                    area = areas[len(areas)-1].replace(" ","")
+
+                    preprocessed['area'] = area
+                    preprocessed['longitude'] = obj['geometry']['location']['lng']
+                    preprocessed['latitude'] = obj['geometry']['location']['lat']
+
+                    if ('rating' in obj):
+                        preprocessed['rating'] = obj['rating']
+                    else:
+                       preprocessed['rating'] = 3
+
+                    preprocessed['name'] = obj['name']
+
+                    if ('photos' in obj):
+                        preprocessed['photos'] = obj['photos']
+                    preprocessed['types'] = obj['types']
+
+                    response.append(preprocessed)
+
+
 
     new_list = sorted(response, key=itemgetter('rating'), reverse=True)
     return new_list
@@ -203,9 +236,4 @@ def filter_indoor_locations(locations,mix_of_locations):
 
 
 
-def number_of_matches(types):
-    count = 0
-    for type in types:
-        if (type in considered_types):
-            count += 1
-    return count
+
