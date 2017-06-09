@@ -94,7 +94,7 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
             object['photos'] = location['photos']
         final_locations.append(object)
 
-    print (final_locations)
+    return (final_locations)
 
 
 def get_restaurants_cafes_food(key,lat,lng,radius,city):
