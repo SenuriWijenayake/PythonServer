@@ -9,6 +9,7 @@ def get_weather_forecast(lat,lng,hours):
     city = "Colombo"
     forecast = owm.daily_forecast(city + ",lk")
     now = pyowm.timeutils.now()
+    print (now)
 
     three_hours = pyowm.timeutils.next_three_hours(now)
     six_hours = pyowm.timeutils.next_three_hours(three_hours)
@@ -38,4 +39,4 @@ def get_city(lat,lng):
 
 
 
-
+#get_weather_forecast(6.9271,79.8612,6)
