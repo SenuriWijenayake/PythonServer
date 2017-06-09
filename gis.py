@@ -101,7 +101,7 @@ def get_restaurants_cafes_food(key,lat,lng,radius,city):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=restaurant|food|cafe&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
-    top_ten = []
+    popular_places = []
     if(city.lower() in tourist_cities):
         popular_places = extract_locations_for_city(city,['restaurant','cafe'])
 
@@ -121,6 +121,7 @@ def get_hotels_lodging(key,lat,lng,radius,city):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=lodging&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
+    popular_places = []
     if(city.lower() in tourist_cities):
         popular_places = extract_locations_for_city(city,['lodging'])
 
@@ -140,6 +141,7 @@ def get_fun_parks_zoos_places(key,lat,lng,radius,city):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=amusement_park|park|zoo&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
+    popular_places = []
     if(city.lower() in tourist_cities):
         popular_places = extract_locations_for_city(city,['park','zoo'])
 
@@ -159,6 +161,7 @@ def get_religious_places(key,lat,lng,radius,city):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=church|place_of_worship|mosque|hindu_temple&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 1
+    popular_places = []
     if(city.lower() in tourist_cities):
         popular_places = extract_locations_for_city(city,['place_of_worship','church','hindu_temple','mosque'])
 
@@ -178,6 +181,7 @@ def get_boring_indoor_places(key,lat,lng,radius,city):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=aquarium|art_gallery|museum|movie_theater|library&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
+    popular_places = []
     if(city.lower() in tourist_cities):
         popular_places = extract_locations_for_city(city,['art_gallery','museum','movie_theater','library'])
 
@@ -197,6 +201,7 @@ def get_cool_indoor_places(key,lat,lng,radius,city):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=bar|casino|spa|shopping_mall|night_club|movie_theater&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
+    popular_places = []
     if(city.lower() in tourist_cities):
         popular_places = extract_locations_for_city(city,['bar','casino','shopping_mall','movie_theater'])
 
