@@ -15,7 +15,7 @@ considered_types = ['amusement_park','aquarium','art_gallery','bakery','bar','ca
                     'church','clothing_store','hindu_temple','library','lodging','mosque','movie_theater',
                     'museum','night_club','park','place_of_worship','restaurant','shopping_mall','spa','university','zoo']
 
-def get_rated_locations(user,lat,lng,hours,radius,training_data,avgs,all_sims,location_train_set):
+def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_sims,location_train_set):
     mix_of_locations = []
     mix_keys = []
 
@@ -59,7 +59,7 @@ def get_rated_locations(user,lat,lng,hours,radius,training_data,avgs,all_sims,lo
                 mix_of_locations.append(place)
 
     #Get the weather forecast for the trip duration
-    weather = get_weather_forecast(lat,lng,hours)
+    weather = get_weather_forecast(lat,lng,hours,start)
     #weather = "rainy"
 
     if(weather == 'rainy'):

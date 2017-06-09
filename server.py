@@ -23,7 +23,9 @@ def location():
         longitude = request.json['longitude']
         hours = request.json['hours']
         radius = request.json['radius']
-        x = get_rated_locations(user,latitude,longitude,hours,radius,training_data,avgs,all_sims,location_train_set)
+        start = request.json['startTime']
+        #print (user,latitude,longitude,hours,radius,start)
+        x = get_rated_locations(user,latitude,longitude,hours,start,radius,training_data,avgs,all_sims,location_train_set)
         return jsonify(x)
     else:
         return "print: GET LOCATIONS"

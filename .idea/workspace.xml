@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc5d3b8-1884-4224-9df0-6ebcf5b843df" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/goodPlaces.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getWeatherForecast.py" afterPath="$PROJECT_DIR$/getWeatherForecast.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gis.py" afterPath="$PROJECT_DIR$/gis.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
     </list>
     <ignored path="Project.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -25,36 +29,41 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="gis.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gis.py">
+      <file leaf-file-name="goodPlaces.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/goodPlaces.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
+            <state relative-caret-position="640">
+              <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
               <folding>
-                <element signature="e#1458#1613#0" expanded="false" />
-                <element signature="e#1650#1808#0" expanded="false" />
-                <element signature="e#1843#1999#0" expanded="false" />
-                <element signature="e#2074#2198#0" expanded="false" />
-                <element signature="e#2241#2405#0" expanded="false" />
-                <element signature="e#2445#2612#0" expanded="false" />
-                <element signature="e#9427#9682#0" expanded="false" />
+                <element signature="e#3679#4869#0" expanded="false" />
+                <element signature="e#4872#4893#0" expanded="true" />
+                <marker date="1497006366267" expanded="false" signature="1155:2348" ph="..." />
+                <marker date="1497006366267" expanded="false" signature="2360:3668" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getWeatherForecast.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="getWeatherForecast.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/getWeatherForecast.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="600">
-              <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+            <state relative-caret-position="252">
+              <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="56" />
               <folding>
-                <element signature="e#1060#1184#0" expanded="false" />
-                <element signature="e#1219#1368#0" expanded="false" />
-                <element signature="e#1403#1578#0" expanded="false" />
-                <element signature="e#1614#1817#0" expanded="false" />
-                <element signature="e#1846#1966#0" expanded="false" />
+                <element signature="e#1620#1795#0" expanded="false" />
+                <element signature="e#1831#2034#0" expanded="false" />
+                <element signature="e#2063#2183#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -113,12 +122,13 @@
         <option value="$PROJECT_DIR$/cleanUserData.py" />
         <option value="$PROJECT_DIR$/googlePlaces.py" />
         <option value="$PROJECT_DIR$/postAnalysis.py" />
-        <option value="$PROJECT_DIR$/server.py" />
         <option value="$PROJECT_DIR$/crud.py" />
         <option value="$PROJECT_DIR$/eval.py" />
         <option value="$PROJECT_DIR$/rateLocations.py" />
+        <option value="$PROJECT_DIR$/goodPlaces.py" />
         <option value="$PROJECT_DIR$/gis.py" />
         <option value="$PROJECT_DIR$/getWeatherForecast.py" />
+        <option value="$PROJECT_DIR$/server.py" />
       </list>
     </option>
   </component>
@@ -182,23 +192,6 @@
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
   <component name="RunManager" selected="Python.getWeatherForecast">
-    <configuration default="false" name="startup" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="Project" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/startup.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
     <configuration default="false" name="getWeatherForecast" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -263,6 +256,23 @@
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <module name="Project" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/googlePlaces.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="goodPlaces" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="Project" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/goodPlaces.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -415,19 +425,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.startup" />
-      <item index="1" class="java.lang.String" itemvalue="Python.getWeatherForecast" />
-      <item index="2" class="java.lang.String" itemvalue="Python.gis" />
-      <item index="3" class="java.lang.String" itemvalue="Python.postAnalysis" />
-      <item index="4" class="java.lang.String" itemvalue="Python.googlePlaces" />
+      <item index="0" class="java.lang.String" itemvalue="Python.getWeatherForecast" />
+      <item index="1" class="java.lang.String" itemvalue="Python.gis" />
+      <item index="2" class="java.lang.String" itemvalue="Python.postAnalysis" />
+      <item index="3" class="java.lang.String" itemvalue="Python.googlePlaces" />
+      <item index="4" class="java.lang.String" itemvalue="Python.goodPlaces" />
     </list>
     <recent_temporary>
       <list size="5">
         <item index="0" class="java.lang.String" itemvalue="Python.getWeatherForecast" />
-        <item index="1" class="java.lang.String" itemvalue="Python.gis" />
-        <item index="2" class="java.lang.String" itemvalue="Python.postAnalysis" />
-        <item index="3" class="java.lang.String" itemvalue="Python.googlePlaces" />
-        <item index="4" class="java.lang.String" itemvalue="Python.startup" />
+        <item index="1" class="java.lang.String" itemvalue="Python.goodPlaces" />
+        <item index="2" class="java.lang.String" itemvalue="Python.gis" />
+        <item index="3" class="java.lang.String" itemvalue="Python.postAnalysis" />
+        <item index="4" class="java.lang.String" itemvalue="Python.googlePlaces" />
       </list>
     </recent_temporary>
   </component>
@@ -444,8 +454,8 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29623824" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.346395" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29937303" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5188088" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -488,6 +498,13 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/goodPlaces.py</url>
+          <line>226</line>
+          <option name="timeStamp" value="434" />
+        </line-breakpoint>
+      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -495,13 +512,11 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="423" />
+      <option name="time" value="438" />
     </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/summaries/2/vif.txt" />
-    <entry file="file://$PROJECT_DIR$/summaries/3/summary.txt" />
     <entry file="file://$PROJECT_DIR$/summaries/2/summary.txt" />
     <entry file="file://$PROJECT_DIR$/summaries/4/summary.txt" />
     <entry file="file://$PROJECT_DIR$/summaries/4 - Gender Only/summary.txt" />
@@ -632,38 +647,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://C:/Python34/Lib/codecs.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="308" column="0" selection-start-line="308" selection-start-column="0" selection-end-line="308" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/cleanUserData.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="440">
-          <caret line="22" column="0" selection-start-line="22" selection-start-column="0" selection-end-line="22" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/locationClassifier.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/change_preferences.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="511">
           <caret line="43" column="8" selection-start-line="43" selection-start-column="8" selection-end-line="43" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/googlePlaces.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
         </state>
       </provider>
     </entry>
@@ -679,13 +666,6 @@
         <state relative-caret-position="760">
           <caret line="43" column="0" selection-start-line="43" selection-start-column="0" selection-end-line="43" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="25" column="69" selection-start-line="25" selection-start-column="69" selection-end-line="25" selection-end-column="116" />
         </state>
       </provider>
     </entry>
@@ -726,32 +706,92 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/getWeatherForecast.py">
+    <entry file="file://$PROJECT_DIR$/cleanUserData.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="600">
-          <caret line="38" column="0" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
-          <folding>
-            <element signature="e#1060#1184#0" expanded="false" />
-            <element signature="e#1219#1368#0" expanded="false" />
-            <element signature="e#1403#1578#0" expanded="false" />
-            <element signature="e#1614#1817#0" expanded="false" />
-            <element signature="e#1846#1966#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="120">
+          <caret line="9" column="24" selection-start-line="9" selection-start-column="24" selection-end-line="9" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/googlePlaces.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="940">
+          <caret line="48" column="12" selection-start-line="48" selection-start-column="12" selection-end-line="48" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/locationClassifier.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="190">
+          <caret line="55" column="39" selection-start-line="55" selection-start-column="39" selection-end-line="55" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/urllib/request.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="93">
+          <caret line="587" column="0" selection-start-line="587" selection-start-column="0" selection-end-line="587" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://C:/Python34/Lib/codecs.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="95">
+          <caret line="306" column="0" selection-start-line="306" selection-start-column="0" selection-end-line="306" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="65" column="34" selection-start-line="65" selection-start-column="34" selection-end-line="65" selection-end-column="34" />
+        <state relative-caret-position="152">
+          <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
           <folding>
-            <element signature="e#1458#1613#0" expanded="false" />
-            <element signature="e#1650#1808#0" expanded="false" />
-            <element signature="e#1843#1999#0" expanded="false" />
-            <element signature="e#2074#2198#0" expanded="false" />
-            <element signature="e#2241#2405#0" expanded="false" />
-            <element signature="e#2445#2612#0" expanded="false" />
-            <element signature="e#9427#9682#0" expanded="false" />
+            <element signature="e#1464#1619#0" expanded="false" />
+            <element signature="e#1656#1814#0" expanded="false" />
+            <element signature="e#1849#2005#0" expanded="false" />
+            <element signature="e#2080#2204#0" expanded="false" />
+            <element signature="e#2247#2411#0" expanded="false" />
+            <element signature="e#2451#2618#0" expanded="false" />
+            <element signature="e#7450#9375#0" expanded="false" />
+            <element signature="e#9439#9694#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/goodPlaces.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="640">
+          <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+          <folding>
+            <element signature="e#3679#4869#0" expanded="false" />
+            <element signature="e#4872#4893#0" expanded="true" />
+            <marker date="1497006366267" expanded="false" signature="1155:2348" ph="..." />
+            <marker date="1497006366267" expanded="false" signature="2360:3668" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getWeatherForecast.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="252">
+          <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="56" />
+          <folding>
+            <element signature="e#1620#1795#0" expanded="false" />
+            <element signature="e#1831#2034#0" expanded="false" />
+            <element signature="e#2063#2183#0" expanded="false" />
           </folding>
         </state>
       </provider>

@@ -2,15 +2,26 @@ import pyowm
 
 api_keys = ['d32af81fbf749c1f469b1e762b35253a','e49703a5b52ce7508fff34fbbc803f6b','6b6d929a1dc81b448fb09ea0c0a99865','711267ec959c9f3170fb73c580ad2a15']
 owm = pyowm.OWM(api_keys[1])
+from datetime import datetime
 
-def get_weather_forecast(lat,lng,hours):
+def get_weather_forecast(lat,lng,hours,start):
     #Include start time
+    start = start.split("-")
+    year = int(start[0])
+    month = int(start[1])
+    day = int(start[2])
+
+    hour = int(start[3])
+    secs = int(start[4])
+
+    start_time = datetime(year, month, day, hour, secs)
+
     city = str(get_city(lat,lng))
-    #city = "Colombo"
+
     forecast = owm.daily_forecast(city + ",lk")
     if(forecast is None):
         forecast = owm.daily_forecast("Colombo" + ",lk")
-    now = pyowm.timeutils.now()
+    now = start_time
     print (now)
 
     three_hours = pyowm.timeutils.next_three_hours(now)
@@ -56,3 +67,4 @@ def get_city(lat,lng):
 
 
 
+#get_weather_forecast(6.9271,79.8612,5,"2017-06-09-16-43")
