@@ -98,7 +98,7 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
 
 
 def get_restaurants_cafes_food(key,lat,lng,radius,city):
-    response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=restaurant|food|cafe&key=" + key + "&opennow").read().decode('utf8')
+    response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=restaurant|cafe&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
     popular_places = []
@@ -198,7 +198,7 @@ def get_boring_indoor_places(key,lat,lng,radius,city):
 
 
 def get_cool_indoor_places(key,lat,lng,radius,city):
-    response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=bar|casino|spa|shopping_mall|night_club|movie_theater&key=" + key + "&opennow").read().decode('utf8')
+    response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=bar|casino|spa|night_club|movie_theater&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
     popular_places = []
