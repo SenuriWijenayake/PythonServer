@@ -75,8 +75,8 @@ def filterUsersOnAgeGender (users,age,gender):
         details = getUserDetails(user)
         user_age = details['age']
         user_gender = details['gender']
-        min_age = age - 5
-        max_age = age + 5
+        min_age = age - 3
+        max_age = age + 3
         
         if user_gender == gender and user_age in range(min_age,max_age+1):
             result[user] = 1
@@ -118,8 +118,8 @@ def filterLocationsWithoutRegion (tags,ids):
 
 #Function to extract users with a given age range and gender other than the active user
 def getUsersInAgeAndGender(active,age,gender):
-    min_age = age - 5
-    max_age = age + 5
+    min_age = age - 3
+    max_age = age + 3
     result = list(users.find({ 'id' : { '$ne' : active } ,'gender' : gender, 'age' : { '$gte' : min_age , '$lte' : max_age }}, {'_id' : 0, 'id' : 1}))
     return result
 
@@ -128,8 +128,8 @@ def getUsersInAgeAndGenderTraining(active,age,gender):
     ids = []
     for key in training_data:
         ids.append(key)
-    min_age = age - 5
-    max_age = age + 5
+    min_age = age - 3
+    max_age = age + 3
     result = list(users.find({ 'id' : { '$in' : ids } ,'gender' : gender, 'age' : { '$gte' : min_age , '$lte' : max_age }}, {'_id' : 0, 'id' : 1}))
     return result
 
