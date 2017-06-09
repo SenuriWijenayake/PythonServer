@@ -63,6 +63,8 @@ def rateLocations(data,active,locations,avgs,all_sims):
 
     rated_locations = {}
 
+    #Used to determine the number of top users to consider
+    #Since the data set is small i have used 5
     n = 5
 
     #Check if the locations list is null
