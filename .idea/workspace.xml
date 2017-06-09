@@ -5,10 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc5d3b8-1884-4224-9df0-6ebcf5b843df" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/goodPlaces.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getWeatherForecast.py" afterPath="$PROJECT_DIR$/getWeatherForecast.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gis.py" afterPath="$PROJECT_DIR$/gis.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/goodPlaces.py" afterPath="$PROJECT_DIR$/goodPlaces.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server.py" afterPath="$PROJECT_DIR$/server.py" />
     </list>
     <ignored path="Project.iws" />
@@ -29,30 +28,42 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="goodPlaces.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/goodPlaces.py">
+      <file leaf-file-name="gis.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/gis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="640">
-              <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
+            <state relative-caret-position="-681">
+              <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
               <folding>
-                <element signature="e#3679#4869#0" expanded="false" />
-                <element signature="e#4872#4893#0" expanded="true" />
-                <marker date="1497006366267" expanded="false" signature="1155:2348" ph="..." />
-                <marker date="1497006366267" expanded="false" signature="2360:3668" ph="..." />
+                <element signature="e#1464#1619#0" expanded="false" />
+                <element signature="e#1656#1814#0" expanded="false" />
+                <element signature="e#1849#2005#0" expanded="false" />
+                <element signature="e#2080#2204#0" expanded="false" />
+                <element signature="e#2247#2411#0" expanded="false" />
+                <element signature="e#2451#2618#0" expanded="false" />
+                <element signature="e#7450#9375#0" expanded="false" />
+                <element signature="e#9439#9694#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="getWeatherForecast.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/getWeatherForecast.py">
+      <file leaf-file-name="goodPlaces.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/goodPlaces.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="252">
-              <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="56" />
+            <state relative-caret-position="418">
+              <caret line="492" column="21" selection-start-line="492" selection-start-column="21" selection-end-line="492" selection-end-column="21" />
               <folding>
-                <element signature="e#1620#1795#0" expanded="false" />
-                <element signature="e#1831#2034#0" expanded="false" />
-                <element signature="e#2063#2183#0" expanded="false" />
+                <element signature="e#8#1144#0" expanded="false" />
+                <element signature="e#3679#4869#0" expanded="false" />
+                <element signature="e#4883#5867#0" expanded="false" />
+                <element signature="e#5882#6651#0" expanded="false" />
+                <element signature="e#6662#7657#0" expanded="false" />
+                <element signature="e#7667#8827#0" expanded="false" />
+                <element signature="e#8839#9703#0" expanded="false" />
+                <element signature="e#9714#10724#0" expanded="false" />
+                <element signature="e#10727#10748#0" expanded="true" />
+                <marker date="1497009017732" expanded="false" signature="1155:2348" ph="..." />
+                <marker date="1497009017732" expanded="false" signature="2360:3668" ph="..." />
               </folding>
             </state>
           </provider>
@@ -61,9 +72,23 @@
       <file leaf-file-name="server.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+            <state relative-caret-position="279">
+              <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="getWeatherForecast.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/getWeatherForecast.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="323">
+              <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="56" />
+              <folding>
+                <element signature="e#1620#1795#0" expanded="false" />
+                <element signature="e#1831#2034#0" expanded="false" />
+                <element signature="e#2063#2183#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,10 +150,10 @@
         <option value="$PROJECT_DIR$/crud.py" />
         <option value="$PROJECT_DIR$/eval.py" />
         <option value="$PROJECT_DIR$/rateLocations.py" />
-        <option value="$PROJECT_DIR$/goodPlaces.py" />
-        <option value="$PROJECT_DIR$/gis.py" />
         <option value="$PROJECT_DIR$/getWeatherForecast.py" />
+        <option value="$PROJECT_DIR$/goodPlaces.py" />
         <option value="$PROJECT_DIR$/server.py" />
+        <option value="$PROJECT_DIR$/gis.py" />
       </list>
     </option>
   </component>
@@ -191,7 +216,7 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
   </component>
-  <component name="RunManager" selected="Python.getWeatherForecast">
+  <component name="RunManager" selected="Python.goodPlaces">
     <configuration default="false" name="getWeatherForecast" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -433,8 +458,8 @@
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.getWeatherForecast" />
-        <item index="1" class="java.lang.String" itemvalue="Python.goodPlaces" />
+        <item index="0" class="java.lang.String" itemvalue="Python.goodPlaces" />
+        <item index="1" class="java.lang.String" itemvalue="Python.getWeatherForecast" />
         <item index="2" class="java.lang.String" itemvalue="Python.gis" />
         <item index="3" class="java.lang.String" itemvalue="Python.postAnalysis" />
         <item index="4" class="java.lang.String" itemvalue="Python.googlePlaces" />
@@ -454,8 +479,8 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29937303" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.5188088" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29937303" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5188088" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -498,13 +523,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/goodPlaces.py</url>
-          <line>226</line>
-          <option name="timeStamp" value="434" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -512,7 +530,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="438" />
+      <option name="time" value="439" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -746,18 +764,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/getWeatherForecast.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="56" />
+          <folding>
+            <element signature="e#1620#1795#0" expanded="false" />
+            <element signature="e#1831#2034#0" expanded="false" />
+            <element signature="e#2063#2183#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/goodPlaces.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="418">
+          <caret line="492" column="21" selection-start-line="492" selection-start-column="21" selection-end-line="492" selection-end-column="21" />
+          <folding>
+            <element signature="e#8#1144#0" expanded="false" />
+            <element signature="e#3679#4869#0" expanded="false" />
+            <element signature="e#4883#5867#0" expanded="false" />
+            <element signature="e#5882#6651#0" expanded="false" />
+            <element signature="e#6662#7657#0" expanded="false" />
+            <element signature="e#7667#8827#0" expanded="false" />
+            <element signature="e#8839#9703#0" expanded="false" />
+            <element signature="e#9714#10724#0" expanded="false" />
+            <element signature="e#10727#10748#0" expanded="true" />
+            <marker date="1497009017732" expanded="false" signature="1155:2348" ph="..." />
+            <marker date="1497009017732" expanded="false" signature="2360:3668" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/server.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="176">
-          <caret line="26" column="9" selection-start-line="26" selection-start-column="9" selection-end-line="26" selection-end-column="9" />
+        <state relative-caret-position="279">
+          <caret line="30" column="20" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/gis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
+        <state relative-caret-position="-681">
+          <caret line="62" column="4" selection-start-line="62" selection-start-column="4" selection-end-line="62" selection-end-column="4" />
           <folding>
             <element signature="e#1464#1619#0" expanded="false" />
             <element signature="e#1656#1814#0" expanded="false" />
@@ -767,31 +817,6 @@
             <element signature="e#2451#2618#0" expanded="false" />
             <element signature="e#7450#9375#0" expanded="false" />
             <element signature="e#9439#9694#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/goodPlaces.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="640">
-          <caret line="254" column="0" selection-start-line="254" selection-start-column="0" selection-end-line="254" selection-end-column="0" />
-          <folding>
-            <element signature="e#3679#4869#0" expanded="false" />
-            <element signature="e#4872#4893#0" expanded="true" />
-            <marker date="1497006366267" expanded="false" signature="1155:2348" ph="..." />
-            <marker date="1497006366267" expanded="false" signature="2360:3668" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/getWeatherForecast.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="69" column="40" selection-start-line="69" selection-start-column="40" selection-end-line="69" selection-end-column="56" />
-          <folding>
-            <element signature="e#1620#1795#0" expanded="false" />
-            <element signature="e#1831#2034#0" expanded="false" />
-            <element signature="e#2063#2183#0" expanded="false" />
           </folding>
         </state>
       </provider>
