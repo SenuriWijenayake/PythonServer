@@ -5,6 +5,11 @@ owm = pyowm.OWM(api_keys[1])
 from datetime import datetime
 
 def get_weather_forecast(lat,lng,hours,start):
+
+    latitude = float(lat)
+    longitude = float(lng)
+    hours = int(hours)
+
     #Include start time
     start = start.split("-")
     year = int(start[0])
@@ -13,13 +18,16 @@ def get_weather_forecast(lat,lng,hours,start):
 
     hour = int(start[3])
     secs = int(start[4])
-
+    print ("Conversions in the weather api ok")
     start_time = datetime(year, month, day, hour, secs)
 
     city = str(get_city(lat,lng))
+    print ("Printing city " + city)
+
 
     forecast = owm.daily_forecast(city + ",lk")
     if(forecast is None):
+        print ("No forecast object")
         forecast = owm.daily_forecast("Colombo" + ",lk")
     now = start_time
     print (now)

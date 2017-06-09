@@ -59,8 +59,8 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
                 mix_of_locations.append(place)
 
     #Get the weather forecast for the trip duration
-    #weather = get_weather_forecast(lat,lng,hours,start)
-    weather = "rainy"
+    weather = get_weather_forecast(lat,lng,hours,start)
+    #weather = "rainy"
 
     if(weather == 'rainy'):
         #Select only indoor places
