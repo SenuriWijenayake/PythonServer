@@ -1,13 +1,13 @@
 import pyowm
 
 api_keys = ['d32af81fbf749c1f469b1e762b35253a','e49703a5b52ce7508fff34fbbc803f6b','6b6d929a1dc81b448fb09ea0c0a99865','711267ec959c9f3170fb73c580ad2a15']
-owm = pyowm.OWM(api_keys[1])
+owm = pyowm.OWM(api_keys[2])
 from datetime import datetime
 
 def get_weather_forecast(lat,lng,hours,start):
 
-    latitude = float(lat)
-    longitude = float(lng)
+    lat = float(lat)
+    lng = float(lng)
     hours = int(hours)
 
     #Include start time
