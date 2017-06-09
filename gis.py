@@ -83,9 +83,10 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
             'rating' : rated_locations[location['id']],
             'name' : location['name'],
             'latitude' : location['latitude'],
-            'longitude' : location['longitude'],
-            'photos' : location['photos']
+            'longitude' : location['longitude']
         }
+        if ('photos' in location):
+            object['photos'] = location['photos']
         final_locations.append(object)
     return final_locations
 
