@@ -5,9 +5,11 @@ owm = pyowm.OWM(api_keys[1])
 
 def get_weather_forecast(lat,lng,hours):
     #Include start time
-    #city = str(get_city(lat,lng))
-    city = "Colombo"
+    city = str(get_city(lat,lng))
+    #city = "Colombo"
     forecast = owm.daily_forecast(city + ",lk")
+    if(forecast is None):
+        forecast = owm.daily_forecast("Colombo" + ",lk")
     now = pyowm.timeutils.now()
     print (now)
 
@@ -38,5 +40,3 @@ def get_city(lat,lng):
 
 
 
-
-#get_weather_forecast(6.9271,79.8612,6)
