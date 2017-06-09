@@ -15,10 +15,14 @@ def get_weather_forecast(lat,lng,hours):
 
     three_hours = pyowm.timeutils.next_three_hours(now)
     six_hours = pyowm.timeutils.next_three_hours(three_hours)
+    nine_hours = pyowm.timeutils.next_three_hours(six_hours)
+    twelve_hours = pyowm.timeutils.next_three_hours(nine_hours)
 
     start_forecast = forecast.will_be_sunny_at(now)
     three_forecast = forecast.will_be_sunny_at(three_hours)
-    end_forecast = forecast.will_be_sunny_at(six_hours)
+    six_forecast = forecast.will_be_sunny_at(six_hours)
+    nine_forecast = forecast.will_be_sunny_at(nine_hours)
+    twelve_forecast = forecast.will_be_sunny_at(twelve_hours)
 
     if (hours == 3):
         if (start_forecast == False or three_forecast == False):
@@ -27,7 +31,19 @@ def get_weather_forecast(lat,lng,hours):
             return "sunny"
 
     if (3 < hours <= 6):
-        if (start_forecast == False or three_forecast == False or end_forecast == False):
+        if (start_forecast == False or three_forecast == False or six_forecast == False):
+            return "rainy"
+        else:
+            return "sunny"
+
+    if (6 < hours <= 9):
+        if (start_forecast == False or three_forecast == False or six_forecast == False or nine_forecast == False):
+            return "rainy"
+        else:
+            return "sunny"
+
+    if (9 < hours <= 12):
+        if (start_forecast == False or three_forecast == False or six_forecast == False or nine_forecast == False or twelve_forecast == False):
             return "rainy"
         else:
             return "sunny"
