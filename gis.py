@@ -10,22 +10,30 @@ from getWeatherForecast import get_weather_forecast
 from rateLocations import rateLocations
 from startup import *
 
+client = MongoClient('localhost', 27017)
+db = client.script
+
 key = 'AIzaSyA7PJ6wBe_w3lC6KPIYvQ5s-F5ZfALU7uA'
 considered_types = ['amusement_park','aquarium','art_gallery','bakery','bar','cafe','casino',
                     'church','clothing_store','hindu_temple','library','lodging','mosque','movie_theater',
                     'museum','night_club','park','place_of_worship','restaurant','shopping_mall','spa','university','zoo']
 
+#def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_sims,location_train_set)
 def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_sims,location_train_set):
     mix_of_locations = []
     mix_keys = []
 
+    #Get the weather forecast for the trip duration
+    weather,city = get_weather_forecast(lat,lng,hours,start)
+    #weather = "rainy"
+
     #Get a mix of locations nearby which are open and within the radius
-    food = get_restaurants_cafes_food(key,lat,lng,radius)
-    lodging = get_hotels_lodging(key,lat,lng,radius)
-    parks = get_fun_parks_zoos_places(key,lat,lng,radius)
-    religious = get_religious_places(key,lat,lng,radius)
-    indoor_boring = get_boring_indoor_places(key,lat,lng,radius)
-    indoor_fun = get_cool_indoor_places(key,lat,lng,radius)
+    food = get_restaurants_cafes_food(key,lat,lng,radius,city)
+    lodging = get_hotels_lodging(key,lat,lng,radius,city)
+    parks = get_fun_parks_zoos_places(key,lat,lng,radius,city)
+    religious = get_religious_places(key,lat,lng,radius,city)
+    indoor_boring = get_boring_indoor_places(key,lat,lng,radius,city)
+    indoor_fun = get_cool_indoor_places(key,lat,lng,radius,city)
 
     if (len(food) != 0):
         for place in food:
@@ -58,9 +66,6 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
                 mix_keys.append(place['id'])
                 mix_of_locations.append(place)
 
-    #Get the weather forecast for the trip duration
-    weather = get_weather_forecast(lat,lng,hours,start)
-    #weather = "rainy"
 
     if(weather == 'rainy'):
         #Select only indoor places
@@ -88,85 +93,123 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
         if ('photos' in location):
             object['photos'] = location['photos']
         final_locations.append(object)
-    return final_locations
+
+    print (final_locations)
 
 
-def get_restaurants_cafes_food(key,lat,lng,radius):
+def get_restaurants_cafes_food(key,lat,lng,radius,city):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=restaurant|food|cafe&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
+    top_ten = []
+    if(city.lower() in tourist_cities):
+        popular_places = extract_locations_for_city(city,['restaurant','cafe'])
+
     if (len(object['results']) != 0):
         preprocessed = preprocess_google_response(object['results'],flag)
         #Get the top ten based on location rating
-        top_ten = preprocessed[0:10]
-        return (top_ten)
+        top_ten = preprocessed[0:3]
+        for item in top_ten:
+            popular_places.append(item)
+
+        return (popular_places)
     else:
-        return []
+        return (popular_places)
 
 
-def get_hotels_lodging(key,lat,lng,radius):
+def get_hotels_lodging(key,lat,lng,radius,city):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=lodging&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
+    if(city.lower() in tourist_cities):
+        popular_places = extract_locations_for_city(city,['lodging'])
+
     if (len(object['results']) != 0):
         preprocessed = preprocess_google_response(object['results'],flag)
         #Get the top ten based on location rating
-        top_ten = preprocessed[0:10]
-        return (top_ten)
+        top_ten = preprocessed[0:2]
+        for item in top_ten:
+            popular_places.append(item)
+
+        return (popular_places)
     else:
-        return []
+        return (popular_places)
 
 
-def get_fun_parks_zoos_places(key,lat,lng,radius):
+def get_fun_parks_zoos_places(key,lat,lng,radius,city):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=amusement_park|park|zoo&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
+    if(city.lower() in tourist_cities):
+        popular_places = extract_locations_for_city(city,['park','zoo'])
+
     if (len(object['results']) != 0):
         preprocessed = preprocess_google_response(object['results'],flag)
         #Get the top ten based on location rating
-        top_ten = preprocessed[0:10]
-        return (top_ten)
+        top_ten = preprocessed[0:2]
+        for item in top_ten:
+            popular_places.append(item)
+
+        return (popular_places)
     else:
-        return []
+        return (popular_places)
 
 
-def get_religious_places(key,lat,lng,radius):
+def get_religious_places(key,lat,lng,radius,city):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=church|place_of_worship|mosque|hindu_temple&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 1
+    if(city.lower() in tourist_cities):
+        popular_places = extract_locations_for_city(city,['place_of_worship','church','hindu_temple','mosque'])
+
     if (len(object['results']) != 0):
         preprocessed = preprocess_google_response(object['results'],flag)
         #Get the top ten based on location rating
-        top_ten = preprocessed[0:10]
-        return (top_ten)
+        top_ten = preprocessed[0:3]
+        for item in top_ten:
+            popular_places.append(item)
+
+        return (popular_places)
     else:
-        return []
+        return (popular_places)
 
 
-def get_boring_indoor_places(key,lat,lng,radius):
+def get_boring_indoor_places(key,lat,lng,radius,city):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=aquarium|art_gallery|museum|movie_theater|library&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
+    if(city.lower() in tourist_cities):
+        popular_places = extract_locations_for_city(city,['art_gallery','museum','movie_theater','library'])
+
     if (len(object['results']) != 0):
         preprocessed = preprocess_google_response(object['results'],flag)
         #Get the top ten based on location rating
-        top_ten = preprocessed[0:]
-        return (top_ten)
+        top_ten = preprocessed[0:3]
+        for item in top_ten:
+            popular_places.append(item)
+
+        return (popular_places)
     else:
-        return []
+        return (popular_places)
 
 
-def get_cool_indoor_places(key,lat,lng,radius):
+def get_cool_indoor_places(key,lat,lng,radius,city):
     response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=bar|casino|spa|shopping_mall|night_club|movie_theater&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
+    if(city.lower() in tourist_cities):
+        popular_places = extract_locations_for_city(city,['bar','casino','shopping_mall','movie_theater'])
+
     if (len(object['results']) != 0):
         preprocessed = preprocess_google_response(object['results'],flag)
         #Get the top ten based on location rating
-        top_ten = preprocessed[0:20]
-        return (top_ten)
+        top_ten = preprocessed[0:3]
+        for item in top_ten:
+            popular_places.append(item)
+
+        return (popular_places)
     else:
-        return []
+        return (popular_places)
 
 
 def preprocess_google_response(object,flag):
@@ -239,4 +282,23 @@ def filter_indoor_locations(locations,mix_of_locations):
 
 
 
+tourist_cities = ['colombo','galle','matara','kandy','trincomalee','nuwaraeliya','badulla','polonnaruwa','anuradhapura','kataragama']
+def get_good_locations_from_collection(city):
+    city_lower = city.lower()
+    if(city_lower in tourist_cities):
+        city_title = city_lower.title()
+        results = list(extract_locations_for_city(city_title))
+    return results
 
+
+
+def extract_locations_for_city(city,types):
+    results = list(db.touristLocations.find({'area':city, 'types': { '$in' : types}},{'_id':0}))
+    final = []
+    for res in results:
+        if('types' in res):
+            final.append(res)
+    return final[0:2]
+
+
+get_rated_locations("1665852693730402",6.9271,79.8612,6,"2017-06-10-12-0",5000,training_data,avgs,all_sims,location_train_set)

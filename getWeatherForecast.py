@@ -45,27 +45,27 @@ def get_weather_forecast(lat,lng,hours,start):
 
     if (hours == 3):
         if (start_forecast == False or three_forecast == False):
-            return "rainy"
+            return "rainy",city
         else:
-            return "sunny"
+            return "sunny",city
 
     if (3 < hours <= 6):
         if (start_forecast == False or three_forecast == False or six_forecast == False):
-            return "rainy"
+            return "rainy",city
         else:
-            return "sunny"
+            return "sunny",city
 
     if (6 < hours <= 9):
         if (start_forecast == False or three_forecast == False or six_forecast == False or nine_forecast == False):
-            return "rainy"
+            return "rainy",city
         else:
-            return "sunny"
+            return "sunny",city
 
     if (9 < hours <= 12):
         if (start_forecast == False or three_forecast == False or six_forecast == False or nine_forecast == False or twelve_forecast == False):
-            return "rainy"
+            return "rainy",city
         else:
-            return "sunny"
+            return "sunny",city
 
 def get_city(lat,lng):
     obs_list = owm.weather_around_coords(lat,lng)
