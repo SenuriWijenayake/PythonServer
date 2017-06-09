@@ -71,6 +71,7 @@ def get_city(lat,lng):
     obs_list = owm.weather_around_coords(lat,lng)
     obs = obs_list[0]
     l = obs.get_location()
+    print(l)
     return (l.get_name())
 
 
