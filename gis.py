@@ -301,4 +301,4 @@ def extract_locations_for_city(city,types):
     return final[0:2]
 
 
-get_rated_locations("1665852693730402",6.9271,79.8612,6,"2017-06-10-12-0",5000,training_data,avgs,all_sims,location_train_set)
+#get_rated_locations("1665852693730402",6.9271,79.8612,6,"2017-06-10-12-0",5000,training_data,avgs,all_sims,location_train_set)

@@ -5,9 +5,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="bfc5d3b8-1884-4224-9df0-6ebcf5b843df" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/getWeatherForecast.py" afterPath="$PROJECT_DIR$/getWeatherForecast.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gis.py" afterPath="$PROJECT_DIR$/gis.py" />
     </list>
     <ignored path="Project.iws" />
@@ -27,58 +24,7 @@
     <favorites_list name="Project" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="goodPlaces.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/goodPlaces.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="500">
-              <caret line="471" column="0" selection-start-line="471" selection-start-column="0" selection-end-line="472" selection-end-column="18" />
-              <folding>
-                <element signature="e#8#1144#0" expanded="false" />
-                <element signature="e#1154#2349#0" expanded="false" />
-                <element signature="e#2359#3669#0" expanded="false" />
-                <element signature="e#3679#4869#0" expanded="false" />
-                <element signature="e#4883#5867#0" expanded="false" />
-                <element signature="e#5882#6651#0" expanded="false" />
-                <element signature="e#6662#7657#0" expanded="false" />
-                <element signature="e#7667#8827#0" expanded="false" />
-                <element signature="e#8839#9703#0" expanded="false" />
-                <element signature="e#9714#10724#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="gis.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/gis.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="159">
-              <caret line="266" column="19" selection-start-line="266" selection-start-column="19" selection-end-line="266" selection-end-column="19" />
-              <folding>
-                <element signature="e#254#275#0" expanded="true" />
-                <element signature="e#1797#1952#0" expanded="false" />
-                <element signature="e#1989#2147#0" expanded="false" />
-                <element signature="e#2182#2338#0" expanded="false" />
-                <element signature="e#2377#2537#0" expanded="false" />
-                <element signature="e#2580#2744#0" expanded="false" />
-                <element signature="e#2784#2945#0" expanded="false" />
-                <element signature="e#11114#11369#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="getWeatherForecast.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/getWeatherForecast.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="133">
-              <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -458,10 +404,10 @@
     <configuration />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
-    <editor active="true" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <editor active="false" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29937303" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -508,13 +454,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/gis.py</url>
-          <line>303</line>
-          <option name="timeStamp" value="440" />
-        </line-breakpoint>
-      </breakpoints>
       <default-breakpoints>
         <breakpoint type="python-exception">
           <properties notifyOnTerminate="true" exception="BaseException">
@@ -779,18 +718,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/getWeatherForecast.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/gis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="159">
-          <caret line="266" column="19" selection-start-line="266" selection-start-column="19" selection-end-line="266" selection-end-column="19" />
+        <state relative-caret-position="5360">
+          <caret line="303" column="1" selection-start-line="303" selection-start-column="1" selection-end-line="303" selection-end-column="1" />
           <folding>
             <element signature="e#254#275#0" expanded="true" />
             <element signature="e#1797#1952#0" expanded="false" />
@@ -801,6 +732,14 @@
             <element signature="e#2784#2945#0" expanded="false" />
             <element signature="e#11114#11369#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/getWeatherForecast.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="23" column="0" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
