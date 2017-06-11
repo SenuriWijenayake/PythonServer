@@ -14,9 +14,9 @@ client = MongoClient('localhost', 27017)
 db = client.script
 
 key = 'AIzaSyA7PJ6wBe_w3lC6KPIYvQ5s-F5ZfALU7uA'
-considered_types = ['amusement_park','aquarium','art_gallery','bakery','bar','cafe','casino',
+considered_types = ['amusement_park','aquarium','art_gallery','bar','cafe','casino',
                     'church','hindu_temple','library','lodging','mosque','movie_theater',
-                    'museum','night_club','park','place_of_worship','restaurant','spa','university','zoo']
+                    'museum','night_club','park','place_of_worship','university','zoo']
 
 #def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_sims,location_train_set)
 def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_sims,location_train_set):
@@ -83,7 +83,7 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
     #Next rate the locations
     rated_locations, location_list = rateLocations(training_data,user,filtered_locations,avgs,all_sims)
     final_locations = []
-    top_locations = location_list[0:5]
+    top_locations = location_list[0:10]
 
     for loc in top_locations:
         for location in filtered_locations:
@@ -292,24 +292,29 @@ def filter_indoor_locations(locations,mix_of_locations):
 
 
 
-tourist_cities = ['colombo','galle','matara','kandy','trincomalee','nuwaraeliya','badulla','polonnaruwa','anuradhapura','kataragama']
+tourist_cities = ['colombo','galle','matara','kandy','trincomalee','nuwaraeliya','badulla','polonnaruwa','anuradhapura','kataragama','hambantota','tammannekulama']
 def get_good_locations_from_collection(city):
     city_lower = city.lower()
     if(city_lower in tourist_cities):
         city_title = city_lower.title()
-        results = list(extract_locations_for_city(city_title))
+        results = list(extract_locations_for_city(city_title,considered_types))
     return results
 
 
 
 def extract_locations_for_city(city,types):
-    results = list(db.touristLocations.find({'area':city, 'types': { '$in' : types}},{'_id':0}).sort([("rating", -1)]))
+    if(city == 'Hambantota' or city == 'Kataragama'):
+        results = list(db.touristLocations.find({'area':'Kataragama', 'types': { '$in' : types}},{'_id':0}).sort([("rating", -1)]))
+    if(city == 'Polonnaruwa' or city == 'Tammannekulama'):
+        results = list(db.touristLocations.find({'area':'Polonnaruwa', 'types': { '$in' : types}},{'_id':0}).sort([("rating", -1)]))
+    else:
+        results = list(db.touristLocations.find({'area':city, 'types': { '$in' : types}},{'_id':0}).sort([("rating", -1)]))
     final = []
     for res in results:
         if('types' in res):
             final.append(res)
-    return final[0:2]
+    return final[0:10]
 
 
-#x = get_rated_locations("1665852693730402",6.9271,79.8612,6,"2017-06-10-12-0",5000,training_data,avgs,all_sims,location_train_set)
+#x = get_rated_locations("1039259979422631",8.5874,81.2152,6,"2017-06-11-12-0",2000,training_data,avgs,all_sims,location_train_set)
 #print (x)
