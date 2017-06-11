@@ -30,7 +30,7 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
 
     #Get a mix of locations nearby which are open and within the radius
     food = get_restaurants_cafes_food(key,lat,lng,radius,city)
-    lodging = get_hotels_lodging(key,lat,lng,radius,city)
+    #lodging = get_hotels_lodging(key,lat,lng,radius,city)
     parks = get_fun_parks_zoos_places(key,lat,lng,radius,city)
     religious = get_religious_places(key,lat,lng,radius,city)
     indoor_boring = get_boring_indoor_places(key,lat,lng,radius,city)
@@ -41,11 +41,11 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
             if(place['id'] not in mix_keys):
                 mix_keys.append(place['id'])
                 mix_of_locations.append(place)
-    if (len(lodging) != 0):
-        for place in lodging:
-            if(place['id'] not in mix_keys):
-                mix_keys.append(place['id'])
-                mix_of_locations.append(place)
+    # if (len(lodging) != 0):
+    #     for place in lodging:
+    #         if(place['id'] not in mix_keys):
+    #             mix_keys.append(place['id'])
+    #             mix_of_locations.append(place)
     if (len(parks) != 0):
         for place in parks:
             if(place['id'] not in mix_keys):
