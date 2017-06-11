@@ -15,8 +15,8 @@ db = client.script
 
 key = 'AIzaSyA7PJ6wBe_w3lC6KPIYvQ5s-F5ZfALU7uA'
 considered_types = ['amusement_park','aquarium','art_gallery','bakery','bar','cafe','casino',
-                    'church','clothing_store','hindu_temple','library','lodging','mosque','movie_theater',
-                    'museum','night_club','park','place_of_worship','restaurant','shopping_mall','spa','university','zoo']
+                    'church','hindu_temple','library','lodging','mosque','movie_theater',
+                    'museum','night_club','park','place_of_worship','restaurant','spa','university','zoo']
 
 #def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_sims,location_train_set)
 def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_sims,location_train_set):
@@ -24,7 +24,7 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
     mix_keys = []
 
     #Get the weather forecast for the trip duration
-    weather,city = get_weather_forecast(lat,lng,hours,start)
+    #weather,city = get_weather_forecast(lat,lng,hours,start)
     weather = "rainy"
     city = "Colombo"
 
@@ -83,17 +83,19 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
     #Next rate the locations
     rated_locations, location_list = rateLocations(training_data,user,filtered_locations,avgs,all_sims)
     final_locations = []
+    top_locations = location_list[0:10]
     for location in filtered_locations:
-        object = {
-            'id' : location['id'],
-            'rating' : rated_locations[location['id']],
-            'name' : location['name'],
-            'latitude' : location['latitude'],
-            'longitude' : location['longitude']
-        }
-        if ('photos' in location):
-            object['photos'] = location['photos']
-        final_locations.append(object)
+        if (location['id'] in top_locations):
+            object = {
+                'id' : location['id'],
+                'rating' : rated_locations[location['id']],
+                'name' : location['name'],
+                'latitude' : location['latitude'],
+                'longitude' : location['longitude']
+            }
+            if ('photos' in location):
+                object['photos'] = location['photos']
+            final_locations.append(object)
 
     return (final_locations)
 
@@ -159,7 +161,7 @@ def get_fun_parks_zoos_places(key,lat,lng,radius,city):
 
 
 def get_religious_places(key,lat,lng,radius,city):
-    response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=church|place_of_worship|mosque|hindu_temple&key=" + key + "&opennow").read().decode('utf8')
+    response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=church|mosque|hindu_temple&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 1
     popular_places = []
@@ -179,7 +181,7 @@ def get_religious_places(key,lat,lng,radius,city):
 
 
 def get_boring_indoor_places(key,lat,lng,radius,city):
-    response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=aquarium|art_gallery|museum|movie_theater|library&key=" + key + "&opennow").read().decode('utf8')
+    response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=aquarium|art_gallery|museum|movie_theater&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 0
     popular_places = []

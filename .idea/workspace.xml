@@ -30,18 +30,28 @@
       <file leaf-file-name="gis.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/gis.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="389">
-              <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+            <state relative-caret-position="5540">
+              <caret line="312" column="1" selection-start-line="312" selection-start-column="1" selection-end-line="312" selection-end-column="1" />
               <folding>
                 <element signature="e#254#275#0" expanded="true" />
-                <element signature="e#1817#1972#0" expanded="false" />
-                <element signature="e#2009#2167#0" expanded="false" />
-                <element signature="e#2202#2358#0" expanded="false" />
-                <element signature="e#2397#2557#0" expanded="false" />
-                <element signature="e#2600#2764#0" expanded="false" />
-                <element signature="e#2804#2965#0" expanded="false" />
-                <element signature="e#11243#11498#0" expanded="false" />
+                <element signature="e#1785#1940#0" expanded="false" />
+                <element signature="e#1977#2135#0" expanded="false" />
+                <element signature="e#2170#2326#0" expanded="false" />
+                <element signature="e#2365#2525#0" expanded="false" />
+                <element signature="e#2568#2732#0" expanded="false" />
+                <element signature="e#2772#2933#0" expanded="false" />
+                <element signature="e#11312#11567#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="rateLocations.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/rateLocations.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="265">
+              <caret line="118" column="47" selection-start-line="118" selection-start-column="47" selection-end-line="118" selection-end-column="47" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -102,10 +112,10 @@
         <option value="$PROJECT_DIR$/postAnalysis.py" />
         <option value="$PROJECT_DIR$/crud.py" />
         <option value="$PROJECT_DIR$/eval.py" />
-        <option value="$PROJECT_DIR$/rateLocations.py" />
         <option value="$PROJECT_DIR$/goodPlaces.py" />
         <option value="$PROJECT_DIR$/server.py" />
         <option value="$PROJECT_DIR$/getWeatherForecast.py" />
+        <option value="$PROJECT_DIR$/rateLocations.py" />
         <option value="$PROJECT_DIR$/gis.py" />
       </list>
     </option>
@@ -141,6 +151,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -161,7 +172,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -432,18 +442,18 @@
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29937303" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.61128527" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.29937303" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection Results" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3291536" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.35579938" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -483,7 +493,7 @@
           </properties>
         </breakpoint>
       </default-breakpoints>
-      <option name="time" value="452" />
+      <option name="time" value="454" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -667,13 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/rateLocations.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1140">
-          <caret line="61" column="17" selection-start-line="61" selection-start-column="4" selection-end-line="61" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/cleanUserData.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -730,19 +733,27 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/rateLocations.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="265">
+          <caret line="118" column="47" selection-start-line="118" selection-start-column="47" selection-end-line="118" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/gis.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="389">
-          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+        <state relative-caret-position="5540">
+          <caret line="312" column="1" selection-start-line="312" selection-start-column="1" selection-end-line="312" selection-end-column="1" />
           <folding>
             <element signature="e#254#275#0" expanded="true" />
-            <element signature="e#1817#1972#0" expanded="false" />
-            <element signature="e#2009#2167#0" expanded="false" />
-            <element signature="e#2202#2358#0" expanded="false" />
-            <element signature="e#2397#2557#0" expanded="false" />
-            <element signature="e#2600#2764#0" expanded="false" />
-            <element signature="e#2804#2965#0" expanded="false" />
-            <element signature="e#11243#11498#0" expanded="false" />
+            <element signature="e#1785#1940#0" expanded="false" />
+            <element signature="e#1977#2135#0" expanded="false" />
+            <element signature="e#2170#2326#0" expanded="false" />
+            <element signature="e#2365#2525#0" expanded="false" />
+            <element signature="e#2568#2732#0" expanded="false" />
+            <element signature="e#2772#2933#0" expanded="false" />
+            <element signature="e#11312#11567#0" expanded="false" />
           </folding>
         </state>
       </provider>
