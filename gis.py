@@ -163,7 +163,7 @@ def get_fun_parks_zoos_places(key,lat,lng,radius,city):
 
 
 def get_religious_places(key,lat,lng,radius,city):
-    response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=church|mosque|hindu_temple&key=" + key + "&opennow").read().decode('utf8')
+    response = urllib.request.urlopen("https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=" + str(lat) + "," + str(lng) + "&radius=" + str(radius) + "&types=church|mosque|hindu_temple|place_of_worship&key=" + key + "&opennow").read().decode('utf8')
     object = json.loads(response)
     flag = 1
     popular_places = []
