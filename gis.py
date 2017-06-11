@@ -24,9 +24,9 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
     mix_keys = []
 
     #Get the weather forecast for the trip duration
-    #weather,city = get_weather_forecast(lat,lng,hours,start)
-    weather = "rainy"
-    city = "Colombo"
+    weather,city = get_weather_forecast(lat,lng,hours,start)
+    #weather = "rainy"
+    #city = "Colombo"
 
     #Get a mix of locations nearby which are open and within the radius
     food = get_restaurants_cafes_food(key,lat,lng,radius,city)
@@ -83,19 +83,21 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
     #Next rate the locations
     rated_locations, location_list = rateLocations(training_data,user,filtered_locations,avgs,all_sims)
     final_locations = []
-    top_locations = location_list[0:10]
-    for location in filtered_locations:
-        if (location['id'] in top_locations):
-            object = {
-                'id' : location['id'],
-                'rating' : rated_locations[location['id']],
-                'name' : location['name'],
-                'latitude' : location['latitude'],
-                'longitude' : location['longitude']
-            }
-            if ('photos' in location):
-                object['photos'] = location['photos']
-            final_locations.append(object)
+    top_locations = location_list[0:5]
+
+    for loc in top_locations:
+        for location in filtered_locations:
+            if (loc == location['id']):
+                object = {
+                    'id' : location['id'],
+                    'rating' : rated_locations[location['id']],
+                    'name' : location['name'],
+                    'latitude' : location['latitude'],
+                    'longitude' : location['longitude']
+                }
+                if ('photos' in location):
+                    object['photos'] = location['photos']
+                final_locations.append(object)
 
     return (final_locations)
 
