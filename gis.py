@@ -24,9 +24,9 @@ def get_rated_locations(user,lat,lng,hours,start,radius,training_data,avgs,all_s
     mix_keys = []
 
     #Get the weather forecast for the trip duration
-    weather,city = get_weather_forecast(lat,lng,hours,start)
-    #weather = "rainy"
-    #city = "Colombo"
+    #weather,city = get_weather_forecast(lat,lng,hours,start)
+    weather = "rainy"
+    city = "Kandy"
 
     #Get a mix of locations nearby which are open and within the radius
     food = get_restaurants_cafes_food(key,lat,lng,radius,city)
